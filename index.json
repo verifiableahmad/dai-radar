@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T14:09:11+00:00",
+  "generated_at": "2026-11-02T14:40:03+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,36 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-02.md",
+      "frontmatter": {
+        "date": "2026-11-02",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "2",
+        "matrix_impacting": "0",
+        "filed_related_only": "2"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-01T17:10+03:00). No property matrix changed.\nTwo arXiv papers are field-relevant but not tied to a tracked system.\nThey are filed below as related only.\n\n- **IACR ePrint:** no new papers in the window. 2026/2686 onward still\n  return no paper. The last-two-days listing shows only revisions of\n  older papers (e.g. 2026/1657, 2026/2500, 2026/2676, 2026/2684), none\n  of which is new.\n- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Monday 2 Nov (37\n  cs.CR, 111 cs.LG, 13 cs.DC new submissions, plus cross-lists). The\n  two items below were kept. Set aside: DP-SGD batch-size privatization\n  with dummy points (2610.42139) and a faster PLD accountant for random\n  allocation (2610.42117), which are DP-SGD accounting results that\n  change nothing in systems/opacus.md's Guarantee row; DP synthetic\n  data (2610.42081), with no training claim; a two-party MPC top-K\n  kernel (2610.41369), with no ML claim; federated RL with local DP for\n  vehicular routing (2610.41055), an application study; and\n  decentralized variance-reduced optimization for the strongly convex\n  case (2610.41927), which is optimization theory, not one of the\n  tracked training methods.\n- **Tracked repos:** the 14 repos named in systems/*.md, plus\n  Dstack-TEE/dstack, adap/flower and tinfoilsh/tinfoil-cli from the\n  checkpoint's source list, were read over anonymous git. 16 of the 17\n  could be read. Apart from Flower's automated `release-20261102+N`\n  build tags, the only new tags are dstack's:\n  - dstack: `kms-v0.6.3`, `gateway-v0.6.3` and `verifier-v0.6.3` were\n    tagged on 2026-11-01 (no `v0.6.3` or `mkosi-os-v0.6.3` tag yet).\n    The 0.6.3 changelog makes the KMS always verify `os_image_hash`\n    (#1497) by removing the `[core.image] verify` option, which already\n    defaulted to true. It also lists the scoped guest-agent API (#1469),\n    TPM-reply hardening and the guest kernel options noted on earlier\n    runs. All of this hardens the existing design. The Key release row\n    (\"KMS in TEE, policy on-chain\") and the Isolation and Audit rows\n    still read correctly, so systems/phala-dstack.md is unchanged.\n  - Other default-branch changes (PySyft outbox and WebRTC transport\n    work, Flower removal of legacy gRPC Fleet transports and file\n    storage, a tinfoil-cli key-mode fix) do not touch secure\n    aggregation, DP or attestation.\n- **TEE attack disclosures:** a web search found nothing dated in the\n  window. Results are still TEE.Fail (October 2025) coverage.\n- **ritual-net/infernet-node is still unreadable,** for the fourteenth\n  run in a row, with the same credentials prompt as a non-existent\n  repo. systems/ritual.md is left unchanged. This still needs a manual\n  check.\n\n### Related, not yet tied to a tracked system\n\n- **PP-Mark: provable, publicly verifiable watermarking for generative\n  AI** (arXiv 2610.41170): ties a statistical image watermark detector\n  to a zero-knowledge proof of the embedding step, so a public detector\n  cannot be fooled by forged marks. The authors claim formal\n  unforgeability and test on SD2.1 and SDXL. It is not tied to C2PA.\n  At most it is a candidate soft binding, and that link is inferred.\n  The Integrity, Trust and Opt-in rows in systems/c2pa.md are\n  unaffected. Field: Content provenance for AI-generated media.\n- **AuditFL: a contract-backed clearing layer for open federated\n  learning** (arXiv 2610.41278): keeps training and aggregation off\n  chain and puts client deposits, update identifiers, rewards and\n  round settlement in a Solidity contract. The authors state it does\n  not remove the trusted aggregator. Tested only on MNIST on a local\n  Anvil chain. Field: Decentralized incentive / consensus mechanisms\n  for ML networks (and Federated learning). No tracked system uses it.",
+          "list": [
+            "**IACR ePrint:** no new papers in the window. 2026/2686 onward still return no paper. The last-two-days listing shows only revisions of older papers (e.g. 2026/1657, 2026/2500, 2026/2676, 2026/2684), none of which is new.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** one new batch, Monday 2 Nov (37 cs.CR, 111 cs.LG, 13 cs.DC new submissions, plus cross-lists). The two items below were kept. Set aside: DP-SGD batch-size privatization with dummy points (2610.42139) and a faster PLD accountant for random allocation (2610.42117), which are DP-SGD accounting results that change nothing in systems/opacus.md's Guarantee row; DP synthetic data (2610.42081), with no training claim; a two-party MPC top-K kernel (2610.41369), with no ML claim; federated RL with local DP for vehicular routing (2610.41055), an application study; and decentralized variance-reduced optimization for the strongly convex case (2610.41927), which is optimization theory, not one of the tracked training methods.",
+            "**Tracked repos:** the 14 repos named in systems/*.md, plus Dstack-TEE/dstack, adap/flower and tinfoilsh/tinfoil-cli from the checkpoint's source list, were read over anonymous git. 16 of the 17 could be read. Apart from Flower's automated `release-20261102+N` build tags, the only new tags are dstack's:",
+            "dstack: `kms-v0.6.3`, `gateway-v0.6.3` and `verifier-v0.6.3` were tagged on 2026-11-01 (no `v0.6.3` or `mkosi-os-v0.6.3` tag yet). The 0.6.3 changelog makes the KMS always verify `os_image_hash` (#1497) by removing the `[core.image] verify` option, which already defaulted to true. It also lists the scoped guest-agent API (#1469), TPM-reply hardening and the guest kernel options noted on earlier runs. All of this hardens the existing design. The Key release row (\"KMS in TEE, policy on-chain\") and the Isolation and Audit rows still read correctly, so systems/phala-dstack.md is unchanged.",
+            "Other default-branch changes (PySyft outbox and WebRTC transport work, Flower removal of legacy gRPC Fleet transports and file storage, a tinfoil-cli key-mode fix) do not touch secure aggregation, DP or attestation.",
+            "**TEE attack disclosures:** a web search found nothing dated in the window. Results are still TEE.Fail (October 2025) coverage.",
+            "**ritual-net/infernet-node is still unreadable,** for the fourteenth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check. ### Related, not yet tied to a tracked system",
+            "**PP-Mark: provable, publicly verifiable watermarking for generative AI** (arXiv 2610.41170): ties a statistical image watermark detector to a zero-knowledge proof of the embedding step, so a public detector cannot be fooled by forged marks. The authors claim formal unforgeability and test on SD2.1 and SDXL. It is not tied to C2PA. At most it is a candidate soft binding, and that link is inferred. The Integrity, Trust and Opt-in rows in systems/c2pa.md are unaffected. Field: Content provenance for AI-generated media.",
+            "**AuditFL: a contract-backed clearing layer for open federated learning** (arXiv 2610.41278): keeps training and aggregation off chain and puts client deposits, update identifiers, rewards and round settlement in a Solidity contract. The authors state it does not remove the trusted aggregator. Tested only on MNIST on a local Anvil chain. Field: Decentralized incentive / consensus mechanisms for ML networks (and Federated learning). No tracked system uses it."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-03, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-01.md",
       "frontmatter": {
         "date": "2026-11-01",
@@ -5896,9 +5926,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-01T17:10:00+03:00",
+    "last_run": "2026-11-02T17:40:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-02T17:00:00+03:00",
+    "next_run": "2026-11-03T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",
