@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-03T14:13:10+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-04T14:11:15+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,112 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-04.md
+========================================================================
+
+---
+date: 2026-11-04
+time: "17:00+03:00"
+kind: daily
+new_items_found: 3
+matrix_impacting: 0
+filed_related_only: 2
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-03T17:12+03:00). No property matrix changed.
+One arXiv paper bears directly on a tracked system (Verified zkEVM). It
+was read against systems/verified-zkevm.md and does not change its
+matrix (below). Two more arXiv papers are field-relevant but not tied to
+a tracked system. They are filed below as related only.
+
+- **IACR ePrint:** 25 new papers, 2026/2686 to 2026/2710 (2026/2711
+  onward return no paper). None is in a tracked field. Closest were Weir
+  (2026/2689), a low-memory sumcheck/Shockwave prover with no ML claim;
+  rewindable interactive proofs for scalable AI oversight (2026/2703),
+  which is complexity theory about checking AI outputs, not ML proving;
+  and Miden's hybrid private-account state model (2026/2709). All three
+  were set aside.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Wednesday 4 Nov (27
+  cs.CR, 148 cs.LG, 25 cs.DC new submissions, plus cross-lists). Three
+  items were kept: the zkVM paper below and the two related items. Set
+  aside: VerfGraph (2611.04240), ZK verifiable graph queries with no ML
+  claim; declared change envelopes for model updates (2611.04192), a
+  statistical certificate, not cryptographic or attestation-based; a
+  long-horizon benchmark for receiver-directed federated learning
+  (2611.03724) and FedCSGA (2611.04667), FL methods with no
+  secure-aggregation or DP claim; and the unlearning and agent-security
+  papers in the batch.
+- **Verified zkEVM, checked against systems/verified-zkevm.md (no
+  edit):** "Proving the Wrong Program: Miscompilations as a Threat to
+  zkVM Guarantees" (arXiv 2611.04701) studies rustc/LLVM miscompilations
+  on SP1 and Jolt. 48 of 88 known bugs make an SP1 guest commit a wrong
+  output (46 on Jolt). Existing guests are rarely hit by accident: in 447
+  of 552 guest-bug pairs the buggy and fixed compilers emit
+  byte-identical binaries. But an LLM agent found innocuous-looking
+  patches that trigger a known bug in 12 of 366 project-bug pairs. The
+  authors state that formally verifying the zkVM or the guest source
+  cannot catch this, because both are correct. That is a statement about
+  a layer (the compiler) outside the scope described in the file. The
+  SP1 work there checks AIR constraints against the Sail RISC-V spec,
+  i.e. at the binary. It is not a flaw in that work. Method ("Lean") and
+  Status ("no fully verified zkVM shown") still read correctly, so the
+  file is unchanged. This is one unreviewed preprint. A scoped Known
+  limitation (inferred), saying that zkVM circuit verification does not
+  cover the guest's compiler, may be worth adding on a manual pass. It
+  is not forced here.
+- **Tracked repos:** the 14 repos named in systems/*.md, plus
+  Dstack-TEE/dstack, adap/flower and tinfoilsh/tinfoil-cli from the
+  checkpoint's source list, were read over anonymous git. 16 of the 17
+  could be read. The only new release-style tags are tinfoil-cli's and
+  Flower's nightly `release-20261104+1`:
+  - tinfoil-cli `v0.19.14` (2026-11-04): moves to tinfoil-go
+    v0.17.0-rc.7's verification SDK (#164) and requires explicit approval
+    of private registry scopes (#165). V3 verification now refuses to run
+    without an expected workload (`--repo` or `--config`). This is
+    client-side tooling around the existing attestation model. The
+    Verification, Transport and Model integrity rows still read
+    correctly, so systems/tinfoil.md is unchanged. Side note: the CLI's
+    audit record names SEV-SNP and TDX measurement predicate types. That
+    could help ground the "specific hardware wasn't confirmed" caveat on
+    a manual pass. It is client code support, not a statement of what
+    Tinfoil deploys, so it is not used to change the file.
+  - Other default-branch changes do not touch secure aggregation, DP or
+    attestation. They are Flower conversation state and warm-pool work,
+    plus moving the remaining gRPC code into `flwr.compat`; PySyft WebRTC
+    refactors and a README edit; and a Concrete ML dependency-alert
+    branch. dstack has no commits. The other repos have no commits in
+    the window.
+- **TEE attack disclosures:** a web search found nothing dated in the
+  window. Results are still TEE.Fail (October 2025) coverage and DDRop,
+  already noted on earlier runs.
+- **ritual-net/infernet-node is still unreadable,** for the sixteenth
+  run in a row, with the same credentials prompt as a non-existent
+  repo. systems/ritual.md is left unchanged. This still needs a manual
+  check.
+
+### Related, not yet tied to a tracked system
+
+- **Bilateral protection for private LoRA inference with Intel TDX**
+  (arXiv 2611.04311): the client and the LoRA owner each verify TDX
+  attestation and a TLS-key binding before releasing inputs and the
+  adapter decryption key. On real TDX hardware the authors report
+  identical outputs to native inference and about 0.9% overhead. It is a
+  research prototype, not tied to any tracked TEE system. Field:
+  Confidential AI / TEE inference.
+- **Perseus: a full-stack system for homomorphic model inference**
+  (arXiv 2611.04488): an open Python CKKS-style FHE inference library.
+  It claims 3.96x faster single-token decoding on Llama-3-8B than prior
+  implementations, within 3% of plaintext accuracy. Short 4-page paper,
+  not tied to Concrete ML, which is TFHE-based. Field: FHE for ML.
+
+## Next run
+
+2026-11-05, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-03.md
