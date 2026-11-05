@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T14:11:15+00:00",
+  "generated_at": "2026-11-05T14:13:16+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,34 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-05.md",
+      "frontmatter": {
+        "date": "2026-11-05",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "2",
+        "matrix_impacting": "0",
+        "filed_related_only": "1"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-04T17:11+03:00). No property matrix changed.\nOne tracked system shipped a release (Flower 1.43.0). It was read\nagainst systems/flower.md and does not change its matrix (below). One\narXiv paper is field-relevant but not tied to a tracked system. It is\nfiled below as related only.\n\n- **IACR ePrint:** 45 new papers, 2026/2711 to 2026/2755 (2026/2756\n  onward return no paper). None is new and in a tracked field. 2026/2735\n  is the ePrint copy of Perseus, already filed as related on the\n  2026-11-04 run from arXiv, so it is not counted again. Also set aside:\n  two cryptanalytic model-extraction papers (2026/2722, 2026/2723), which\n  are about stealing weights, not proving or protecting inference in any\n  tracked system; and authenticated incrementally verifiable MPC\n  (2026/2721) and a SPDZ2k challenge-binding case study (2026/2743),\n  which make no ML claim.\n- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Thursday 5 Nov (28\n  cs.CR, 110 cs.LG, 13 cs.DC new submissions, plus cross-lists). One\n  item was kept, the related item below. Set aside: locally\n  differentially private LM watermarks (2611.06100), which is not C2PA\n  and not DP training; FedSharp (2611.05546) and other federated learning\n  papers, which are FL methods with no secure-aggregation or DP claim;\n  KVGuard (2611.06138), a memory-safety checker for vLLM/SGLang KV\n  caches; and signed RAG packs and signed MCP tools (2611.06498,\n  2611.06585), which are about agent and RAG integrity, not a tracked\n  field.\n- **Flower, checked against systems/flower.md (no edit):** tag\n  `framework-1.43.0` (2026-11-04) plus nightly `release-20261104+2/+3`.\n  The 44 commits since `framework-1.42.0` are mostly removing legacy gRPC\n  transports and Model-task plumbing, and adding agent and space\n  endpoints. All 14 secure-aggregation and differential-privacy files\n  present at 1.42.0 are still there at 1.43.0. The only change to them\n  is in `dp_fixed_clipping.py` (#8426): reply validation now fails when\n  no reply carries content, instead of passing. That is a robustness\n  fix, not a change to what the DP strategies provide. Both matrix rows\n  still read correctly. The Maturity axis detail (\"docs at v1.42.x\") is\n  now one minor version behind. That is not a material change, so it is\n  left for a manual pass.\n- **Other tracked repos:** 16 of the 17 could be read over anonymous\n  git. tinfoil-cli tagged `v0.19.15` to `v0.19.18` (2026-11-04). These\n  restore sandbox attestation requests, enroll sandboxes over attested\n  SSH, and key verification policy on config registry IDs. This is\n  client tooling around the existing attestation model, so\n  systems/tinfoil.md is unchanged. PySyft has only an unmerged branch\n  (Drive watcher storage). The other repos have no commits or tags in\n  the window.\n- **TEE attack disclosures:** a web search found nothing dated in the\n  window. Results are still TEE.Fail (October 2025) coverage and DDRop,\n  already noted on earlier runs.\n- **ritual-net/infernet-node is still unreadable,** for the seventeenth\n  run in a row, with the same credentials prompt as a non-existent\n  repo. systems/ritual.md is left unchanged. This still needs a manual\n  check.\n\n### Related, not yet tied to a tracked system\n\n- **CORDE: accountable disclosure in confidential AI** (arXiv\n  2611.05971): in a confidential VM, data derived from the user may\n  leave only after it is \"declared\" (contents, recipient, reason) in a\n  tamper-evident, TEE-backed log. It combines Rust information-flow\n  control with remote attestation. The authors report about 0.5%\n  latency overhead on an H100 for AppWorld. It is a research prototype,\n  not tied to any tracked TEE system. Field: Confidential AI / TEE\n  inference.",
+          "list": [
+            "**IACR ePrint:** 45 new papers, 2026/2711 to 2026/2755 (2026/2756 onward return no paper). None is new and in a tracked field. 2026/2735 is the ePrint copy of Perseus, already filed as related on the 2026-11-04 run from arXiv, so it is not counted again. Also set aside: two cryptanalytic model-extraction papers (2026/2722, 2026/2723), which are about stealing weights, not proving or protecting inference in any tracked system; and authenticated incrementally verifiable MPC (2026/2721) and a SPDZ2k challenge-binding case study (2026/2743), which make no ML claim.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** one new batch, Thursday 5 Nov (28 cs.CR, 110 cs.LG, 13 cs.DC new submissions, plus cross-lists). One item was kept, the related item below. Set aside: locally differentially private LM watermarks (2611.06100), which is not C2PA and not DP training; FedSharp (2611.05546) and other federated learning papers, which are FL methods with no secure-aggregation or DP claim; KVGuard (2611.06138), a memory-safety checker for vLLM/SGLang KV caches; and signed RAG packs and signed MCP tools (2611.06498, 2611.06585), which are about agent and RAG integrity, not a tracked field.",
+            "**Flower, checked against systems/flower.md (no edit):** tag `framework-1.43.0` (2026-11-04) plus nightly `release-20261104+2/+3`. The 44 commits since `framework-1.42.0` are mostly removing legacy gRPC transports and Model-task plumbing, and adding agent and space endpoints. All 14 secure-aggregation and differential-privacy files present at 1.42.0 are still there at 1.43.0. The only change to them is in `dp_fixed_clipping.py` (#8426): reply validation now fails when no reply carries content, instead of passing. That is a robustness fix, not a change to what the DP strategies provide. Both matrix rows still read correctly. The Maturity axis detail (\"docs at v1.42.x\") is now one minor version behind. That is not a material change, so it is left for a manual pass.",
+            "**Other tracked repos:** 16 of the 17 could be read over anonymous git. tinfoil-cli tagged `v0.19.15` to `v0.19.18` (2026-11-04). These restore sandbox attestation requests, enroll sandboxes over attested SSH, and key verification policy on config registry IDs. This is client tooling around the existing attestation model, so systems/tinfoil.md is unchanged. PySyft has only an unmerged branch (Drive watcher storage). The other repos have no commits or tags in the window.",
+            "**TEE attack disclosures:** a web search found nothing dated in the window. Results are still TEE.Fail (October 2025) coverage and DDRop, already noted on earlier runs.",
+            "**ritual-net/infernet-node is still unreadable,** for the seventeenth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check. ### Related, not yet tied to a tracked system",
+            "**CORDE: accountable disclosure in confidential AI** (arXiv 2611.05971): in a confidential VM, data derived from the user may leave only after it is \"declared\" (contents, recipient, reason) in a tamper-evident, TEE-backed log. It combines Rust information-flow control with remote attestation. The authors report about 0.5% latency overhead on an H100 for AppWorld. It is a research prototype, not tied to any tracked TEE system. Field: Confidential AI / TEE inference."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-06, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-04.md",
       "frontmatter": {
         "date": "2026-11-04",
@@ -5989,9 +6017,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-04T17:11:00+03:00",
+    "last_run": "2026-11-05T17:12:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-05T17:00:00+03:00",
+    "next_run": "2026-11-06T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",
