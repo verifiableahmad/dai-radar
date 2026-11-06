@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T14:13:16+00:00",
+  "generated_at": "2026-11-06T14:12:58+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,38 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-06.md",
+      "frontmatter": {
+        "date": "2026-11-06",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "0",
+        "matrix_impacting": "0",
+        "filed_related_only": "0"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-05T17:12+03:00). Nothing met the relevance\nbar. No system or foundation file changed.\n\n- **IACR ePrint:** 19 new papers, 2026/2756 to 2026/2774 (2026/2775\n  onward return no paper). None is in a tracked field. Set aside:\n  ConfidentialCare (2026/2771), an assessment of Zama's fhEVM for\n  medical consultations, which is FHE access control on a blockchain\n  with no ML in it, so it does not bear on systems/zama-concrete-ml.md;\n  sumcheck bit packing (2026/2770), a general proof-system technique\n  with no ML claim; and differentially oblivious graph ball queries\n  (2026/2759), which is DP over memory access traces, not DP training.\n- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Friday 6 Nov (22\n  cs.CR, 145 cs.LG, 15 cs.DC new submissions, plus cross-lists). None\n  was kept. Set aside: proxy robustness certificates (2611.08035), which\n  give a statistical, marginal guarantee rather than a sound\n  verification result like alpha-beta-CROWN or Marabou; f-DP bounds for\n  clipped SGLD in nonparametric regression (2611.07490), which is\n  estimator theory, not DP-SGD as Opacus implements it; DISCERN\n  (2611.07892), an unlearning method with no verification claim; and\n  FedReason and S^3-MoE (2611.08383, 2611.07093), which are federated\n  learning methods with no secure-aggregation or DP claim.\n- **Tracked repos:** 16 of the 17 could be read over anonymous git.\n  Nothing merged to a default branch touches a core mechanism:\n  - Dstack-TEE/dstack has KMS root-key epoch and emergency key rotation\n    work (on-chain root epoch registry, re-keying guest data disks). It\n    sits on unmerged branches only (`kms-root-epoch-registry`,\n    `kms-getkey-root-epoch` and others), so systems/phala-dstack.md is\n    unchanged. Worth rechecking if it merges, since it touches the KMS.\n  - fetchai/uAgents has \"verified actions primitives\" on an unmerged\n    branch only.\n  - tinfoil-cli tagged `v0.19.19` (Monitors are now stopped and deleted\n    with their sandboxes) and refactored into internal packages. This is\n    client tooling, so systems/tinfoil.md is unchanged.\n  - Flower's nightly tags `release-20261106+1/+2` and default-branch\n    commits are agent, space and warm-worker work. None touch the\n    secure-aggregation or DP files.\n  - PySyft merged a fix so background services run only the job they\n    should (#9612), plus a dependency bump. Marabou added a release\n    build workflow (#897). Neither changes a matrix row.\n  - The other repos have no commits or tags in the window.\n- **TEE attack disclosures and C2PA:** a web search found nothing dated\n  in the window. TEE results are still TEE.Fail and DDRop coverage. The\n  newest C2PA spec in results is still 2.3.\n- **ritual-net/infernet-node is still unreadable,** for the eighteenth\n  run in a row, with the same credentials prompt as a non-existent\n  repo. systems/ritual.md is left unchanged. This still needs a manual\n  check.",
+          "list": [
+            "**IACR ePrint:** 19 new papers, 2026/2756 to 2026/2774 (2026/2775 onward return no paper). None is in a tracked field. Set aside: ConfidentialCare (2026/2771), an assessment of Zama's fhEVM for medical consultations, which is FHE access control on a blockchain with no ML in it, so it does not bear on systems/zama-concrete-ml.md; sumcheck bit packing (2026/2770), a general proof-system technique with no ML claim; and differentially oblivious graph ball queries (2026/2759), which is DP over memory access traces, not DP training.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** one new batch, Friday 6 Nov (22 cs.CR, 145 cs.LG, 15 cs.DC new submissions, plus cross-lists). None was kept. Set aside: proxy robustness certificates (2611.08035), which give a statistical, marginal guarantee rather than a sound verification result like alpha-beta-CROWN or Marabou; f-DP bounds for clipped SGLD in nonparametric regression (2611.07490), which is estimator theory, not DP-SGD as Opacus implements it; DISCERN (2611.07892), an unlearning method with no verification claim; and FedReason and S^3-MoE (2611.08383, 2611.07093), which are federated learning methods with no secure-aggregation or DP claim.",
+            "**Tracked repos:** 16 of the 17 could be read over anonymous git. Nothing merged to a default branch touches a core mechanism:",
+            "Dstack-TEE/dstack has KMS root-key epoch and emergency key rotation work (on-chain root epoch registry, re-keying guest data disks). It sits on unmerged branches only (`kms-root-epoch-registry`, `kms-getkey-root-epoch` and others), so systems/phala-dstack.md is unchanged. Worth rechecking if it merges, since it touches the KMS.",
+            "fetchai/uAgents has \"verified actions primitives\" on an unmerged branch only.",
+            "tinfoil-cli tagged `v0.19.19` (Monitors are now stopped and deleted with their sandboxes) and refactored into internal packages. This is client tooling, so systems/tinfoil.md is unchanged.",
+            "Flower's nightly tags `release-20261106+1/+2` and default-branch commits are agent, space and warm-worker work. None touch the secure-aggregation or DP files.",
+            "PySyft merged a fix so background services run only the job they should (#9612), plus a dependency bump. Marabou added a release build workflow (#897). Neither changes a matrix row.",
+            "The other repos have no commits or tags in the window.",
+            "**TEE attack disclosures and C2PA:** a web search found nothing dated in the window. TEE results are still TEE.Fail and DDRop coverage. The newest C2PA spec in results is still 2.3.",
+            "**ritual-net/infernet-node is still unreadable,** for the eighteenth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-07, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-05.md",
       "frontmatter": {
         "date": "2026-11-05",
@@ -6017,9 +6049,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-05T17:12:00+03:00",
+    "last_run": "2026-11-06T17:15:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-06T17:00:00+03:00",
+    "next_run": "2026-11-07T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",

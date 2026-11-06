@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-05T14:13:16+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-06T14:12:58+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,74 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-06.md
+========================================================================
+
+---
+date: 2026-11-06
+time: "17:00+03:00"
+kind: daily
+new_items_found: 0
+matrix_impacting: 0
+filed_related_only: 0
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-05T17:12+03:00). Nothing met the relevance
+bar. No system or foundation file changed.
+
+- **IACR ePrint:** 19 new papers, 2026/2756 to 2026/2774 (2026/2775
+  onward return no paper). None is in a tracked field. Set aside:
+  ConfidentialCare (2026/2771), an assessment of Zama's fhEVM for
+  medical consultations, which is FHE access control on a blockchain
+  with no ML in it, so it does not bear on systems/zama-concrete-ml.md;
+  sumcheck bit packing (2026/2770), a general proof-system technique
+  with no ML claim; and differentially oblivious graph ball queries
+  (2026/2759), which is DP over memory access traces, not DP training.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Friday 6 Nov (22
+  cs.CR, 145 cs.LG, 15 cs.DC new submissions, plus cross-lists). None
+  was kept. Set aside: proxy robustness certificates (2611.08035), which
+  give a statistical, marginal guarantee rather than a sound
+  verification result like alpha-beta-CROWN or Marabou; f-DP bounds for
+  clipped SGLD in nonparametric regression (2611.07490), which is
+  estimator theory, not DP-SGD as Opacus implements it; DISCERN
+  (2611.07892), an unlearning method with no verification claim; and
+  FedReason and S^3-MoE (2611.08383, 2611.07093), which are federated
+  learning methods with no secure-aggregation or DP claim.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  Nothing merged to a default branch touches a core mechanism:
+  - Dstack-TEE/dstack has KMS root-key epoch and emergency key rotation
+    work (on-chain root epoch registry, re-keying guest data disks). It
+    sits on unmerged branches only (`kms-root-epoch-registry`,
+    `kms-getkey-root-epoch` and others), so systems/phala-dstack.md is
+    unchanged. Worth rechecking if it merges, since it touches the KMS.
+  - fetchai/uAgents has "verified actions primitives" on an unmerged
+    branch only.
+  - tinfoil-cli tagged `v0.19.19` (Monitors are now stopped and deleted
+    with their sandboxes) and refactored into internal packages. This is
+    client tooling, so systems/tinfoil.md is unchanged.
+  - Flower's nightly tags `release-20261106+1/+2` and default-branch
+    commits are agent, space and warm-worker work. None touch the
+    secure-aggregation or DP files.
+  - PySyft merged a fix so background services run only the job they
+    should (#9612), plus a dependency bump. Marabou added a release
+    build workflow (#897). Neither changes a matrix row.
+  - The other repos have no commits or tags in the window.
+- **TEE attack disclosures and C2PA:** a web search found nothing dated
+  in the window. TEE results are still TEE.Fail and DDRop coverage. The
+  newest C2PA spec in results is still 2.3.
+- **ritual-net/infernet-node is still unreadable,** for the eighteenth
+  run in a row, with the same credentials prompt as a non-existent
+  repo. systems/ritual.md is left unchanged. This still needs a manual
+  check.
+
+## Next run
+
+2026-11-07, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-05.md
