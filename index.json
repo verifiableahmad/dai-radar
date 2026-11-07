@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T14:12:58+00:00",
+  "generated_at": "2026-11-07T14:09:02+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,33 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-07.md",
+      "frontmatter": {
+        "date": "2026-11-07",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "1",
+        "matrix_impacting": "0",
+        "filed_related_only": "0"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-06T17:15+03:00). No property matrix changed.\nOne tracked repo merged work on its core mechanism (dstack's KMS and\nRA-TLS). It was read against systems/phala-dstack.md and does not change\nits matrix (below). No system or foundation file changed.\n\n- **IACR ePrint:** no new papers. The newest listing is still 2026/2774,\n  covered on the last run, and 2026/2775 onward return no paper.\n- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. Today is Saturday, and\n  the listings still show Friday 6 Nov, which the last run covered.\n- **Dstack-TEE/dstack, checked against systems/phala-dstack.md (no\n  edit):** two PRs merged to the default branch, not yet in a release.\n  #1108 has guests mint self-issued RA-TLS client certificates for KMS\n  calls instead of minting them from the KMS temp CA. It also makes KMS\n  onboarding from a pre-0.6.0 source verify that source's attestation on\n  the connection that actually returns the root keys. #1522 makes RA-TLS\n  clients verify that an attested server holds its TLS key. The\n  changelog says the trust posture is unchanged: relying parties still\n  bind the KMS through the `key-provider` launch event against the\n  on-chain `kmsInfo` or a pinned key. That is hardening inside the \"KMS\n  in TEE, policy on-chain\" row, not a change to it. The KMS root-epoch\n  branches noted on the last run are still unmerged.\n- **Other tracked repos:** tinfoil-cli tagged `v0.19.20`, which renames\n  sandboxes to \"bunkers\" and Monitors to \"Perimeters\". This is client\n  tooling, so systems/tinfoil.md is unchanged. Flower merged a\n  configurable run-event polling interval (#8489) and auto-created\n  spaces for agents (#8494). Neither touches secure aggregation or DP.\n  The other repos have no commits or tags in the window.\n- **TEE attack disclosures and C2PA:** a web search found nothing dated\n  in the window. TEE results are still TEE.Fail coverage. The newest\n  C2PA spec in results is still 2.3.\n- **ritual-net/infernet-node is still unreadable,** for the nineteenth\n  run in a row, with the same credentials prompt as a non-existent\n  repo. systems/ritual.md is left unchanged. This still needs a manual\n  check.",
+          "list": [
+            "**IACR ePrint:** no new papers. The newest listing is still 2026/2774, covered on the last run, and 2026/2775 onward return no paper.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** no new batch. Today is Saturday, and the listings still show Friday 6 Nov, which the last run covered.",
+            "**Dstack-TEE/dstack, checked against systems/phala-dstack.md (no edit):** two PRs merged to the default branch, not yet in a release. #1108 has guests mint self-issued RA-TLS client certificates for KMS calls instead of minting them from the KMS temp CA. It also makes KMS onboarding from a pre-0.6.0 source verify that source's attestation on the connection that actually returns the root keys. #1522 makes RA-TLS clients verify that an attested server holds its TLS key. The changelog says the trust posture is unchanged: relying parties still bind the KMS through the `key-provider` launch event against the on-chain `kmsInfo` or a pinned key. That is hardening inside the \"KMS in TEE, policy on-chain\" row, not a change to it. The KMS root-epoch branches noted on the last run are still unmerged.",
+            "**Other tracked repos:** tinfoil-cli tagged `v0.19.20`, which renames sandboxes to \"bunkers\" and Monitors to \"Perimeters\". This is client tooling, so systems/tinfoil.md is unchanged. Flower merged a configurable run-event polling interval (#8489) and auto-created spaces for agents (#8494). Neither touches secure aggregation or DP. The other repos have no commits or tags in the window.",
+            "**TEE attack disclosures and C2PA:** a web search found nothing dated in the window. TEE results are still TEE.Fail coverage. The newest C2PA spec in results is still 2.3.",
+            "**ritual-net/infernet-node is still unreadable,** for the nineteenth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-08, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-06.md",
       "frontmatter": {
         "date": "2026-11-06",
@@ -6049,9 +6076,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-06T17:15:00+03:00",
+    "last_run": "2026-11-07T17:10:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-07T17:00:00+03:00",
+    "next_run": "2026-11-08T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",
