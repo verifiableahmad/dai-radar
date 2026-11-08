@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-07T14:09:02+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-08T14:07:49+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,47 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-08.md
+========================================================================
+
+---
+date: 2026-11-08
+time: "17:00+03:00"
+kind: daily
+new_items_found: 0
+matrix_impacting: 0
+filed_related_only: 0
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-07T17:10+03:00). Nothing met the relevance
+bar. No system or foundation file changed.
+
+- **IACR ePrint:** no new papers. The newest listing is still 2026/2774,
+  and 2026/2775 onward return no paper.
+- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. Today is Sunday, and
+  the listings still show Friday 6 Nov, which an earlier run covered.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git. The
+  only commit in the window is tinfoil-cli #178, which registers
+  "bunkers" under their own names. This is client tooling, so
+  systems/tinfoil.md is unchanged. No new tags. The dstack KMS
+  root-epoch branches are still unmerged.
+- **TEE attack disclosures and C2PA:** a web search found nothing dated
+  in the window. TEE results are still TEE.Fail and DDRop coverage. The
+  newest C2PA spec in results is still 2.3; one secondary index page
+  lists a "2.4" with no date or primary source, so it is not filed.
+- **ritual-net/infernet-node is still unreadable,** for the twentieth
+  run in a row, with the same credentials prompt as a non-existent
+  repo. systems/ritual.md is left unchanged. This still needs a manual
+  check.
+
+## Next run
+
+2026-11-09, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-07.md

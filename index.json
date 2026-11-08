@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T14:09:02+00:00",
+  "generated_at": "2026-11-08T14:07:49+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,32 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-08.md",
+      "frontmatter": {
+        "date": "2026-11-08",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "0",
+        "matrix_impacting": "0",
+        "filed_related_only": "0"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-07T17:10+03:00). Nothing met the relevance\nbar. No system or foundation file changed.\n\n- **IACR ePrint:** no new papers. The newest listing is still 2026/2774,\n  and 2026/2775 onward return no paper.\n- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. Today is Sunday, and\n  the listings still show Friday 6 Nov, which an earlier run covered.\n- **Tracked repos:** 16 of the 17 could be read over anonymous git. The\n  only commit in the window is tinfoil-cli #178, which registers\n  \"bunkers\" under their own names. This is client tooling, so\n  systems/tinfoil.md is unchanged. No new tags. The dstack KMS\n  root-epoch branches are still unmerged.\n- **TEE attack disclosures and C2PA:** a web search found nothing dated\n  in the window. TEE results are still TEE.Fail and DDRop coverage. The\n  newest C2PA spec in results is still 2.3; one secondary index page\n  lists a \"2.4\" with no date or primary source, so it is not filed.\n- **ritual-net/infernet-node is still unreadable,** for the twentieth\n  run in a row, with the same credentials prompt as a non-existent\n  repo. systems/ritual.md is left unchanged. This still needs a manual\n  check.",
+          "list": [
+            "**IACR ePrint:** no new papers. The newest listing is still 2026/2774, and 2026/2775 onward return no paper.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** no new batch. Today is Sunday, and the listings still show Friday 6 Nov, which an earlier run covered.",
+            "**Tracked repos:** 16 of the 17 could be read over anonymous git. The only commit in the window is tinfoil-cli #178, which registers \"bunkers\" under their own names. This is client tooling, so systems/tinfoil.md is unchanged. No new tags. The dstack KMS root-epoch branches are still unmerged.",
+            "**TEE attack disclosures and C2PA:** a web search found nothing dated in the window. TEE results are still TEE.Fail and DDRop coverage. The newest C2PA spec in results is still 2.3; one secondary index page lists a \"2.4\" with no date or primary source, so it is not filed.",
+            "**ritual-net/infernet-node is still unreadable,** for the twentieth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-09, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-07.md",
       "frontmatter": {
         "date": "2026-11-07",
@@ -6076,9 +6102,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-07T17:10:00+03:00",
+    "last_run": "2026-11-08T17:10:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-08T17:00:00+03:00",
+    "next_run": "2026-11-09T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",
