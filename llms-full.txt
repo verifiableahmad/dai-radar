@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-08T14:07:49+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-09T14:14:08+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,91 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-09.md
+========================================================================
+
+---
+date: 2026-11-09
+time: "17:00+03:00"
+kind: daily
+new_items_found: 3
+matrix_impacting: 0
+filed_related_only: 3
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-08T17:10+03:00). Nothing touched a tracked
+system, and no property matrix changed. Three items are relevant to
+tracked fields and are filed below as related only. No system or
+foundation file changed.
+
+- **IACR ePrint:** a new batch, 2026/2775 through 2026/2779, appeared
+  in the window (2026/2780 onward return no paper): quadratic-source
+  extractors, one-way functions and sample compression, tamper-resilient
+  quantum KEMs, a break of the Train-to-Defend defense against
+  cryptanalytic model extraction (2026/2778), and masked AIMer on
+  Cortex-M4. None was filed. 2026/2778 is about stealing weights, not
+  proving or protecting inference in any tracked system, the same call
+  as the extraction papers set aside on 2026-11-05.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Monday 9 Nov (25
+  cs.CR, 121 cs.LG, 20 cs.DC new submissions, plus cross-lists). The
+  three items below were kept. Set aside: GPU parallelization of PlonK
+  proving (2611.09569), a general prover-performance study with no ML
+  circuit or tracked system; NotaryMark (2611.08985) and Logit
+  Laundering (2611.09446), dataset-watermark auditing and its evasion,
+  which no tracked system uses to detect training-data use; gradient
+  inversion on federated LoRA ViTs (2611.09652), an attack on a server
+  that sees individual client updates, with no secure aggregation in
+  scope; and a blockchain-timestamped replication certificate for
+  research deposits (2611.09214), which is not ML-specific.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  The only commits in the window are three Flower merges that add
+  `space_id` to run metadata and task-event filters and a
+  `GetSpaceEvents` Runtime API endpoint (#8484, #8498, #8500). They do
+  not touch secure aggregation or DP, so systems/flower.md is
+  unchanged. No new release tag appeared in the window, apart from
+  Flower's automated `release-20261109+1` build tag. The dstack KMS
+  root-epoch branches are still unmerged.
+- **TEE attack disclosures and C2PA:** a web search found nothing dated
+  in the window. TEE results are still TEE.Fail and DDRop coverage. The
+  newest C2PA spec on the official site is still 2.3; secondary pages
+  that list a "2.4" still give no primary source, so it is not filed.
+- **ritual-net/infernet-node is still unreadable,** for the
+  twenty-first run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **ReplayAudit: auditing outsourced LLM fine-tuning** (arXiv
+  2611.09607): the provider seals training records before any
+  challenge, and the auditor replays sampled intervals from sealed
+  checkpoints, with sampling guided by loss and update-norm telemetry.
+  The authors report a 7B BF16 LoRA prototype that rejects false
+  reports. Field: ZK proof of training / verifiable training. This is
+  replay-based auditing, not a proof, and no tracked system uses it.
+- **SciCheck: verifying deep-learning training integrity** (arXiv
+  2611.09889): blueprints and per-epoch checkpoints go to a provenance
+  ledger, and a verifier combines a statistical gradient-statistics
+  judge with spot-check re-execution of random segments. It is
+  evaluated only on 100k–500k-parameter models. Field: ZK proof of
+  training / verifiable training. It is statistical, not cryptographic.
+- **Hierarchical training data attribution for remuneration in music
+  models** (arXiv 2611.08839): splits TDA scores into global, group and
+  output-specific influence, after finding that a few training items
+  dominate influence for almost every generation, which would skew
+  payouts that use raw scores. Field: AI data attribution and payments.
+  It is relevant to attribution-based payouts like OpenLedger's, but
+  systems/openledger.md records its "Proof of Attribution" mechanism as
+  unverified, so this does not change that file.
+
+## Next run
+
+2026-11-10, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-08.md
