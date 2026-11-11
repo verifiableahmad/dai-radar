@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-09T14:14:08+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-11T14:13:54+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,139 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-11.md
+========================================================================
+
+---
+date: 2026-11-11
+time: "17:00+03:00"
+kind: daily
+new_items_found: 7
+matrix_impacting: 0
+filed_related_only: 6
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-09T17:10+03:00). No 2026-11-10 run landed, so
+this window covers two days. One arXiv paper reports using a tracked
+system (OpenMined's PySyft, on an NVIDIA H100 confidential-computing
+enclave). It was read against systems/openmined-pysyft.md and
+systems/nvidia-confidential-computing.md and changes neither matrix
+(below). Six more items are relevant to tracked fields and are filed
+below as related only. No system or foundation file changed.
+
+- **arXiv 2611.12604, "Double Blind Evals", checked against
+  systems/openmined-pysyft.md and systems/nvidia-confidential-computing.md
+  (no edit):** authors from OpenMined, Google DeepMind and others report
+  a pilot in which a private AILuminate benchmark subset was run against
+  Gemini 2.5 Flash Lite inside an NVIDIA H100 secure enclave on Google
+  Cloud. PySyft was used so the evaluator's prompts stayed hidden from
+  the model owner, and the weights stayed hidden from the evaluator. The
+  PySyft matrix only records the trust model (owner-approved job
+  execution) and DP (not mentioned in the README). Neither row changes.
+  The file's note that the repo's enclave section has "maturity unknown"
+  stays as it is: this is one pilot, described by the people who ran it,
+  not a release or an independent account. It fits the NVIDIA CC rows
+  as they stand (H100, attested CPU TEE host) and adds no new property.
+- **IACR ePrint:** a new batch, 2026/2780 through 2026/2827, appeared in
+  the window (2026/2828 onward return no paper). One was filed below
+  (2026/2784). Set aside: SNARKs from LWE (2026/2805), proximity gaps
+  for expander codes (2026/2806) and incrementally verifiable
+  oracle-aided computation (2026/2824), which are general proof-system
+  results with no ML circuit; an SoK on VMs over FHE (2026/2816); DP
+  representations for general metrics (2026/2788), with no training
+  claim; and the rest, which have no ML claim.
+- **arXiv cs.CR / cs.LG / cs.DC:** two new batches, Tuesday 10 Nov and
+  Wednesday 11 Nov (891 distinct entries across the three listings,
+  cross-lists included). Five items are filed below, plus the one
+  above. Set aside: ZK-attested validator admission for swarm learning
+  (2611.11477), where the ZK proof only gates who may validate updates
+  and is not secure aggregation as tracked; MammothDP (2611.14317), DP
+  boosted trees in a TEE for health data spaces, which no tracked
+  system uses; Byzantine-resilient FL with user-level DP (2611.10898)
+  and MOMENT-DP (2611.11457), which are convergence and noise-ranking
+  theory, the latter unresolved for neural nets by its own account;
+  FocusBranch (2611.12024), an l0 robustness verifier on MNIST/CIFAR
+  scale, not a change to the tracked verifiers; FRESCO (2611.11238),
+  asynchronous pipeline parallelism with no low-bandwidth or untrusted-
+  peer claim; and Proof-of-Useful-Work energy economics (2611.13131).
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  PySyft tagged `v0.10.1` along with sub-package tags (`syft-enclave/
+  v0.1.2`, `syft-rds/v0.6.2`, `syft-job/v0.1.41`, `syft-bg/v0.3.13`).
+  This is a patch release on the 0.10 line already recorded, with
+  enclave-client and job-result-sharing fixes; it does not touch the
+  trust-model or DP rows. dstack merged only docs and CI on `next`
+  (#1558: the KMS onboarding handover needs admin TLS, which documents
+  the existing requirement; #1553, #1554, #1559). Its KMS root-rotation
+  work is still on an unmerged test-infrastructure branch. tinfoil-cli
+  tagged `v0.19.21` (private-registry trust prompts, `.perimeter`
+  hostnames); this is client tooling, so systems/tinfoil.md is
+  unchanged. Flower merged a federation-membership check for run reads
+  (#8520) and user-event corestate methods (#8513), plus automated
+  `release-20261110+N` build tags. Neither touches secure aggregation or
+  DP. uAgents merged an experimental chat-agent tool fix (#968). The
+  other repos have no commits or tags in the window.
+- **TEE attack disclosures and C2PA:** a web search found nothing new
+  dated in the window. TEE results are still DDRop (due at CCS 2026 in
+  November) and TEE.Fail. Search results now include a spec.c2pa.org
+  URL for a C2PA 2.4 specification, which secondary sources date to
+  April 2026. That is outside this window, and spec.c2pa.org could not
+  be reached from this environment to confirm it, so systems/c2pa.md
+  (which cites 2.2) is left unchanged. It is worth a manual look.
+- **ritual-net/infernet-node is still unreadable,** for the
+  twenty-second run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **zk-DEAP: a zero-knowledge decentralized encrypted aggregation
+  protocol** (arXiv 2611.10020): lifted-ElGamal aggregation with FROST
+  threshold decryption and per-input ZK range/constraint proofs
+  (Bulletproofs, SNARKs or STARKs), plus a binding that stops a valid
+  proof from being paired with a different ciphertext. Evaluated with
+  5–500 participants. Field: federated learning / confidential
+  aggregation. No tracked system uses it.
+- **tritify: deterministic integer-arithmetic inference** (arXiv
+  2611.13730): runs LLM, MoE and SAM 2.1 forward passes bit-identically
+  across CPUs, GPUs and networked machines, including a 106B MoE split
+  over three hosts. Field: optimistic on-chain AI verification, where
+  re-execution needs determinism. The authors say a guarantee against a
+  dishonest server is future work, so this is reproducibility, not a
+  fraud proof.
+- **zkARc: ZK receipts for neurosymbolic policy checks** (arXiv
+  2611.10031): wraps each stage of an LLM-to-SMT policy-checking
+  pipeline in a ZK proof, including model inference on Qwen2-0.5B. The
+  authors report about an hour of CPU proving and under a minute to
+  verify. Field: ZKML / verifiable inference. No tracked system uses
+  it.
+- **VeilTune: LoRA fine-tuning entirely in MPC** (arXiv 2611.11817):
+  shows that existing secure fine-tuning leaks enough intermediate
+  values to copy the adapter, then backpropagates entirely in MPC.
+  Reported on RoBERTa-large few-shot tasks. Field: secure MPC for ML.
+  It is a research protocol, not a change to Nillion's MPC layer, so
+  systems/nillion.md is unchanged.
+- **Doubly efficient interactive proofs over approximate arithmetic**
+  (arXiv 2611.11618): extends GKR to layered circuits over the complex
+  numbers where prover and verifier both use floating point, with
+  closeness rather than exactness as the claim. Field: ZKML (sumcheck
+  lineage). It is an interactive proof, not zero-knowledge, and no
+  tracked system uses it.
+- **Multiparty CKKS Newton-CG logistic regression** (IACR ePrint
+  2026/2784): institutions aggregate encrypted gradient and Hessian
+  statistics under multiparty CKKS and solve the Newton step by
+  encrypted conjugate gradient, matching pooled plaintext training on
+  clinical tasks. Field: FHE for ML. It is multi-key CKKS training,
+  while systems/zama-concrete-ml.md covers TFHE inference on encrypted
+  inputs, so that file is unchanged.
+
+## Next run
+
+2026-11-12, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-09.md

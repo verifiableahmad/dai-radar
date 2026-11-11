@@ -1,8 +1,8 @@
 {
   "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-  "last_run": "2026-11-09T17:10:00+03:00",
+  "last_run": "2026-11-11T17:20:00+03:00",
   "last_run_kind": "daily",
-  "next_run": "2026-11-10T17:00:00+03:00",
+  "next_run": "2026-11-12T17:00:00+03:00",
   "sources": [
     "IACR ePrint (new listings)",
     "arXiv cs.CR, cs.LG, cs.DC (new listings)",
