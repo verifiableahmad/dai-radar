@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-11T14:13:54+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-12T14:11:45+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,94 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-12.md
+========================================================================
+
+---
+date: 2026-11-12
+time: "17:00+03:00"
+kind: daily
+new_items_found: 2
+matrix_impacting: 0
+filed_related_only: 1
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-11T17:20+03:00). dstack tagged a release and
+merged its 0.6.4 release prep. Both were read against
+systems/phala-dstack.md and change nothing in the matrix (below). One
+ePrint paper is relevant to a tracked field and is filed below as
+related only. No system or foundation file changed.
+
+- **dstack `v0.6.2` / `v0.6.3` tags and 0.6.4 release prep, checked
+  against systems/phala-dstack.md (no edit):** `v0.6.3` (changelog
+  dated 2026-11-01, tagged in this window) is a hardening release. It
+  adds scoped JWT access to the guest-agent external API, makes the
+  KMS always verify the OS image hash, removes unmeasured host-supplied
+  inputs from the guest boot (including the fix for GHSA-c79w-3x5w-gmm5),
+  and updates dependencies. On `next` and `release/0.6.4`, the 0.6.4
+  changelog (dated 2026-11-12, not yet tagged) adds KMS root and app
+  key epochs. The previous run noted that this rotation work was still
+  unmerged; it is now merged. 0.6.4 also adds per-contract TEE-platform
+  allowlists (`teeVariant`) for key release, and a native SEV-SNP
+  hardware key provider (#1526). The Key release row ("KMS in TEE,
+  policy on-chain") still describes all of this, so it stays as it is.
+  README and docs/amd-sev-snp.md still call SEV-SNP "experimental", with
+  Intel TDX the production path, which matches the file's Architecture
+  summary. The Isolation row is unchanged. 0.6.4 is worth another look
+  once it is tagged.
+- **IACR ePrint:** a new batch, 2026/2828 through 2026/2849, appeared
+  in the window (2026/2850 onward return no paper). One was filed below
+  (2026/2839). Set aside: TUTTI parallel CKKS bootstrapping (2026/2848)
+  and an ML-KEM + BGV health-data scheme (2026/2832), which are FHE
+  results with no ML workload; Undine Merkle storage with PIR
+  (2026/2834); an LLM agent for side-channel key recovery (2026/2838),
+  which attacks smartcard/FPGA crypto, not TEEs; and the rest, which
+  have no ML claim.
+- **arXiv cs.CR / cs.LG / cs.DC:** no new batch since the last run. The
+  `/new` listings for all three still show Wednesday 11 November, which
+  the last run covered. Their cache headers were about 33 hours old,
+  but a cache-busted request returned the same page. The arXiv API's
+  newest submissions in each category date from 2026-11-10, which
+  matches. Next run should pick up the Thursday/Friday batches.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  Apart from dstack (above): PySyft merged its job-result and
+  enclave-log read-permission rework (#9604: the default enclave-log
+  readers are the data owners, wildcard readers are refused, and a
+  failed API call shares nothing). It is untagged and refines who can
+  read approved outputs, so the "Owner-approved job execution" row is
+  unchanged. uAgents merged a "verified actions" metadata schema for
+  chat messages (#967) and tool utilities (#970, #971). These touch
+  neither identity nor discovery. Flower merged agent/Space-session
+  framework work and automated `release-20261112+N` build tags, none
+  touching secure aggregation or DP. tinfoil-cli merged two CLI fixes.
+  The other repos have no commits or tags in the window.
+- **TEE attack disclosures and C2PA:** a web search found nothing new
+  dated in the window. C2PA results still top out at the 2.4
+  specification (April 2026, per secondary sources). systems/c2pa.md
+  is unchanged; the manual check flagged last run is still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  twenty-third run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **CCFL: confidential clustering for federated learning** (IACR
+  ePrint 2026/2839): runs clustered-FL client grouping (distances and
+  centroid updates) entirely under replicated secret sharing, with an
+  anonymization server for oblivious shuffling. It reports up to 46.7×
+  speedup and scales to thousands of clients. Field: federated learning
+  / MPC for ML. This is clustering before training, not secure
+  aggregation, and no tracked system uses it.
+
+## Next run
+
+2026-11-13, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-11.md
