@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-12T14:11:45+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-13T15:47:56+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -1592,8 +1592,8 @@ name: Lagrange Labs (DeepProve)
 field: ZKML / verifiable inference
 category: verifiable-inference
 foundation: foundations/zkml-sumcheck.md
-last_updated: 2026-10-20
-confidence: grounded (core technique lineage); inferred (trust model, some performance framing)
+last_updated: 2026-11-13
+confidence: grounded (core technique lineage, commitment scheme); inferred (setup-trust reading, production SRS, some performance framing)
 website: "https://www.lagrange.dev"
 ---
 
@@ -1675,7 +1675,7 @@ entries rather than merged.
 | Claimed proving speedup | 20–60× faster than prior SOTA (paper abstract framing); a separate press release states "60×faster / 671× faster verification" — the two framings weren't reconciled in this pass, may refer to different baselines/benchmarks | DeepProve paper abstract; Lagrange press release — **flagged discrepancy, not resolved** |
 | Example throughput | GPT-2: 174 tokens/min; Gemma 3: 86 tokens/min; verification in 1–3.7 seconds | DeepProve paper abstract, grounded |
 | Production track record | 12M+ cryptographic proofs generated, 3M+ AI inferences verified end-to-end, as of the open-source release (June 2026) | Lagrange press release, grounded |
-| Trust model (trusted setup or transparent) | Not confirmed from a direct source in this pass — sum-check-based systems are *typically* transparent (no CRS), but DeepProve's specific underlying polynomial commitment scheme wasn't identified here | **Inferred, unverified** — recheck before relying on this |
+| Trust model (trusted setup or transparent) | Trusted setup, not transparent: the public code commits with **HyperKZG over BN254**, a KZG-based scheme, and builds its parameters locally with `test_setup`, which calls arkworks' `KZG10::setup` with a caller-supplied RNG. No ceremony SRS is loaded anywhere in the public code. Whether Lagrange's hosted prover uses a ceremony SRS instead was not verified. The repo's older docs page (`docs/src/commitments.md`, from 2025) still names Basefold, a transparent scheme; the README and the code are newer and both say HyperKZG | deep-prove README and source at commit 9d1a53e, dp-crypto `arkyper` source, grounded; "needs a trusted setup" follows from KZG and is inferred; first flagged by arXiv 2611.17042 (Table III) |
 | Maturity | Open-sourced June 2026; github.com/Lagrange-Labs/deep-prove; live dashboard at deep-prove.lagrange.dev | Lagrange press release / blog, grounded |
 
 ## Comparison axes
@@ -1683,7 +1683,7 @@ entries rather than merged.
 | Axis | Class | Detail | Source |
 |---|---|---|---|
 | Correctness | PROOF | Sum-check + lookup-argument proofs of end-to-end LLM inference; verification in 1-3.7 s | DeepProve paper abstract, grounded |
-| Trust rests on | MATH | Cryptographic soundness; whether a trusted setup is needed is unconfirmed (sum-check systems are typically transparent) | Inferred, unverified, see Property matrix |
+| Trust rests on | MATH + SETUP | Cryptographic soundness plus a KZG structured reference string (HyperKZG, BN254); the open-source code generates it locally with `test_setup`, not from a ceremony | deep-prove README and source, grounded; classification inferred, see Property matrix |
 | Confidentiality | NOT COVERED | The file describes proving correctness, not what DeepProve keeps hidden | Not addressed in this file's sources |
 | Lineage | EXTERNAL PAPER | DeepProve names the sum-check protocol (Lund, Fortnow, Karloff, Nisan 1992); a direct bibliography citation is unconfirmed | DeepProve paper abstract; 1992 link is the standard lineage, inferred |
 | Maturity | LIVE | Open-sourced June 2026; 12M+ proofs and 3M+ inferences verified, per Lagrange | Lagrange press release, grounded |
@@ -1700,9 +1700,17 @@ entries rather than merged.
   abstract (20–60×) and Lagrange's press release (60× / 671×) — not
   reconciled in this pass; don't cite a single number without checking
   which baseline it refers to.
-- Trust model (trusted setup vs. transparent) not independently
-  confirmed here — flagged as an open follow-up, same category as
-  EZKL's unresolved SRS-size claims elsewhere in this repo.
+- The trust model was an open follow-up until 2026-11-13. It is now
+  resolved from the repo itself: DeepProve commits with HyperKZG
+  (KZG-based, so it needs a structured reference string), not with a
+  transparent scheme. Two caveats remain. In the open-source code the
+  SRS is generated locally by `test_setup` from an RNG, so whoever
+  generates the proving context could know the trapdoor. Whether
+  Lagrange's hosted prover network uses a ceremony SRS instead is not
+  documented in the sources read. The repo's own docs page on
+  commitments still says Basefold (transparent). It predates the
+  README and the code, which both say HyperKZG, but don't cite the docs
+  page for the setup question.
 
 ========================================================================
 FILE: systems/marabou.md
@@ -5172,6 +5180,125 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-13.md
+========================================================================
+
+---
+date: 2026-11-13
+time: "17:00+03:00"
+kind: daily
+new_items_found: 6
+matrix_impacting: 1
+filed_related_only: 4
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-12T17:10+03:00). One arXiv paper benchmarks a
+tracked system (DeepProve) and lists its commitment scheme. Following
+that to DeepProve's own repo answers the trust-model question that
+systems/lagrange-labs.md had left open since the baseline, so that file
+changed (below). dstack tagged the 0.6.4 release that the last run said
+to look at again. It changes nothing in the matrix. Four more items are
+relevant to tracked fields and are filed below as related only.
+
+- **systems/lagrange-labs.md, trust model resolved (edited):** arXiv
+  2611.17042 ("Infrastructure for Verifiable AI: Where Proof Costs Go
+  and How Hardware Can Help") runs DeepProve unmodified at commit
+  `9d1a53e` and lists its proof system as "GKR, lookup; HyperKZG
+  (BN254)" (Table III). The file's matrix had the trust model as "Not
+  confirmed … recheck before relying on this". The repo confirms the
+  paper. `zkml/README.md` (reworked for the "HyperKZG backend" on
+  2026-05-01, #344) says the public binaries use HyperKZG on BN254. The
+  source sets `type Pcs = HyperKZG<Bn254>` in the middleware and bench
+  binaries, and builds parameters with `PCS::test_setup(rng, …)`. In
+  the dp-crypto dependency, that calls arkworks' `KZG10::setup` with
+  the caller's RNG. So DeepProve needs a KZG-type structured reference
+  string and is not transparent. The "needs a trusted setup" reading
+  follows from KZG and is marked inferred. In the public code the SRS
+  is generated locally, not taken from a ceremony. Whether Lagrange's
+  hosted prover uses a ceremony SRS was not verified. The repo's
+  `docs/src/commitments.md` (last touched June 2025) still says
+  Basefold, a transparent scheme. That conflict is recorded in the
+  file, not hidden. The Trust model row and its Compare axis (MATH →
+  MATH + SETUP, classification inferred) changed, as did the matching
+  Known limitations bullet, `confidence` and `last_updated`. The
+  file's other rows are unchanged. The paper's own GPU measurements are
+  a third-party breakdown, not a rate comparison by its own account.
+  They were not added.
+- **dstack `v0.6.4` (tagged 2026-11-12), checked against
+  systems/phala-dstack.md (no edit):** the tag is the 0.6.4 changelog
+  the last run read on the release branch: key epochs, `teeVariant`
+  platform allowlists, the SEV-SNP hardware key provider, and a
+  mandatory KMS key-handover path. Policy is now read at the
+  `finalized` block by default. Key release is still "KMS in TEE,
+  policy on-chain". The README's platform table lists SEV-SNP as "Host
+  support; requires an SNP-capable guest image", and docs/amd-sev-snp.md
+  still calls it experimental, with TDX the production path. Both match
+  the file. A separate `verifier-wasm-v0.1.0` tag packages the TDX OS
+  check as a browser/npm verifier. That is tooling, not a change to the
+  attestation mechanism.
+- **IACR ePrint:** a new batch, 2026/2850 through 2026/2871, appeared
+  in the window. None was filed. Set aside: Neural Cipher Bench
+  (2026/2850), which implements ciphers as ReLU networks rather than
+  protecting ML; Homomorphism in Expectation (2026/2854) and BGV noise
+  for dependent ciphertexts (2026/2869), which are HE results with no
+  ML workload; DP distance-sensitive filters (2026/2871); and the rest,
+  which have no ML claim.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Friday 13 Nov (416
+  distinct new and cross-listed entries). The pastweek listings show
+  no Thursday 12 Nov batch in any of the three. Besides 2611.17042
+  above, four items are filed below. Set aside: 2611.14698, the arXiv
+  copy of ePrint 2026/2824, already set aside on 2026-11-11; tokenized
+  FL rewards with a ZK threshold gate (2611.16065), an incentive-layer
+  study tied to no tracked system; DPA decentralized optimization
+  (2611.16871), a gossip-DSGD convergence result with no low-bandwidth
+  or untrusted-peer claim; and PolicySniff (2611.16158), a shared-GPU
+  timing channel on ordinary serving, not confidential computing.
+- **Other tracked repos:** 16 of the 17 could be read over anonymous
+  git. tinfoil-cli tagged `v0.19.22` and merged CLI fixes: the Monitor
+  bucket is now unmeasured runtime env (#184), plus JSON output and
+  login display. These are owner/monitor tooling and leave the
+  verification, transport and model-integrity rows unchanged. Flower
+  merged more Space agent-runtime work (#8525, #8532–#8534) and
+  automated `release-20261113+N` tags, none touching secure
+  aggregation or DP. The other repos have no commits or tags in the
+  window.
+- **TEE attack disclosures and C2PA:** a web search found nothing new
+  dated in the window. DDRop, covered in earlier runs, is still due at
+  CCS 2026. C2PA results still top out at 2.4. systems/c2pa.md is
+  unchanged, and its manual check is still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  twenty-fourth run in a row. systems/ritual.md is left unchanged. This
+  still needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **VRMaaS: verifiable reward-model-as-a-service** (arXiv 2611.14984):
+  sum-check/lookup proofs of Transformer reward-model scoring (1B–8B),
+  bound to request, weights and configuration, with an optional
+  on-chain ZK wrapper (~217K gas). It reports that a generic wrapped
+  inference proof still verifies after six kinds of service-field
+  substitution. Field: ZKML / verifiable inference.
+- **SecDVA** (arXiv 2611.15373): a maliciously secure (2+1)-party MPC
+  protocol, using function secret sharing, for valuing a seller's data
+  against a buyer's model before purchase. Field: MPC for ML / data
+  markets. No tracked data-market system is named.
+- **Batch, Pack, and Prove** (arXiv 2611.16922): more efficient
+  succinct arguments for CKKS computations, building on Cascudo et al.
+  (CRYPTO 2025), evaluated on a generic neural network. Field: FHE for
+  ML plus verifiable computation.
+- **Signed dyadic path encoding for private decision trees over TFHE**
+  (arXiv 2611.16818): one PBS per leaf-parent instead of per leaf,
+  1.5–2× faster for depth ≤4 trees and boosted ensembles. Field: FHE
+  for ML. It does not name Concrete ML.
+
+## Next run
+
+2026-11-14, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-12.md
