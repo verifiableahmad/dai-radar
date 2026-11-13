@@ -3,8 +3,8 @@ name: Lagrange Labs (DeepProve)
 field: ZKML / verifiable inference
 category: verifiable-inference
 foundation: foundations/zkml-sumcheck.md
-last_updated: 2026-10-20
-confidence: grounded (core technique lineage); inferred (trust model, some performance framing)
+last_updated: 2026-11-13
+confidence: grounded (core technique lineage, commitment scheme); inferred (setup-trust reading, production SRS, some performance framing)
 website: "https://www.lagrange.dev"
 ---
 
@@ -86,7 +86,7 @@ entries rather than merged.
 | Claimed proving speedup | 20–60× faster than prior SOTA (paper abstract framing); a separate press release states "60×faster / 671× faster verification" — the two framings weren't reconciled in this pass, may refer to different baselines/benchmarks | DeepProve paper abstract; Lagrange press release — **flagged discrepancy, not resolved** |
 | Example throughput | GPT-2: 174 tokens/min; Gemma 3: 86 tokens/min; verification in 1–3.7 seconds | DeepProve paper abstract, grounded |
 | Production track record | 12M+ cryptographic proofs generated, 3M+ AI inferences verified end-to-end, as of the open-source release (June 2026) | Lagrange press release, grounded |
-| Trust model (trusted setup or transparent) | Not confirmed from a direct source in this pass — sum-check-based systems are *typically* transparent (no CRS), but DeepProve's specific underlying polynomial commitment scheme wasn't identified here | **Inferred, unverified** — recheck before relying on this |
+| Trust model (trusted setup or transparent) | Trusted setup, not transparent: the public code commits with **HyperKZG over BN254**, a KZG-based scheme, and builds its parameters locally with `test_setup`, which calls arkworks' `KZG10::setup` with a caller-supplied RNG. No ceremony SRS is loaded anywhere in the public code. Whether Lagrange's hosted prover uses a ceremony SRS instead was not verified. The repo's older docs page (`docs/src/commitments.md`, from 2025) still names Basefold, a transparent scheme; the README and the code are newer and both say HyperKZG | deep-prove README and source at commit 9d1a53e, dp-crypto `arkyper` source, grounded; "needs a trusted setup" follows from KZG and is inferred; first flagged by arXiv 2611.17042 (Table III) |
 | Maturity | Open-sourced June 2026; github.com/Lagrange-Labs/deep-prove; live dashboard at deep-prove.lagrange.dev | Lagrange press release / blog, grounded |
 
 ## Comparison axes
@@ -94,7 +94,7 @@ entries rather than merged.
 | Axis | Class | Detail | Source |
 |---|---|---|---|
 | Correctness | PROOF | Sum-check + lookup-argument proofs of end-to-end LLM inference; verification in 1-3.7 s | DeepProve paper abstract, grounded |
-| Trust rests on | MATH | Cryptographic soundness; whether a trusted setup is needed is unconfirmed (sum-check systems are typically transparent) | Inferred, unverified, see Property matrix |
+| Trust rests on | MATH + SETUP | Cryptographic soundness plus a KZG structured reference string (HyperKZG, BN254); the open-source code generates it locally with `test_setup`, not from a ceremony | deep-prove README and source, grounded; classification inferred, see Property matrix |
 | Confidentiality | NOT COVERED | The file describes proving correctness, not what DeepProve keeps hidden | Not addressed in this file's sources |
 | Lineage | EXTERNAL PAPER | DeepProve names the sum-check protocol (Lund, Fortnow, Karloff, Nisan 1992); a direct bibliography citation is unconfirmed | DeepProve paper abstract; 1992 link is the standard lineage, inferred |
 | Maturity | LIVE | Open-sourced June 2026; 12M+ proofs and 3M+ inferences verified, per Lagrange | Lagrange press release, grounded |
@@ -111,6 +111,14 @@ entries rather than merged.
   abstract (20–60×) and Lagrange's press release (60× / 671×) — not
   reconciled in this pass; don't cite a single number without checking
   which baseline it refers to.
-- Trust model (trusted setup vs. transparent) not independently
-  confirmed here — flagged as an open follow-up, same category as
-  EZKL's unresolved SRS-size claims elsewhere in this repo.
+- The trust model was an open follow-up until 2026-11-13. It is now
+  resolved from the repo itself: DeepProve commits with HyperKZG
+  (KZG-based, so it needs a structured reference string), not with a
+  transparent scheme. Two caveats remain. In the open-source code the
+  SRS is generated locally by `test_setup` from an RNG, so whoever
+  generates the proving context could know the trapdoor. Whether
+  Lagrange's hosted prover network uses a ceremony SRS instead is not
+  documented in the sources read. The repo's own docs page on
+  commitments still says Basefold (transparent). It predates the
+  README and the code, which both say HyperKZG, but don't cite the docs
+  page for the setup question.
