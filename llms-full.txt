@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-12T14:11:45+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-14T14:10:00+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5172,6 +5172,127 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL — which has to support arbitrary ONNX graphs rather than one fixed
 circuit — is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-14.md
+========================================================================
+
+---
+date: 2026-11-14
+time: "17:00+03:00"
+kind: daily
+new_items_found: 6
+matrix_impacting: 0
+filed_related_only: 4
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-12T17:10+03:00). No 2026-11-13 run landed, so
+this window covers two days. dstack tagged `v0.6.4`, which the last run
+flagged for another look. One arXiv paper extends α,β-CROWN. Both were
+read against their system files and change neither matrix (below). Four
+more items are relevant to tracked fields and are filed below as
+related only. No system or foundation file changed.
+
+- **dstack `v0.6.4` tag, checked against systems/phala-dstack.md (no
+  edit):** tagged 2026-11-12 (16:06 UTC, inside this window) from the
+  0.6.4 release prep the last run read. The tagged changelog matches
+  that read: KMS root and app key epochs, per-contract TEE-platform
+  allowlists (`teeVariant`), SealedEnv HPKE env encryption, and the
+  native SEV-SNP key provider (#1526). The Key release row ("KMS in
+  TEE, policy on-chain") still describes this. The tagged README still
+  calls Intel TDX "the production path" and AMD SEV-SNP "new and
+  experimental", and still names OpenRouter and NEAR AI as production
+  users, so the Isolation and Production users rows stay as they are.
+  Also in the window: `v0.5.13` and `v0.5.14` on the 0.5.x maintenance
+  branch (backported guest security fixes, and guest-side key-epoch
+  migration so 0.5.x guests keep working against a rotated 0.6.4 KMS),
+  and `verifier-wasm-v0.1.0`, a browser/wasm package of the TDX OS
+  check (#1555). None changes a property. Two branches are not merged
+  and are not counted: launch tickets that gate app boots and KMS key
+  imports (`feat/launch-ticket-contracts`), and a docs change marking
+  the host-file `dstack-auth` backend as development and testing only
+  (`docs/dstack-auth-dev-only`). Both are worth a look if they merge.
+- **arXiv 2611.16003, Fit-LRP, checked against
+  systems/alpha-beta-crown.md (no edit):** a third-party method that
+  replaces the box-based final bound step in LiRPA and α,β-CROWN
+  branch-and-bound with exact LPs over unions of polytopes. It reports
+  47× less branching and 15× lower worst-case time on ARCH-COMP and
+  neural-Lyapunov benchmarks. This is research layered on the verifier,
+  not a release of it, so the Soundness, Hardware and Competition rows
+  are unchanged.
+- **IACR ePrint:** a new batch, 2026/2850 through 2026/2871, appeared
+  in the window (2026/2872 onward return no paper). None was filed. Set
+  aside: Neural Cipher Bench (2026/2850), which runs ciphers as ReLU
+  networks and makes no claim about ML privacy or integrity;
+  Homomorphism in Expectation (2026/2854), a general leveled-HE
+  construction with no ML workload; private distance-sensitive filters
+  (2026/2871), DP lower bounds with no training claim; and the rest,
+  which have no ML claim.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Friday 13 Nov (416
+  distinct entries across the three listings, cross-lists included).
+  The `pastweek` listings show no Thursday 12 Nov batch. Four items
+  are filed below, plus Fit-LRP above. Set aside: verifiable
+  computation for CKKS (2611.16922), an HE-integrity result with no ML
+  workload; PolicySniff (2611.16158), a shared-GPU timing attack on
+  co-resident agents with no TEE or confidential-computing mode
+  involved; tokenized FL rewards with a ZK threshold proof
+  (2611.16065), an MNIST-scale contract study; and the watermarking
+  papers, which are not C2PA provenance.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  Apart from dstack (above): tinfoil-cli tagged `v0.19.22` (login and
+  Perimeter CLI fixes); this is client tooling, so systems/tinfoil.md
+  is unchanged. PySyft merged an obfuscator row-count check (#9617), a
+  coding-cookie parse fix (#9616) and dependency bumps; enclave
+  approval-status and log-message work sits on unmerged branches and is
+  messaging only by its own commit notes. Flower merged agent/Space
+  runtime work (#8525, #8532 to #8536) and automated
+  `release-20261112+N` / `release-20261113+N` build tags. A refactor
+  that moves the legacy client SecAgg and DP mods into `compat` is on
+  unmerged branches. It is a move, not a mechanism change; worth a look
+  if it merges. The other repos have no commits or tags in the window.
+- **TEE attack disclosures and C2PA:** a web search found nothing new
+  dated in the window. TEE results are still DDRop (CCS 2026 talk,
+  disclosure concluded in September) and TEE.Fail. C2PA results still
+  top out at the 2.4 specification (April 2026, per secondary
+  sources). systems/c2pa.md is unchanged; the manual check flagged
+  earlier is still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  twenty-fourth run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **Signed dyadic path encoding for private decision-tree evaluation
+  over TFHE** (arXiv 2611.16818): cuts programmable bootstraps from one
+  per leaf to one per leaf-parent, nearly halving cost, with failure
+  below 2^-64 at 128-bit security. Field: FHE for ML. It is a research
+  encoding, not a change to Zama's library, so
+  systems/zama-concrete-ml.md is unchanged.
+- **VRMaaS: verifiable reward-model-as-a-service** (arXiv 2611.14984):
+  binds each reward score's proof to the request, committed weights,
+  verifier and configuration, after showing that a generic inference
+  proof stays valid under six kinds of field substitution. An optional
+  on-chain ZK wrapper attests to selected checks. Field: ZKML /
+  verifiable inference. No tracked system uses it.
+- **Infrastructure for verifiable AI: where proof costs go** (arXiv
+  2611.17042): a survey plus the authors' measurements of six provers
+  and seven kernels on transformer inference and LoRA fine-tuning. It
+  reports that the dominant cost shifts with proof system and input
+  length. Field: ZKML. It measures provers; it does not report on any
+  tracked system.
+- **SecDVA: maliciously secure MPC data valuation** (arXiv 2611.15373,
+  accepted at ICDE 2027): a (2+1)-party function-secret-sharing
+  protocol that lets a data buyer measure a seller's data against its
+  model, with neither side revealing data or model. Field: MPC for ML /
+  data markets. No tracked system uses it.
+
+## Next run
+
+2026-11-15, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-12.md
