@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T14:10:00+00:00",
+  "generated_at": "2026-11-15T14:09:54+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,34 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-15.md",
+      "frontmatter": {
+        "date": "2026-11-15",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "2",
+        "matrix_impacting": "0",
+        "filed_related_only": "0"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-14T17:10+03:00). One new ePrint paper\nanalyzes Apple Private Cloud Compute's authentication protocol, and\ndstack merged the launch-ticket and `dstack-auth` docs branches that the\nlast run flagged. Both were read against their system files and change\nneither matrix (below). No system or foundation file changed.\n\n- **ePrint 2026/2875, \"Security Analysis of Anonymous Authentication in\n  Apple's Private Cloud Compute\" (Gratz, Lehmann, Sidorenko; preprint,\n  approved 2026-11-14), checked against\n  systems/apple-private-cloud-compute.md (no edit):** per its abstract,\n  it formalizes PCC's blind-RSA, hierarchical token issuance as\n  \"pseudonymously openable, rate-limited tokens\" (PORTA). It finds that\n  Apple's protocol achieves the rate-limiting goal and, \"with a small\n  modification, all privacy goals\". It also finds that the\n  abuse-mitigation mechanism, \"not yet active in the deployed system\",\n  would not give the desired accountability once enabled. Only the\n  abstract could be read: the PDF sits behind a Cloudflare challenge\n  from this runner. So it is not known which privacy goal the deployed\n  protocol misses, or whether that goal is the request-to-identity\n  unlinkability the Request anonymization row describes. That row\n  restates Apple's own claim and is left as is. The accountability\n  finding is about a mechanism that is not live, so the Maturity row is\n  unchanged too. This is the kind of third-party PCC critique the\n  file's Known limitations says to watch for. It needs a manual read of\n  the full paper before any limitation is added.\n- **dstack launch tickets and `dstack-auth` docs, checked against\n  systems/phala-dstack.md (no edit):** PR #1577 (KMS-enforced launch\n  tickets) merged to `next` on 2026-11-15. The KMS sends a ticket hash\n  that the on-chain `DstackApp` / `DstackKms` contracts can require\n  before app key release, certificate signing and KMS key import. It\n  also pins a joining KMS's onboarding source to the registered root CA\n  keys. The #1579 backport lets 0.5.x guests present a ticket. PR #1576,\n  also merged to `next` (2026-11-14, inside the window), marks the\n  config-file `dstack-auth` backend as \"development, testing and\n  evaluation only\" and names the auth-eth contracts as the production\n  policy backend. Neither is in a tagged release yet. Both tighten the\n  on-chain policy the Key release row already states (\"KMS in TEE,\n  policy on-chain\"), so the row stays. Also merged: KMS audit lines for\n  refused key requests (#1583). Gateway and KMS listener, PROXY-protocol\n  and logging work sits on unmerged branches. No new tag in the window.\n- **IACR ePrint:** 2026/2872 to 2026/2877 appeared (2026/2878 onward\n  return no paper). Apart from 2026/2875, none was filed. Set aside:\n  FHE (CKKS) evaluation of Burrows' Delta for authorship attribution\n  (2026/2876), a stylometry statistic with no ML training or inference\n  model; and the rest (UOV, LWE-with-hints, CPU microcode, post-quantum\n  Bitcoin bridges), which have no ML claim.\n- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. The `new` listings\n  still show Friday 13 Nov, which the last run read. arXiv does not\n  announce on Friday or Saturday nights, so the next batch is Monday\n  16 Nov.\n- **Tracked repos:** 16 of the 17 could be read over anonymous git.\n  Only dstack (above) had commits in the window. The other 15 had no\n  commits or tags.\n- **TEE attack disclosures and C2PA:** a web search found nothing new\n  dated in the window. TEE results are still DDRop (CCS 2026 talk) and\n  TEE.Fail. C2PA results still top out at the 2.4 specification.\n  systems/c2pa.md is unchanged; the manual check flagged earlier is\n  still open.\n- **ritual-net/infernet-node is still unreadable,** for the\n  twenty-fifth run in a row, with the same credentials prompt as a\n  non-existent repo. systems/ritual.md is left unchanged. This still\n  needs a manual check.",
+          "list": [
+            "**ePrint 2026/2875, \"Security Analysis of Anonymous Authentication in Apple's Private Cloud Compute\" (Gratz, Lehmann, Sidorenko; preprint, approved 2026-11-14), checked against systems/apple-private-cloud-compute.md (no edit):** per its abstract, it formalizes PCC's blind-RSA, hierarchical token issuance as \"pseudonymously openable, rate-limited tokens\" (PORTA). It finds that Apple's protocol achieves the rate-limiting goal and, \"with a small modification, all privacy goals\". It also finds that the abuse-mitigation mechanism, \"not yet active in the deployed system\", would not give the desired accountability once enabled. Only the abstract could be read: the PDF sits behind a Cloudflare challenge from this runner. So it is not known which privacy goal the deployed protocol misses, or whether that goal is the request-to-identity unlinkability the Request anonymization row describes. That row restates Apple's own claim and is left as is. The accountability finding is about a mechanism that is not live, so the Maturity row is unchanged too. This is the kind of third-party PCC critique the file's Known limitations says to watch for. It needs a manual read of the full paper before any limitation is added.",
+            "**dstack launch tickets and `dstack-auth` docs, checked against systems/phala-dstack.md (no edit):** PR #1577 (KMS-enforced launch tickets) merged to `next` on 2026-11-15. The KMS sends a ticket hash that the on-chain `DstackApp` / `DstackKms` contracts can require before app key release, certificate signing and KMS key import. It also pins a joining KMS's onboarding source to the registered root CA keys. The #1579 backport lets 0.5.x guests present a ticket. PR #1576, also merged to `next` (2026-11-14, inside the window), marks the config-file `dstack-auth` backend as \"development, testing and evaluation only\" and names the auth-eth contracts as the production policy backend. Neither is in a tagged release yet. Both tighten the on-chain policy the Key release row already states (\"KMS in TEE, policy on-chain\"), so the row stays. Also merged: KMS audit lines for refused key requests (#1583). Gateway and KMS listener, PROXY-protocol and logging work sits on unmerged branches. No new tag in the window.",
+            "**IACR ePrint:** 2026/2872 to 2026/2877 appeared (2026/2878 onward return no paper). Apart from 2026/2875, none was filed. Set aside: FHE (CKKS) evaluation of Burrows' Delta for authorship attribution (2026/2876), a stylometry statistic with no ML training or inference model; and the rest (UOV, LWE-with-hints, CPU microcode, post-quantum Bitcoin bridges), which have no ML claim.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** no new batch. The `new` listings still show Friday 13 Nov, which the last run read. arXiv does not announce on Friday or Saturday nights, so the next batch is Monday 16 Nov.",
+            "**Tracked repos:** 16 of the 17 could be read over anonymous git. Only dstack (above) had commits in the window. The other 15 had no commits or tags.",
+            "**TEE attack disclosures and C2PA:** a web search found nothing new dated in the window. TEE results are still DDRop (CCS 2026 talk) and TEE.Fail. C2PA results still top out at the 2.4 specification. systems/c2pa.md is unchanged; the manual check flagged earlier is still open.",
+            "**ritual-net/infernet-node is still unreadable,** for the twenty-fifth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-16, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-14.md",
       "frontmatter": {
         "date": "2026-11-14",
@@ -6224,9 +6252,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-14T17:10:00+03:00",
+    "last_run": "2026-11-15T17:10:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-15T17:00:00+03:00",
+    "next_run": "2026-11-16T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",
