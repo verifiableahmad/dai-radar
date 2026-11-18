@@ -54,7 +54,7 @@ confirmed from the pages reviewed.
 | Confidentiality | HARDWARE ENCLAVE | Inference in enclaves; HTTP bodies encrypted end to end with HPKE (EHBP) | tinfoilsh repo, grounded |
 | Lineage | NONE FOUND | No paper cited; the link to Intel SGX Explained is inferred from the shared TEE-attestation mechanism | Tinfoil docs, inferred link |
 | Maturity | OPEN QUESTION | V3 attestation in beta; no audit or production-deployment evidence found | Tinfoil docs; Known limitations, inferred |
-| On-chain | NO CHAIN | — | Inferred from absence in the cited sources |
+| On-chain | NO CHAIN |  | Inferred from absence in the cited sources |
 
 ## Known limitations
 

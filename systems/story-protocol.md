@@ -52,8 +52,8 @@ None found. Foundation intentionally empty.
 |---|---|---|---|
 | Correctness | OPEN QUESTION | Proving how licensed IP was used in training is unsolved; no mechanism described | Joint announcement, inferred |
 | Trust rests on | NOT COVERED | Registering IP on-chain doesn't establish the registrant owns it | Not addressed in this file's sources |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
-| Lineage | NONE FOUND | — | File's lineage note, inferred |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
+| Lineage | NONE FOUND |  | File's lineage note, inferred |
 | Maturity | DEPRECATED | Core contracts deprecated 2026-09-19; IP Portal shut down 2026-10-15; no new integrations advised | protocol-core-v1 README, grounded |
 | On-chain | OWN CHAIN | Contracts deployed natively on the Story chain (mainnet chain id 1514) | protocol-core-v1 README, grounded |
 

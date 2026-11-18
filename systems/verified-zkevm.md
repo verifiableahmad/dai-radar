@@ -55,11 +55,11 @@ indirectly (Halo2 appears in both).
 | Axis | Class | Detail | Source |
 |---|---|---|---|
 | Correctness | FORMAL PROOF | Funds Lean proofs of zkVMs, EVM implementations and proof systems; no fully verified zkVM shown yet | Secondary sources (Least Authority, Nethermind), inferred |
-| Trust rests on | NOT COVERED | — | Not addressed in this file's sources |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
+| Trust rests on | NOT COVERED |  | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
 | Lineage | NONE FOUND | Verification of proof stacks, not derived from a single paper | verified-zkevm.org, grounded |
 | Maturity | RESEARCH | Ongoing for over a year; 42 grants across 3 tracks; work in progress | verified-zkevm.org + secondary talk summary |
-| On-chain | NOT COVERED | — | Not addressed in this file's sources |
+| On-chain | NOT COVERED |  | Not addressed in this file's sources |
 
 ## Known limitations
 

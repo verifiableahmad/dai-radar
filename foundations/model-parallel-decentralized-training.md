@@ -12,7 +12,7 @@ arxiv: https://arxiv.org/abs/2506.01260
 ## Why this is the seed for this field
 
 Authored directly by the Pluralis Research team (affiliation explicitly
-stated in the paper itself — confirmed via
+stated in the paper itself, confirmed via
 [arxiv.org/html/2506.01260v1](https://arxiv.org/html/2506.01260v1)), not a
 third-party citation. See
 [systems/pluralis-research.md](../systems/pluralis-research.md) for the
@@ -30,7 +30,7 @@ as separate foundation files per this repo's one-file-per-lineage rule.
 
 When a large model is split across devices (model/pipeline parallelism),
 every forward and backward pass requires transferring activation and
-gradient tensors between devices — tens to hundreds of MB per step — which
+gradient tensors between devices (tens to hundreds of MB per step), which
 is fine over datacenter interconnects but becomes the binding bottleneck
 over consumer internet. The paper's compression algorithm exploits a
 recursive structure in transformer networks to confine activations and
@@ -44,7 +44,7 @@ theoretical.
 ## Link to tracked system
 
 Pluralis Research's production system, Agora, uses this technique directly
-as the mechanism that makes its pipeline-parallel training swarm viable —
+as the mechanism that makes its pipeline-parallel training swarm viable;
 without it, the inter-device communication cost of splitting a model across
 unreliable, internet-connected consumer hardware would dominate and make
 the whole approach impractical. See

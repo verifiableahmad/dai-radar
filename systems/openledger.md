@@ -45,9 +45,9 @@ works technically was not found in the sources read.
 | Axis | Class | Detail | Source |
 |---|---|---|---|
 | Correctness | OPEN QUESTION | "Proof of Attribution" records lineage on-chain; how it works technically wasn't found | Company announcements, inferred |
-| Trust rests on | NOT COVERED | — | Not addressed in this file's sources |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
-| Lineage | NONE FOUND | — | File's lineage note, inferred |
+| Trust rests on | NOT COVERED |  | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
+| Lineage | NONE FOUND |  | File's lineage note, inferred |
 | Maturity | LIVE | OPEN mainnet launched, per The Block | The Block, inferred |
 | On-chain | OWN CHAIN | A blockchain for AI data attribution | Company announcements, inferred |
 

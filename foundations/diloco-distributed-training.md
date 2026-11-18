@@ -24,7 +24,7 @@ chain.
 
 This is a different seed paper from the one in
 [foundations/decentralized-training.md](./decentralized-training.md)
-(Proof-of-Learning, cited by Gensyn) despite sharing the same field — that
+(Proof-of-Learning, cited by Gensyn) despite sharing the same field: that
 paper is about verifying training happened as claimed; this one is about
 making distributed training communication-efficient in the first place.
 

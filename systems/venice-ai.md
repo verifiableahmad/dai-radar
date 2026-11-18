@@ -47,7 +47,7 @@ via the Phala TEE stack.
 | Confidentiality | PER APP | Four per-model modes, from identity-hiding proxy to E2EE inside a verified TEE | Venice docs |
 | Lineage | NONE FOUND | No paper cited; TEE link inferred via the Phala stack | Venice docs, inferred link |
 | Maturity | LIVE | Consumer and API LLM service; no independent security audit per a 2026 review | Venice docs |
-| On-chain | NOT COVERED | — | Not addressed in this file's sources |
+| On-chain | NOT COVERED |  | Not addressed in this file's sources |
 
 ## Known limitations
 

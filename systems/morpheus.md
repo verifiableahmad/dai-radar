@@ -44,7 +44,7 @@ citation chain was found.
 
 | Axis | Class | Detail | Source |
 |---|---|---|---|
-| Correctness | NOT COVERED | — | Not addressed in this file's sources |
+| Correctness | NOT COVERED |  | Not addressed in this file's sources |
 | Trust rests on | OPERATORS | Compute providers reached through a smart-contract router; TEE providers are optional | Partner posts, inferred |
 | Confidentiality | PER APP | Base inference isn't private; privacy depends on choosing a TEE provider | Secret Network post, inferred |
 | Lineage | NONE FOUND | No paper cited; the router is built on Lumerin's Bitcoin-mining code | File's lineage note, inferred |

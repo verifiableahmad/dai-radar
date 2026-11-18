@@ -11,14 +11,14 @@ venue: self-published / IACR ePrint 2023/1740 (withdrawn 2024-06-28; mirrored at
 ## Why this is the seed for this field
 
 Nillion's own team announced this paper as the direct basis for their
-non-interactive MPC protocol for non-linear computation — see
+non-interactive MPC protocol for non-linear computation; see
 "Introducing the Nillion Non-Interactive MPC Protocol for Non-Linear
 Computations"
 (https://medium.com/@Nillion_Network/introducing-the-nillion-non-interactive-mpc-protocol-for-non-linear-computations-67e9310ef479),
 corroborated by the MPC Alliance's write-up of the same announcement
 (https://www.mpcalliance.org/blog/nillion-introduces-a-non-interactive-mpc-protocol-for-non-linear-computations).
 Four of the six listed authors (de Vega, Malten, Ugurbil, and one more)
-are Nillion staff — this is effectively the project publishing its own
+are Nillion staff; this is effectively the project publishing its own
 core protocol paper, which is about the strongest grounding available
 for a "foundational paper" claim in this exercise.
 
@@ -26,9 +26,9 @@ for a "foundational paper" claim in this exercise.
 
 Classic linear secret sharing schemes (LSSS) handle addition of shared
 secrets for free but need rounds of communication between parties to
-handle multiplication — the operation needed for anything non-linear.
+handle multiplication, the operation needed for anything non-linear.
 This paper describes a way to evaluate arithmetic sum-of-products
-expressions (sums of products of shared values — covers the multiply
+expressions (sums of products of shared values, which covers the multiply
 step) using a **preprocessing phase that doesn't depend on the private
 inputs**, so the actual computation-on-private-data step becomes
 non-interactive. In plain terms: move the expensive "parties have to

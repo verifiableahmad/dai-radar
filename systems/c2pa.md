@@ -48,7 +48,7 @@ the spec). No academic foundation filed.
 |---|---|---|---|
 | Correctness | SIGNATURE | Signed claims bound to exact bytes by hash; proves who asserted what, not whether it is true | C2PA spec 2.2, grounded |
 | Trust rests on | CERTIFICATE ISSUERS | X.509 signer certificates anchored in the C2PA Trust List | C2PA spec 2.2, grounded |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
 | Lineage | STANDARDS | Informed by Project Origin and the Content Authenticity Initiative; no paper | C2PA spec, grounded |
 | Maturity | LIVE | Published spec (2.2); OpenAI joined the steering committee in May 2026 | C2PA spec; adoption from secondary sources, inferred |
 | On-chain | NO CHAIN | Centralized trust via a certificate list, unlike crypto-native registries | Known limitations; classification inferred |

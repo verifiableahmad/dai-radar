@@ -27,7 +27,7 @@ contribution to that combined result.
   for accuracy; the network combines scored submissions into a single
   output via Allora's own **"Inference Synthesis"** mechanism.
 - Rewards are distributed based on each participant's measured marginal
-  contribution to the synthesized result, not raw output volume — intended
+  contribution to the synthesized result, not raw output volume, intended
   to reward genuinely useful predictions over ones that just add noise.
 - Mainnet (with the ALLO token) launched 2025-11-11, per Allora
   Foundation's own announcement
@@ -42,7 +42,7 @@ worth stating plainly rather than forcing a fit:
 
 - Allora's technical design is documented in its own self-published
   paper, *"Allora: a Self-Improving, Decentralized Machine Intelligence
-  Network"* (Kruijssen, Emmons, Peluso, Ghaffar, Huang, Longmore, Kell —
+  Network"* (Kruijssen, Emmons, Peluso, Ghaffar, Huang, Longmore, Kell,
   2024), published in "Allora Decentralized Intelligence," which is
   Allora's own research venue, not a third-party peer-reviewed journal.
   PDF: [research.assets.allora.network/allora.0x10001.pdf](https://research.assets.allora.network/allora.0x10001.pdf).
@@ -56,14 +56,14 @@ worth stating plainly rather than forcing a fit:
   Networks"* (Pfeffer, Kruijssen, et al., [arxiv.org/pdf/2510.06444](https://arxiv.org/pdf/2510.06444)),
   extends the same in-house framework rather than introducing external
   grounding.
-- Checked `docs.allora.network/learn/what-is-allora` as well — it
+- Checked `docs.allora.network/learn/what-is-allora` as well; it
   points back to the same self-published whitepaper, no external
   citation trail there either.
 
 Net: unlike EZKL (PLONK via Halo2) or Gensyn (explicit citations to
 Proof-of-Learning, Agatha, etc.), Allora's core mechanism reads as an
 original in-house construction, not an implementation of prior academic
-work. **No `foundations/` file was created for this entry** — creating
+work. **No `foundations/` file was created for this entry**: creating
 one would misrepresent a self-published whitepaper as an external
 foundational seed paper in the same sense as the other tracked systems'
 entries. This should be revisited if Allora's team publishes something
@@ -77,7 +77,7 @@ design resemble in spirit but do not cite directly.
 | Property | Current value | Source |
 |---|---|---|
 | Base chain | Cosmos SDK + CometBFT, DPoS validator set | Allora whitepaper/docs, grounded |
-| Core mechanism | Inference Synthesis — combines Worker submissions into one output, scored/weighted by Reputers | Allora whitepaper, grounded |
+| Core mechanism | Inference Synthesis: combines Worker submissions into one output, scored/weighted by Reputers | Allora whitepaper, grounded |
 | Incentive design | Rewards based on measured marginal contribution to the synthesized result | Allora whitepaper, grounded |
 | Token / cross-chain | ALLO token; mainnet + multichain (Ethereum, Base, BNB Chain) launch 2025-11-11 | Allora Foundation announcement, grounded |
 | Academic grounding | None found externally; architecture is self-published, not derived from cited prior work | Direct PDF inspection + docs site check, grounded (as a negative finding) |
@@ -88,7 +88,7 @@ design resemble in spirit but do not cite directly.
 |---|---|---|---|
 | Correctness | PEER SCORING | Reputers stake-weight and score Workers' inferences for accuracy; Inference Synthesis combines them | Allora whitepaper, grounded |
 | Trust rests on | STAKE MAJORITY | Stake-weighted Reputers on a DPoS chain; collusion resistance not independently analyzed | Allora whitepaper; classification inferred |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
 | Lineage | OWN PAPER | Self-published whitepaper with no external citations for the core mechanism | Direct PDF inspection, grounded (as a negative finding) |
 | Maturity | LIVE | Mainnet and ALLO token launched 2025-11-11 | Allora Foundation announcement, grounded |
 | On-chain | OWN CHAIN | Cosmos SDK + CometBFT L1; ALLO also on Ethereum, Base and BNB Chain | Allora whitepaper/docs, grounded |
@@ -99,7 +99,7 @@ design resemble in spirit but do not cite directly.
   scoring mechanism was located in this pass.
 - Because the core mechanism isn't grounded in external literature, there's
   no independent theoretical analysis to cross-check its claimed properties
-  (e.g. collusion-resistance of the Reputer scoring) against — it has to be
+  (e.g. collusion-resistance of the Reputer scoring) against; it has to be
   evaluated on the Allora team's own self-published analysis alone.
 - Current economic/staking parameters (minimum stakes, slashing conditions)
   were not verified in this pass and should be checked against current

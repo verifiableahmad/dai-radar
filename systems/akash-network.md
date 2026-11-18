@@ -33,33 +33,33 @@ GPU/AI workloads as that demand grew.
   providers on the network. ([hoge.gg](https://hoge.gg/akash-network-2026-gpu-market-leaves-cosmos/))
 - **2026 base-chain migration (unverified endpoint, in progress):** per AEP-79,
   Akash is deprecating its sovereign Cosmos-SDK chain in favor of a
-  "shared-security" model — buying BFT security from an established L1 rather
-  than running its own validator set — driven by (a) capital inefficiency of
+  "shared-security" model (buying BFT security from an established L1 rather
+  than running its own validator set), driven by (a) capital inefficiency of
   self-staking and (b) a 2025 Cosmos SDK licensing change (Apache 2.0 →
   Source Available Evaluation License for the Enterprise module) that forced
   the issue. ~15 L1 candidates were evaluated; Solana was reported as the
   leading contender as of this research pass; migration targeted for Q4 2026.
   Not independently confirmed against Akash's own roadmap page beyond the
-  secondary source below — reverify before treating "Solana" as settled.
+  secondary source below; reverify before treating "Solana" as settled.
   ([hoge.gg](https://hoge.gg/akash-network-2026-gpu-market-leaves-cosmos/),
   [akash.network/roadmap/aep-79](https://akash.network/roadmap/aep-79/))
 
 ## Built on (foundational lineage)
 
 **Grounded, but not AI-specific:** Akash's whitepaper cites the Tendermint BFT
-consensus algorithm directly (citation [9] in the original whitepaper) — "The
+consensus algorithm directly (citation [9] in the original whitepaper). "The
 latest gossip on BFT consensus," Buchman, Kwon, Milosevic (2018) is the primary
 academic specification underlying Tendermint. This is the one explicit
 citation grounding found in Akash's own materials.
 
 This is generic blockchain-consensus grounding, not anything specific to AI/ML
-workloads — Akash's GPU marketplace and AkashML layer are a product build on
+workloads; Akash's GPU marketplace and AkashML layer are a product build on
 top of a general-purpose compute marketplace, not something with their own
 distinct academic lineage. No foundations/ file created for this entry: per
 this repo's rule, a foundations file is for AI/ML-relevant lineage, and
 Tendermint's consensus grounding doesn't meet that bar even though it's a real
 citation. (If a future watch-run finds Akash publishing something AI-specific
-with its own citations — e.g. around AkashML's routing/verification approach —
+with its own citations, e.g. around AkashML's routing/verification approach,
 that would be the point to reconsider.)
 
 ## Property matrix
@@ -70,8 +70,8 @@ that would be the point to reconsider.)
 | Marketplace mechanism | Reverse auction (price-competitive provider bidding) | Akash docs, grounded |
 | GPU support | H100, A100, A6000, RTX 4090, L40S; 150+ providers, 30+ countries | hoge.gg, cross-referenced |
 | AI-specific layer | AkashML (OpenAI-compatible inference API, routes across providers), launched 2025-11-22 | hoge.gg, single-source |
-| Compute verification | **None found** — no cryptographic or other verification that a provider ran the workload as specified | hoge.gg analysis, single-source — flagged as a known limitation, not cross-confirmed elsewhere in this pass |
-| Base-chain migration | In progress per AEP-79: Cosmos SDK → shared-security L1 (Solana reported as leading candidate), targeted Q4 2026 | akash.network/roadmap/aep-79, hoge.gg — endpoint unverified |
+| Compute verification | **None found**: no cryptographic or other verification that a provider ran the workload as specified | hoge.gg analysis, single-source; flagged as a known limitation, not cross-confirmed elsewhere in this pass |
+| Base-chain migration | In progress per AEP-79: Cosmos SDK → shared-security L1 (Solana reported as leading candidate), targeted Q4 2026 | akash.network/roadmap/aep-79, hoge.gg; endpoint unverified |
 
 ## Comparison axes
 
@@ -79,7 +79,7 @@ that would be the point to reconsider.)
 |---|---|---|---|
 | Correctness | NONE FOUND | "Akash rents you a GPU; it does not prove what that GPU did." | hoge.gg analysis, single-source |
 | Trust rests on | OPERATORS | Whichever provider wins the lease; a substituted or quantized model would go undetected | hoge.gg analysis, single-source |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
 | Lineage | GENERIC ONLY | Whitepaper cites Tendermint BFT consensus: a real citation, but not AI-specific | Akash whitepaper citation [9], grounded |
 | Maturity | LIVE | GPU marketplace since Aug 2023, AkashML since Nov 2025; base-chain migration in progress | Akash docs + hoge.gg, cross-referenced |
 | On-chain | OWN CHAIN | Cosmos SDK + Tendermint chain, migrating to a shared-security L1 (Solana reported, unconfirmed) | Akash whitepaper; AEP-79 endpoint unverified |
@@ -89,7 +89,7 @@ that would be the point to reconsider.)
 - **No compute verification.** Per the source above: "Akash rents you a GPU;
   it does not prove what that GPU did." A provider could in principle
   substitute a cheaper/quantized model for what was requested without
-  detection — there is no proof-of-execution or attestation layer analogous to
+  detection; there is no proof-of-execution or attestation layer analogous to
   Gensyn's RepOps/bisection game or a TEE-attestation approach. This is a
   structural gap, not a bug, and the most important thing for a future
   watch-run to monitor if Akash ever adds a verification layer.
@@ -99,4 +99,4 @@ that would be the point to reconsider.)
   provisional until the migration completes and is reverified.
 - Economic/tokenomics grounding (AKT emission, staking requirements) comes
   from a 2019 economics whitepaper that predates the GPU marketplace and
-  AkashML entirely — not re-verified against current parameters in this pass.
+  AkashML entirely; not re-verified against current parameters in this pass.

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>dai.misbar.tech — decentralized AI radar</title>
+<title>dAI Radar · decentralized AI systems and their papers</title>
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <meta name="description" content="Tracked production systems, their sourced foundational-paper lineage, and evaluation matrices." />
 <style>
   :root{
-    /* Misbar design-system tokens (src/design-system/tokens.css) — same
+    /* Misbar design-system tokens (src/design-system/tokens.css): same
        palette as the parent platform, dark values as the default ground. */
     --bg:#0a0812;
     --bg-raise:#1c1828;
@@ -159,6 +159,7 @@
   /* copy left, radar right on desktop; copy first, radar full-width on phones */
   .scope-hero{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,540px); gap:48px; align-items:center;}
   @media (max-width:900px){ .scope-hero{grid-template-columns:1fr; gap:32px;} }
+  .scope-hero h1{font-size:clamp(24px,2.8vw,32px); line-height:1.25; margin-bottom:14px;}
 
   .radar{
     position:relative; width:100%; max-width:540px; aspect-ratio:1; margin:0 auto;
@@ -250,13 +251,9 @@
   .misbar-line{margin:18px 0 0; font-size:12px; color:var(--ink-dim); max-width:none;}
   .misbar-line a{font-weight:700;}
 
-  .statement{
-    margin:72px 0 0; padding-top:36px; border-top:1px solid var(--line); max-width:30ch;
-    font-family:var(--mono); font-weight:700; font-size:clamp(24px,3.6vw,40px); line-height:1.2;
-    letter-spacing:-.01em; color:var(--ink); text-wrap:balance;
-  }
-  .statement em{font-style:normal; color:var(--grounded);}
-  .statement-meta{margin-top:16px; font-size:11px; letter-spacing:.06em; color:var(--ink-faint); max-width:none;}
+  .statement{margin:64px 0 0; padding-top:28px; border-top:1px solid var(--rule); color:var(--ink);}
+  .statement-body{margin:10px 0 0;}
+  .statement-meta{margin-top:12px; font-size:11px; letter-spacing:.06em; color:var(--ink-faint); max-width:none;}
   .linkbtn{background:none; border:none; padding:0; font:inherit; letter-spacing:inherit; color:var(--grounded); cursor:pointer; border-bottom:1px solid currentColor;}
   .ask-row{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:18px; font-size:11px; letter-spacing:.06em; color:var(--ink-faint);}
   .ask-row .lbl{margin-right:4px;}
@@ -577,8 +574,8 @@
     <div class="scope-hero">
       <div>
         <div class="eyebrow">DECENTRALIZED AI · UPDATED DAILY</div>
-        <h1>Decentralized&nbsp;AI, traced to its sources.</h1>
-        <p class="lede">Production systems in verifiable inference, private compute, decentralized training, compute markets, agents, and incentive networks, each traced back to the paper it's actually built on, with every claim marked by how directly it's sourced. Not a news feed. A chain of custody.</p>
+        <h1>Decentralized AI systems and the papers they're built on</h1>
+        <p class="lede">Profiles of shipping systems in verifiable inference, private compute, decentralized training, compute markets, incentive networks, agent protocols, formal verification, and data &amp; model ownership. Each covers what the system does, how it works, the paper it builds on (where its own docs cite one), and its known limitations. Every claim is tagged grounded (directly sourced) or inferred.</p>
         <div class="ticker">
           <div class="cell"><div class="num" id="stat-systems">–</div><div class="lbl">SYSTEMS TRACKED</div></div>
           <div class="cell"><div class="num" id="stat-foundations">–</div><div class="lbl">SEED PAPERS</div></div>
@@ -601,7 +598,8 @@
       </div>
     </div>
 
-    <p class="statement">New research is checked against what actually ships, every day. <em>A note gets written only when something real moves.</em></p>
+    <h2 class="statement">Daily check</h2>
+    <p class="statement-body">Each day, new papers and releases from the sources below are checked against the systems tracked here. A system's file is updated only when something changes its property matrix; most days nothing does.</p>
     <p class="statement-meta"><span id="sweep-when">daily check</span> · IACR ePrint · arXiv cs.CR / cs.LG / cs.DC · tracked systems' repos · <button class="linkbtn" data-nav="log">change log →</button></p>
     <!-- Prefilled prompt points the assistant at llms-full.txt (written by scripts/build_index.py). -->
     <div class="ask-row">
@@ -636,18 +634,18 @@
   <section class="view" id="view-foundations">
     <div class="eyebrow">SEED PAPERS</div>
     <h1>Foundations</h1>
-    <p class="lede">One paper per field, chosen because a tracked system's own docs demonstrably cite it, not because it's subjectively "important."</p>
+    <p class="lede">One paper per field. A paper is listed only when a tracked system's own docs cite it, directly or through a documented citation chain.</p>
     <div class="found-list" id="found-list"><div class="loading">loading index.json…</div></div>
   </section>
 
   <section class="view" id="view-log">
     <div class="eyebrow">DAILY CHECK</div>
     <h1>Change log</h1>
-    <p class="lede">A daily check against a fixed, narrow set of sources (IACR ePrint, relevant arXiv categories, and tracked systems' own repos) — not the entire literature.</p>
+    <p class="lede">A daily check against a fixed, narrow set of sources (IACR ePrint, relevant arXiv categories, and tracked systems' own repos), not the entire literature.</p>
 
     <div class="logpanel">
       <div class="readout" id="log-readout">
-        <div><span>checkpoint —</span> watch/checkpoint.json</div>
+        <div><span>checkpoint:</span> watch/checkpoint.json</div>
       </div>
 
       <div class="since-row" id="since-row" style="display:none;">
@@ -660,9 +658,9 @@
 
       <h3 style="margin-top:26px; color:var(--ink);">What a run does</h3>
       <ol class="steps">
-        <li>Pull new items since the last checkpoint from the fixed source list — IACR ePrint, arXiv (cs.CR, cs.LG, cs.DC), and tracked systems' own repos — not the entire literature.</li>
+        <li>Pull new items since the last checkpoint from the fixed source list: IACR ePrint, arXiv (cs.CR, cs.LG, cs.DC), and tracked systems' own repos.</li>
         <li>Filter for relevance against the tracked systems/fields.</li>
-        <li>For anything touching a tracked system — a paper, a release, a merged PR that looks significant: read it fully, check it against that system's property matrix. A note is written only if the matrix actually changes.</li>
+        <li>For anything touching a tracked system (a paper, a release, a merged PR that looks significant), read it fully and check it against that system's property matrix. A note is written only if the matrix actually changes.</li>
         <li>For anything field‑relevant but untied to a tracked system: filed as "related, unverified relevance" (a visibly lower tier, no full write‑up).</li>
         <li>Checkpoint updates. Short report: N new, M matrix‑impacting, rest filed.</li>
       </ol>
@@ -710,7 +708,7 @@
 
 <footer>
   <div class="wrap">
-    <span>dai.misbar.tech: a radar, not a feed.</span>
+    <span>dai.misbar.tech</span>
     <span>know a system we should track? <a href="https://github.com/verifiableahmad/dai-radar/issues/new?template=suggest-system.yml" target="_blank" rel="noopener">suggest it on GitHub ↗</a></span>
   </div>
 </footer>
@@ -953,7 +951,7 @@
       var cls = (row.Class || "").trim().toUpperCase(), source = row.Source || "";
       out[row.Axis] = {
         cls: cls,
-        detail: row.Detail === "—" ? "" : (row.Detail || ""),
+        detail: row.Detail || "",
         source: source,
         tier: cls === "NOT COVERED" ? null : cls === "OPEN QUESTION" ? "open" : /inferred/i.test(source) ? "inferred" : "grounded"
       };
@@ -1103,7 +1101,7 @@
       var cfg = VIEW_CONFIG[s.path] || {};
       // The authoritative system→foundation link lives in index.json (built
       // from each system's own `foundation:` frontmatter pointer). VIEW_CONFIG
-      // only adds a richer, hand-written multi-hop trace for a few systems —
+      // only adds a richer, hand-written multi-hop trace for a few systems;
       // it must never be the ONLY source, or every system without a curated
       // entry here would silently show no foundation at all, even ones that
       // index.json says are actually grounded.
@@ -1118,7 +1116,7 @@
         field: s.frontmatter.field,
         category: s.frontmatter.category || null,
         updated: s.frontmatter.last_updated,
-        // Full field name, not a truncated prefix — slicing to a fixed
+        // Full field name, not a truncated prefix: slicing to a fixed
         // length collapsed several distinct fields that happen to share a
         // prefix (e.g. every "Decentralized ..." field) into one garbled,
         // ambiguous filter chip once there were more than a handful of fields.
@@ -1138,7 +1136,7 @@
       };
     });
     // A curated fieldTag names the whole field, not just the one system that
-    // carries it in VIEW_CONFIG — otherwise systems sharing a field split
+    // carries it in VIEW_CONFIG; otherwise systems sharing a field split
     // across two filter chips (e.g. "ZK·ML" vs "ZKML / VERIFIABLE INFERENCE").
     var tagByField = {};
     systems.forEach(function(s){ var cfg = VIEW_CONFIG[s.path]; if(cfg && cfg.fieldTag) tagByField[s.field] = cfg.fieldTag; });
@@ -1204,7 +1202,7 @@
     var cp = index.checkpoint || {};
     var logDates = (index.watch_log || []).map(function(w){ return w.frontmatter.date || ""; }).sort();
     var last = cp.last_run ? utcParts(cp.last_run) : null;
-    var lastDate = last ? last.date : (logDates[logDates.length-1] || "—");
+    var lastDate = last ? last.date : (logDates[logDates.length-1] || "n/a");
     document.getElementById("stat-updated").textContent = lastDate;
     document.getElementById("radar-center").innerHTML = "LAST CHECK<b>" + escapeHtml(lastDate) + "</b>";
 
@@ -1221,7 +1219,7 @@
     function catAngle(ci){ return ci * sectorDeg - 90; }
     function polar(deg, r){ var a = deg * Math.PI / 180; return (50 + r * Math.cos(a)) + " " + (50 + r * Math.sin(a)); }
 
-    var idleText = '<b>'+systems.length+' contacts</b> · inside the dashed ring grounded, outside mixed<br/>select a contact to open its case file';
+    var idleText = '<b>'+systems.length+' systems</b> · inside the dashed ring grounded, outside mixed<br/>select a dot to open its file';
     readout.innerHTML = idleText;
     // no hover on touch: a first tap on a wedge (often a near-miss on a blip)
     // only names the category; tapping it again filters
@@ -1271,26 +1269,56 @@
     });
     radar.appendChild(svg);
 
-    // Within a category, systems of the same tier would share a spot, so each
-    // such group is fanned out across the wedge (ordered by field, so sub-fields
-    // sit together); the radius — the confidence encoding — is left intact.
+    // Systems of one category and tier share a band: grounded inside the dashed
+    // ring, mixed outside it. A big group (Private compute has 17) doesn't fit
+    // on one arc without blips overlapping, so the band is split into as many
+    // concentric rows as it takes to keep blips MIN_GAP apart. Rows fill from
+    // the centre out in order of the share of inferred matrix rows, so a
+    // further-out blip still means a less grounded matrix; within a row blips
+    // are ordered by field, so sub-fields sit together.
+    var MIN_GAP = 3.6;                       // centre-to-centre, in % of the radar's width
+    var BANDS = { grounded: [14, 22.5], mixed: [30, 42] };
+    var spanDeg = 0.8 * sectorDeg;
+    function inferredFrac(s){
+      return s.matrix.length ? s.matrix.filter(function(r){ return r.tier === "inferred"; }).length / s.matrix.length : 0;
+    }
+    function rowCap(r){ return Math.floor(r * spanDeg * Math.PI / 180 / MIN_GAP) + 1; }
+
     var groups = {};
-    systems.slice().sort(function(a, b){ return (a.field+a.name).localeCompare(b.field+b.name); })
-      .forEach(function(s){ var k = s.category+"|"+s.tier; (groups[k] = groups[k] || []).push(s); });
+    systems.forEach(function(s){ var k = s.category+"|"+(s.tier === "grounded" ? "grounded" : "mixed"); (groups[k] = groups[k] || []).push(s); });
+    var place = {};
+    Object.keys(groups).forEach(function(key){
+      var group = groups[key], band = BANDS[key.split("|")[1]], k = group.length;
+      var radii, caps, n = 1;
+      for(;; n++){
+        radii = [];
+        for(var i = 0; i < n; i++) radii.push(n === 1 ? (band[0] + band[1]) / 2 : band[0] + (band[1] - band[0]) * i / (n - 1));
+        caps = radii.map(rowCap);
+        if(caps.reduce(function(a, b){ return a + b; }, 0) >= k || n >= 6) break;
+      }
+      // share the group out in proportion to each row's capacity
+      var total = caps.reduce(function(a, b){ return a + b; }, 0);
+      var counts = caps.map(function(c){ return Math.min(c, Math.floor(k * c / total)); });
+      var left = k - counts.reduce(function(a, b){ return a + b; }, 0);
+      for(var j = n - 1; left > 0; j = (j + n - 1) % n){
+        if(counts[j] < caps[j] || counts.every(function(c, i){ return c >= caps[i]; })){ counts[j]++; left--; }
+      }
+      group.sort(function(a, b){ return inferredFrac(a) - inferredFrac(b) || (a.field+a.name).localeCompare(b.field+b.name); });
+      var at = 0;
+      counts.forEach(function(c, row){
+        var members = group.slice(at, at + c).sort(function(a, b){ return (a.field+a.name).localeCompare(b.field+b.name); });
+        at += c;
+        var step = c > 1 ? Math.min(spanDeg / (c - 1), 0.4 * sectorDeg) : 0;
+        members.forEach(function(s, i){ place[s.path] = { r: radii[row], offset: (i - (c - 1) / 2) * step }; });
+      });
+    });
 
     systems.forEach(function(s){
-      var inferredCount = s.matrix.filter(function(r){ return r.tier === "inferred"; }).length;
-      var frac = s.matrix.length ? inferredCount / s.matrix.length : 0;
-      // radius band keyed to the same confidence tier as the blip's color (center = grounded,
-      // edge = mixed signal), with the row-level inferred fraction as fine positioning within the band
-      var radius = s.tier === "grounded" ? (0.3 + 0.1 * frac) : (0.58 + 0.22 * frac);
-      var r = radius * 50;
       var ci = categories.map(function(c){ return c.id; }).indexOf(s.category);
-      var group = groups[s.category+"|"+s.tier], k = group.length;
-      var step = k > 1 ? Math.min(0.8 * sectorDeg / (k - 1), 0.4 * sectorDeg) : 0;
-      var rad = (catAngle(ci) + (group.indexOf(s) - (k - 1) / 2) * step) * Math.PI / 180;
-      var x = 50 + r * Math.cos(rad);
-      var y = 50 + r * Math.sin(rad);
+      var p = place[s.path];
+      var rad = (catAngle(ci) + p.offset) * Math.PI / 180;
+      var x = 50 + p.r * Math.cos(rad);
+      var y = 50 + p.r * Math.sin(rad);
       var tierText = s.tier === "grounded" ? "grounded" : "mixed";
       var b = document.createElement("button");
       b.className = "blip" + (s.tier !== "grounded" ? " tier-mixed" : "") + (x > 50 ? " flip" : "");
@@ -1368,7 +1396,7 @@
             '<div class="rowtop"><div><h3>'+escapeHtml(s.name)+'</h3><div class="field">'+escapeHtml(s.fieldTag)+'</div></div>'+
             '<span class="stamp '+stampCls+'">'+stampText+'</span></div>'+
             '<div class="md lead">'+s.lead+'</div>'+
-            '<div class="meta"><span>'+escapeHtml(s.path)+'</span><span>updated '+escapeHtml(s.updated||"—")+'</span></div>';
+            '<div class="meta"><span>'+escapeHtml(s.path)+'</span><span>updated '+escapeHtml(s.updated||"n/a")+'</span></div>';
           card.setAttribute("data-path", s.path);
           card.addEventListener("click", function(){ openDossier(s.path, card); });
           cards.appendChild(card);
@@ -1511,7 +1539,7 @@
         return '<span class="stamp '+(s.tier === "grounded" ? 'grounded">GROUNDED' : 'mixed">MIXED')+'</span>'+
           '<p>'+g+' of '+n+' rows grounded</p><div class="evbar" role="img" aria-label="'+pct+'% of rows grounded"><i style="width:'+pct+'%"></i></div>'+
           (s.confidenceNote ? '<div class="src">'+escapeHtml(s.confidenceNote)+'</div>' : '')+
-          '<div class="src">updated '+escapeHtml(s.updated || "—")+'</div>';
+          '<div class="src">updated '+escapeHtml(s.updated || "n/a")+'</div>';
       }));
 
       // each file's matrix, keyed by normalized property name (first row wins within a file)
@@ -1627,7 +1655,7 @@
     }
 
     /* Foundation section: always render something, never silently omit it.
-       Three cases — curated multi-hop trace (the handful of systems with a
+       Three cases: a curated multi-hop trace (the handful of systems with a
        hand-written VIEW_CONFIG entry), a generic system→paper link built
        straight from index.json (every other grounded system), or an
        explicit "no foundation found" state for systems where that's a
@@ -1649,7 +1677,7 @@
       foundationHtml = '<div class="section"><h3>Foundation</h3>'+
         '<div class="empty-log" style="margin-top:0;"><div class="glyph">&#9676;</div><div>'+
         '<strong>No foundation found.</strong>'+
-        '<p style="margin:6px 0 0;">This system\'s own docs, whitepaper, or team were checked for a citable lineage and none survived source-checking; see Known limitations below for what was actually found instead. Not a gap in this page, a documented result.</p>'+
+        '<p style="margin:6px 0 0;">This system\'s own docs, whitepaper, or team were checked for a citable lineage and none survived source-checking. Known limitations below lists what was found instead.</p>'+
         '</div></div></div>';
     }
 
@@ -1708,7 +1736,7 @@
   }
 
   /* Timeline of watch/log/ entries, plus a "show changes since" picker.
-     No accounts, no cookies, no server-side tracking of who visited —
+     No accounts, no cookies, no server-side tracking of who visited;
      the picker works identically with zero stored state (pick a date,
      see what's after it). The default is the most recent day; localStorage
      only widens it for a returning visitor whose last visit was earlier,
@@ -1717,11 +1745,11 @@
     var readout = document.getElementById("log-readout");
     if(checkpoint){
       readout.innerHTML =
-        '<div><span>checkpoint —</span> watch/checkpoint.json</div>'+
-        '<div><span>sources —</span> '+escapeHtml((checkpoint.sources||[]).join(" · "))+'</div>'+
-        '<div><span>schedule —</span> '+escapeHtml(checkpoint.schedule||"—")+'</div>'+
-        '<div><span>last run —</span> '+escapeHtml(checkpoint.last_run||"—")+(checkpoint.last_run_kind ? ' ('+escapeHtml(checkpoint.last_run_kind)+')' : '')+'</div>'+
-        '<div><span>next run —</span> '+escapeHtml(checkpoint.next_run||"—")+'</div>';
+        '<div><span>checkpoint:</span> watch/checkpoint.json</div>'+
+        '<div><span>sources:</span> '+escapeHtml((checkpoint.sources||[]).join(" · "))+'</div>'+
+        '<div><span>schedule:</span> '+escapeHtml(checkpoint.schedule||"n/a")+'</div>'+
+        '<div><span>last run:</span> '+escapeHtml(checkpoint.last_run||"n/a")+(checkpoint.last_run_kind ? ' ('+escapeHtml(checkpoint.last_run_kind)+')' : '')+'</div>'+
+        '<div><span>next run:</span> '+escapeHtml(checkpoint.next_run||"n/a")+'</div>';
     }
 
     var sinceRow = document.getElementById("since-row");
@@ -1733,7 +1761,7 @@
       timeline.innerHTML =
         '<div class="empty-log"><div class="glyph">&#9676;</div><div>'+
         '<strong>No check has run yet.</strong>'+
-        '<p style="margin:6px 0 0;">This view fills with one dated entry per run. Nothing here is backfilled or simulated.</p>'+
+        '<p style="margin:6px 0 0;">This view fills with one dated entry per run.</p>'+
         '</div></div>';
       return;
     }
@@ -1745,7 +1773,7 @@
       dates.map(function(d){ return '<option value="'+escapeHtml(d)+'">'+escapeHtml(d)+'</option>'; }).join("");
 
     // Default to the most recent day (everything after the date before it), so
-    // the view is never empty — reaching further back only when this visitor's
+    // the view is never empty, reaching further back only when this visitor's
     // last visit predates that day, so a returning visitor misses nothing.
     // dates is newest-first.
     var lastSeen = null;
@@ -1810,7 +1838,7 @@
     renderTimeline();
 
     // Mark the most recent entry as seen for next visit. Only ever moves
-    // forward — manually browsing older history via the picker above must
+    // forward: manually browsing older history via the picker above must
     // not un-mark what's already been seen.
     try{ localStorage.setItem("dai-log-last-seen", dates[0]); }catch(e){}
   }

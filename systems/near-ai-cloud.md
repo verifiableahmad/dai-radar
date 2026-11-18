@@ -48,7 +48,7 @@ None cited; **inferred** link to `foundations/tee-remote-attestation.md`.
 | Confidentiality | HARDWARE ENCLAVE | Prompts, weights and outputs claimed hidden from cloud, model provider and NEAR; optional E2EE | NEAR AI docs, grounded |
 | Lineage | NONE FOUND | No paper cited; the link to Intel SGX Explained is inferred from the shared TEE-attestation mechanism | NEAR AI docs, inferred link |
 | Maturity | LIVE | Documented API; listed as a production user by the dstack repo (self-reported) | NEAR AI docs + dstack README, inferred |
-| On-chain | NOT COVERED | — | Not addressed in this file's sources |
+| On-chain | NOT COVERED |  | Not addressed in this file's sources |
 
 ## Known limitations
 

@@ -45,7 +45,7 @@ None cited. **Inferred** link to `foundations/tee-remote-attestation.md`.
 | Trust rests on | HARDWARE VENDOR | Intel SGX / TDX, with a key management service inside the TEE | Oasis ROFL docs, grounded |
 | Confidentiality | HARDWARE ENCLAVE | Encrypted transactions and confidential contracts (Sapphire); TEE-hosted apps (ROFL) | Oasis docs overview, grounded |
 | Lineage | NONE FOUND | No paper cited; the link to Intel SGX Explained is inferred from the shared TEE-attestation mechanism | Oasis docs, inferred link |
-| Maturity | NOT COVERED | — | Not addressed in this file's sources |
+| Maturity | NOT COVERED |  | Not addressed in this file's sources |
 | On-chain | OWN CHAIN | Sapphire, an EVM-compatible confidential chain | Oasis docs overview, grounded |
 
 ## Known limitations
