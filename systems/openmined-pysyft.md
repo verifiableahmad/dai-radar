@@ -43,12 +43,12 @@ lineage is asserted; foundation intentionally empty.
 
 | Axis | Class | Detail | Source |
 |---|---|---|---|
-| Correctness | NOT COVERED | — | Not addressed in this file's sources |
+| Correctness | NOT COVERED |  | Not addressed in this file's sources |
 | Trust rests on | OPERATORS | The data owner's review of submitted code and outputs, not cryptography | README, grounded |
 | Confidentiality | ISOLATION | Data stays on the owner's server; jobs run in a sandbox and only approved outputs are returned | README, grounded |
 | Lineage | NONE FOUND | The current README cites no SMPC, HE or DP lineage | README, grounded (as a negative finding) |
 | Maturity | NOT COVERED | Current line is syft 0.10+; no scale or audit information | Not addressed in this file's sources |
-| On-chain | NO CHAIN | — | Inferred from absence in the cited sources |
+| On-chain | NO CHAIN |  | Inferred from absence in the cited sources |
 
 ## Known limitations
 

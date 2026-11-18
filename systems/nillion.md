@@ -38,8 +38,8 @@ and only the final result is reassembled.
 ## Built on (foundational lineage)
 
 **Paper:** "Evaluation of Arithmetic Sum-of-Products Expressions in
-Linear Secret Sharing Schemes with a Non-Interactive Computation Phase"
-— Miguel de Vega (Nillion), Andrei Lapets (Reity), Stanisław Jarecki
+Linear Secret Sharing Schemes with a Non-Interactive Computation Phase",
+Miguel de Vega (Nillion), Andrei Lapets (Reity), Stanisław Jarecki
 (UC Irvine), Wicher Malten (Nillion), Mehmet Ugurbil (Nillion), Wyatt
 Howe (UCLA).
 PDF: https://nillion.pub/sum-of-products-lsss-non-interactive.pdf
@@ -48,19 +48,19 @@ ePrint but mirrored on Nillion's own site).
 
 **Grounding source:** Nillion's own team announced this paper directly
 as the basis for their non-interactive MPC protocol for non-linear
-computation — see "Introducing the Nillion Non-Interactive MPC Protocol
+computation; see "Introducing the Nillion Non-Interactive MPC Protocol
 for Non-Linear Computations"
 (https://medium.com/@Nillion_Network/introducing-the-nillion-non-interactive-mpc-protocol-for-non-linear-computations-67e9310ef479)
 and the MPC Alliance's coverage of the same announcement
 (https://www.mpcalliance.org/blog/nillion-introduces-a-non-interactive-mpc-protocol-for-non-linear-computations).
 Four of the six authors are Nillion staff, so this is effectively
-Nillion publishing its own core protocol paper — about as direct a
+Nillion publishing its own core protocol paper, about as direct a
 grounding as this kind of claim can get.
 
-**How it's used:** the paper's contribution — evaluating arithmetic
+**How it's used:** the paper's contribution, evaluating arithmetic
 sum-of-products expressions (which covers the multiplications needed
 for non-linear ops) within LSSS using a preprocessing phase instead of
-interactive communication during computation — is the specific technique
+interactive communication during computation, is the specific technique
 that lets Curl/NMC do non-linear math without the usual back-and-forth
 communication overhead of classic MPC protocols.
 
@@ -92,7 +92,7 @@ communication overhead of classic MPC protocols.
 - The specific foundational paper above was **withdrawn from IACR ePrint**
   (official listing shows 2023/1740 withdrawn 2024-06-28); the only
   available copy is now self-hosted by Nillion at nillion.pub. Worth
-  tracking why it was withdrawn — could be a correction, a priority
+  tracking why it was withdrawn: could be a correction, a priority
   dispute, or something more substantive. Flagged here as an open
   question rather than resolved.
 - Nillion markets both MPC and homomorphic-encryption-style techniques
@@ -102,6 +102,6 @@ communication overhead of classic MPC protocols.
   marketing claims about "which crypto is doing the work" with caution
   until cross-checked against the underlying protocol docs.
 - Mid-2026 chain migration (Cosmos → Ethereum L1) and L2 shutdown is
-  recent and operationally disruptive — a useful thing to watch for
+  recent and operationally disruptive, a useful thing to watch for
   whether it introduces new trust assumptions (e.g. bridge security)
   not present in the original MPC design.

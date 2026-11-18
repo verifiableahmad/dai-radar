@@ -14,8 +14,8 @@ refined_link: https://arxiv.org/abs/2310.11559
 ## Why this is the seed for this field
 
 Grounded directly, not inferred: Microsoft's own Azure documentation
-states that Azure confidential ledger — the transparency/auditability
-component used in Azure AI Confidential Inferencing — "is built on the
+states that Azure confidential ledger, the transparency/auditability
+component used in Azure AI Confidential Inferencing, "is built on the
 Confidential Consortium Framework (CCF)." CCF is itself a Microsoft
 Research project (github.com/microsoft/CCF) with its own research page
 listing this 2019 technical report as the original design paper, later
@@ -42,12 +42,12 @@ scrutiny of the same system.
 
 ## Link to tracked system
 
-Azure's confidential ledger product — and, through it, the
-transparency-ledger component of Azure AI Confidential Inferencing —
+Azure's confidential ledger product (and, through it, the
+transparency-ledger component of Azure AI Confidential Inferencing)
 is built directly on CCF. This is the one part of Microsoft's
 "Confidential AI" story with a real, citable Microsoft Research paper
 behind it; the TEE hardware layer underneath (AMD SEV-SNP, Intel TDX,
 NVIDIA H100 confidential computing) is vendor technology with its own
-specs, not an academic contribution from this lineage — see
+specs, not an academic contribution from this lineage; see
 `/systems/azure-confidential-ai.md`'s "Built on" section for why those
 two lineages are kept separate rather than merged into one claim.

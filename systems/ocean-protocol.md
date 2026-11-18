@@ -11,8 +11,8 @@ website: "https://oceanprotocol.com"
 
 Ocean Protocol is a Web3 data marketplace: data owners publish datasets as
 NFTs (ERC-721) with access rights sold as datatokens (ERC-20), and buyers
-can either download data they've licensed or — via Compute-to-Data (C2D)
-— run an approved algorithm against a dataset without the dataset ever
+can either download data they've licensed or, via Compute-to-Data (C2D),
+run an approved algorithm against a dataset without the dataset ever
 leaving the owner's infrastructure, so only the computation's output is
 exposed, not the raw data.
 
@@ -36,7 +36,7 @@ exposed, not the raw data.
 - **Oasis Sapphire deployment**: Ocean's "Predictoor" product specifically
   is deployed on Oasis Sapphire mainnet, which *is* a confidential
   (TEE-based) EVM. This is a genuinely cryptographic/hardware-confidential
-  privacy mechanism — but per Ocean's own docs, this Sapphire deployment
+  privacy mechanism, but per Ocean's own docs, this Sapphire deployment
   does not currently support `ocean.js`, `ocean.py`, or Ocean Market, i.e.
   it isn't the mechanism behind the core data-marketplace/C2D product
   described above. Don't conflate the two.
@@ -49,12 +49,12 @@ whitepaper search results directly: the architecture is described
 operationally (isolated Kubernetes pods, ephemeral execution) with no
 citation to a specific academic paper, cryptographic primitive, or formal
 security proof for *why* this gives the privacy property claimed. This is
-the Bittensor-style situation — rather than force a citation, this is
+the Bittensor-style situation: rather than force a citation, this is
 flagged as **inferred/not grounded**: C2D is better described as an
 engineering pattern (sandboxed compute-near-data) than as an
 implementation of a specific cited cryptographic scheme.
 
-No new `foundations/` file created — there's nothing to seed it with that
+No new `foundations/` file created; there's nothing to seed it with that
 would survive the same source-checking bar used elsewhere in this repo.
 If Ocean's team ever publishes a paper specifically justifying C2D's
 security properties, revisit this.
@@ -63,7 +63,7 @@ security properties, revisit this.
 
 | Property | Current value | Source |
 |---|---|---|
-| Privacy mechanism | Process/container isolation (ephemeral Kubernetes pods) — **not** cryptographic (MPC/FHE/ZK) | Ocean C2D architecture docs, grounded |
+| Privacy mechanism | Process/container isolation (ephemeral Kubernetes pods), **not** cryptographic (MPC/FHE/ZK) | Ocean C2D architecture docs, grounded |
 | Cryptographic confidential-compute option | Exists only for the separate Predictoor product on Oasis Sapphire (TEE-based); not used by core C2D/Ocean Market | docs.oceanprotocol.com/discover/networks + Oasis partnership announcements, grounded |
 | Data representation | Data NFT (ERC-721) + per-asset datatoken (ERC-20) | Ocean docs, grounded |
 | Base chain(s) | Ethereum mainnet (core contracts) + Polygon, BNB Smart Chain, Energy Web Chain, Optimism, Moonriver, Oasis Sapphire (Predictoor only) | docs.oceanprotocol.com/discover/networks, grounded |
@@ -87,15 +87,15 @@ security properties, revisit this.
   data owner's own infrastructure (or a provider they trust), not on a
   cryptographic guarantee independently verifiable by the buyer. A buyer
   has no cryptographic proof that the algorithm actually ran only against
-  the claimed dataset, or that the pod wasn't tampered with — this is a
+  the claimed dataset, or that the pod wasn't tampered with; this is a
   materially weaker trust model than the MPC/FHE/ZK-based systems
   elsewhere in this repo, and should not be described as "privacy-
   preserving" in the same sense as those.
 - The one part of Ocean's stack with real cryptographic/hardware backing
   (Oasis Sapphire's TEE-based confidential EVM) is scoped to a single
   product (Predictoor) and explicitly not integrated with the main
-  data-marketplace tooling as of this check — worth re-checking if that
+  data-marketplace tooling as of this check; worth re-checking if that
   changes.
 - Maturity/release claims above came from secondary aggregation during
-  this research pass, not a primary-source changelog read — treat as
+  this research pass, not a primary-source changelog read; treat as
   approximate.

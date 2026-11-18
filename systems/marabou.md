@@ -45,10 +45,10 @@ not state the license; the COPYING file was not read.
 |---|---|---|---|
 | Correctness | FORMAL PROOF | SMT-based: returns a guarantee that the property holds, or a counter-example input | README, grounded |
 | Trust rests on | MATH | Soundness of the SMT/LP reasoning and its implementation; verifier soundness is a research concern | Known limitations; classification inferred |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
 | Lineage | OWN PAPER | Marabou 2.0 tool paper (arXiv 2401.14461); the link to CROWN is a peer technique, not a citation | README, grounded; foundation link inferred |
 | Maturity | RESEARCH | Calls itself "a research product" | README, grounded |
-| On-chain | NO CHAIN | — | Inferred from absence in the cited sources |
+| On-chain | NO CHAIN |  | Inferred from absence in the cited sources |
 
 ## Known limitations
 

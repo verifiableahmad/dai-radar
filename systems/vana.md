@@ -52,9 +52,9 @@ for the older data-marketplace approach.
 | Correctness | ATTESTATION | Per-DLP Proof of Contribution scored by TEE validator nodes (Satya Network); some DLPs add zk proofs | Vana whitepaper, grounded |
 | Trust rests on | HARDWARE VENDOR | TEE trust model unspecified in the whitepaper; consensus also unspecified | Vana whitepaper, grounded (absence) |
 | Confidentiality | HARDWARE ENCLAVE | Raw data stays encrypted off-chain on personal servers or in enclaves | Vana whitepaper, grounded |
-| Lineage | NONE FOUND | — | File's lineage note, inferred |
+| Lineage | NONE FOUND |  | File's lineage note, inferred |
 | Maturity | OPEN QUESTION | Nothing from 2026 found; current status unknown | 2024 whitepaper listing, inferred |
-| On-chain | NOT COVERED | — | Not addressed in this file's sources |
+| On-chain | NOT COVERED |  | Not addressed in this file's sources |
 
 ## Known limitations
 

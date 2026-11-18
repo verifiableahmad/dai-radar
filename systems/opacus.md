@@ -40,12 +40,12 @@ parameters.
 
 | Axis | Class | Detail | Source |
 |---|---|---|---|
-| Correctness | NOT COVERED | — | Not addressed in this file's sources |
+| Correctness | NOT COVERED |  | Not addressed in this file's sources |
 | Trust rests on | MATH | DP's guarantee is mathematical, given the noise and clipping parameters chosen | README parameters; classification inferred |
 | Confidentiality | DIFFERENTIAL PRIVACY | (epsilon, delta)-DP via DP-SGD; limits what the trained model reveals, not data during training | README, grounded |
 | Lineage | OWN PAPER | Cites its own technical report (arXiv 2109.12298); the link to Abadi et al.'s DP-SGD is inferred | README, grounded; foundation link inferred |
 | Maturity | LIVE | Library under meta-pytorch, Apache-2.0; latest dated README updates are from 2024 | README, grounded |
-| On-chain | NO CHAIN | — | Inferred from absence in the cited sources |
+| On-chain | NO CHAIN |  | Inferred from absence in the cited sources |
 
 ## Known limitations
 

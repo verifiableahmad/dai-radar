@@ -27,30 +27,30 @@ the model never sees the plaintext data. Output of `encrypt()` → `run()` →
   quantization) to convert floating-point weights/activations into
   integers, since FHE arithmetic operates over integers, not floats.
 - Non-linear activation functions (ReLU, sigmoid, etc.) are evaluated via
-  **programmable bootstrapping** — TFHE's bootstrap step is repurposed to
+  **programmable bootstrapping**: TFHE's bootstrap step is repurposed to
   simultaneously refresh noise *and* apply an arbitrary lookup-table
   function, which is what makes homomorphic neural-net inference
   practical rather than prohibitively expensive.
 
 ## Built on (foundational lineage)
 
-- **TFHE: Fast Fully Homomorphic Encryption over the Torus** — I. Chillotti,
+- **TFHE: Fast Fully Homomorphic Encryption over the Torus**, I. Chillotti,
   N. Gama, M. Georgieva, M. Izabachène, *Journal of Cryptology* 33, 2020
   (https://eprint.iacr.org/2018/421). Base encryption scheme. Grounding:
   this is the standard citation for TFHE across Zama's own repos
   (zama-ai/concrete, zama-ai/tfhe-rs) and third-party papers that build on
-  Concrete — confirmed via multiple independent academic citations, though
+  Concrete, confirmed via multiple independent academic citations, though
   the Concrete-ML GitHub README itself does not carry an explicit
   bibliography (see confidence note below).
 - **Programmable Bootstrapping Enables Efficient Homomorphic Inference of
-  Deep Neural Networks** — I. Chillotti, M. Joye, P. Paillier, Zama
+  Deep Neural Networks**, I. Chillotti, M. Joye, P. Paillier, Zama
   (https://eprint.iacr.org/2021/091). The specific mechanism Concrete-ML
   relies on to evaluate non-linear layers cheaply.
-- **Deep Neural Networks for Encrypted Inference with TFHE** — A. Stoian,
+- **Deep Neural Networks for Encrypted Inference with TFHE**, A. Stoian,
   J. Frery, R. Bredehoft, L. Montero, C. Kherfallah, B. Chevallier-Mames
   (arXiv:2302.10906, Feb 2023). Authored by the Zama/Concrete-ML team
   itself; uses Concrete directly for benchmarks. This is the most directly
-  "FHE-for-ML"-specific paper in the lineage — it's the applied bridge
+  "FHE-for-ML"-specific paper in the lineage; it's the applied bridge
   between the TFHE primitives above and Concrete-ML's DNN support.
 
 **Confidence note:** the Concrete-ML GitHub README links out to
@@ -88,5 +88,5 @@ Treat as grounded-by-convergence rather than grounded-by-single-citation.
 - Quantization-aware training adds workflow overhead and can cost accuracy
   versus the unquantized model.
 - Encrypted inference latency (seconds–minutes per call depending on model
-  size) remains far from plaintext inference speed — not yet suited to
+  size) remains far from plaintext inference speed, so not yet suited to
   low-latency, high-throughput serving.

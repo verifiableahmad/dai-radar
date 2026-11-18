@@ -37,7 +37,7 @@ rank each other, and rewards flow from that peer-ranking.
 
 ## Built on (foundational lineage)
 
-**Shapley (1952), "A Value for n-Person Games"** — explicitly cited in
+**Shapley (1952), "A Value for n-Person Games"**: explicitly cited in
 Bittensor's own academic paper, *"Incentivizing Intelligence: The Bittensor
 Approach"* (Steeves, Shaabana, Hu, Luus, Liu, Tasker-Steeves et al.), hosted
 at [bittensor.com/academia](https://www.bittensor.com/academia), as the
@@ -52,7 +52,7 @@ theoretical ideal behind how peer-significance weights are ranked, and cites
 a cluster of standard deep-learning papers (Hinton et al. 2015 on
 distillation/general intelligence, Devlin et al. 2019, Radford et al. 2019,
 Shazeer et al. 2017) as background for why peer-to-peer intelligence markets
-are plausible — these are context, not the mechanism's core theoretical
+are plausible; these are context, not the mechanism's core theoretical
 grounding.
 
 **Note on naming**: the official academic paper describes the
@@ -60,7 +60,7 @@ Shapley-value-based ranking and trust-weighted consensus mechanism but does
 not use the name "Yuma Consensus" anywhere in that document. "Yuma
 Consensus" as a named, specific algorithm (stake-weighted median + outlier
 clipping) appears in community/ecosystem documentation and later working
-papers rather than in the cited academic source itself — flagged here as a
+papers rather than in the cited academic source itself, flagged here as a
 naming gap between the academic grounding and the term actually used in
 practice.
 
@@ -68,10 +68,10 @@ practice.
 
 | Property | Current value | Source |
 |---|---|---|
-| Consensus/incentive mechanism | Yuma Consensus — stake-weighted median of validator rankings with outlier clipping; rewards require >50% stake-trust to avoid exponential penalty | [hoge.gg explainer](https://hoge.gg/yuma-consensus-2026-how-bittensor-decides-who-gets-paid/) (community source, not primary) |
+| Consensus/incentive mechanism | Yuma Consensus: stake-weighted median of validator rankings with outlier clipping; rewards require >50% stake-trust to avoid exponential penalty | [hoge.gg explainer](https://hoge.gg/yuma-consensus-2026-how-bittensor-decides-who-gets-paid/) (community source, not primary) |
 | Theoretical basis for ranking | Shapley value attribution | [bittensor.com/academia](https://www.bittensor.com/academia) |
 | Base chain | Subtensor (Polkadot Substrate) | docs.bittensor.com |
-| Tokenomics model | Dynamic TAO — per-subnet alpha tokens + AMM pools, live since Feb 2025 | [CryptoBriefing](https://cryptobriefing.com/bittensor-dynamic-tao-emission-model/) |
+| Tokenomics model | Dynamic TAO: per-subnet alpha tokens + AMM pools, live since Feb 2025 | [CryptoBriefing](https://cryptobriefing.com/bittensor-dynamic-tao-emission-model/) |
 | Subnet count | ~64-128 active, cap 128 (256 planned) | [FalconX](https://www.falconx.io/newsroom/state-of-bittensor-subnet-adoption-trends-network-mechanics-and-covenants-departure) |
 | Maturity | Mainnet live, first emission halving Dec 2025 (7200 → 3600 TAO/day) | search aggregation, not independently verified against chain data |
 | Collusion assumption | Honest nodes assumed to hold >50% of stake | bittensor.com/whitepaper |
@@ -89,7 +89,7 @@ practice.
 
 ## Notable subnets
 
-Subnets share Bittensor's core Yuma Consensus/Shapley grounding above —
+Subnets share Bittensor's core Yuma Consensus/Shapley grounding above;
 they don't get separate top-level system files here, since what differs
 per subnet is the task and validator scoring logic, not the base
 architecture. This is a snapshot of significant subnets as of this
@@ -98,29 +98,29 @@ are from a March 2026 search, already stale by the time you read this).
 
 | Subnet | Task | Notable technical distinction | Source |
 |---|---|---|---|
-| SN3 — τemplar | Decentralized LLM pretraining | Trained Covenant-72B (72.7B params) across 70+ independently-owned nodes; top subnet by alpha-token market cap as of March 2026 (~$135M) | [KuCoin](https://www.kucoin.com/news/flash/templar-bittensor-sn3-trains-72-7b-parameter-model-in-decentralized-network), [CoinGecko](https://www.coingecko.com/learn/top-bittensor-subnets-dtao) |
-| SN9 — IOTA (Macrocosmos) | Distributed LLM pretraining | Own technical primer, not just a Bittensor doc — "Incentivised Orchestrated Training Architecture" (arXiv:2507.17766); demonstrated distributed pretraining of 700M–14B-param models surpassing baselines (Aug 2024) | [arXiv:2507.17766](https://arxiv.org/html/2507.17766v1), [Macrocosmos whitepaper](https://www.macrocosmos.ai/research/pretraining_whitepaper.pdf) |
-| SN4 — Targon | Confidential-compute AI cloud | TEE-based verifiable inference — uses NVIDIA's nvTrust SDK on H200 GPUs to attest jobs ran honestly/confidentially; same underlying claim category (TEE attestation) as the big-tech confidential-AI entries in this repo, worth cross-referencing later | [search aggregation — unverified against Targon's own docs this pass] |
-| SN13 — Data Universe | Decentralized data collection | Collects/distributes data (e.g. Reddit, X/Twitter) for AI training and real-time insight use cases | [Macrocosmos docs](https://docs.macrocosmos.ai/subnets/subnet-13-data-universe) |
-| SN64 — Chutes | Serverless AI inference compute | Lets developers deploy/scale models without managing infra; public access layer for models produced by other subnets (e.g. SN120) | [tao.bot / X](https://x.com/taodotbot/status/1988931791802040588) |
-| SN120 — Affine | Incentivized RL training arena | Validators reward only the Pareto-frontier model across RL tasks (program synthesis, reasoning, coding); explicitly designed sybil/copy/overfitting-proof, with winning models surfaced publicly via SN64 | [X thread](https://x.com/Gabensor_tt/status/1964748989800067301) |
-| SN51 — Lium | Decentralized GPU rental marketplace | Sells raw GPU-hours as an input other subnets consume; overtook Chutes as top subnet by one ranking in 2026 | [TAO Daily](https://taodaily.io/lium-flips-chutes-as-bittensors-top-subnet-while-scaling-high-speed-gpu-rentals/) |
-| SN62 — Ridges AI | Autonomous coding agents | Agents that find/fix bugs and write/ship code autonomously | [tao.bot / X](https://x.com/taodotbot/status/1988931791802040588) |
+| SN3: τemplar | Decentralized LLM pretraining | Trained Covenant-72B (72.7B params) across 70+ independently-owned nodes; top subnet by alpha-token market cap as of March 2026 (~$135M) | [KuCoin](https://www.kucoin.com/news/flash/templar-bittensor-sn3-trains-72-7b-parameter-model-in-decentralized-network), [CoinGecko](https://www.coingecko.com/learn/top-bittensor-subnets-dtao) |
+| SN9: IOTA (Macrocosmos) | Distributed LLM pretraining | Own technical primer, not just a Bittensor doc: "Incentivised Orchestrated Training Architecture" (arXiv:2507.17766); demonstrated distributed pretraining of 700M–14B-param models surpassing baselines (Aug 2024) | [arXiv:2507.17766](https://arxiv.org/html/2507.17766v1), [Macrocosmos whitepaper](https://www.macrocosmos.ai/research/pretraining_whitepaper.pdf) |
+| SN4: Targon | Confidential-compute AI cloud | TEE-based verifiable inference; uses NVIDIA's nvTrust SDK on H200 GPUs to attest jobs ran honestly/confidentially; same underlying claim category (TEE attestation) as the big-tech confidential-AI entries in this repo, worth cross-referencing later | [search aggregation, unverified against Targon's own docs this pass] |
+| SN13: Data Universe | Decentralized data collection | Collects/distributes data (e.g. Reddit, X/Twitter) for AI training and real-time insight use cases | [Macrocosmos docs](https://docs.macrocosmos.ai/subnets/subnet-13-data-universe) |
+| SN64: Chutes | Serverless AI inference compute | Lets developers deploy/scale models without managing infra; public access layer for models produced by other subnets (e.g. SN120) | [tao.bot / X](https://x.com/taodotbot/status/1988931791802040588) |
+| SN120: Affine | Incentivized RL training arena | Validators reward only the Pareto-frontier model across RL tasks (program synthesis, reasoning, coding); explicitly designed sybil/copy/overfitting-proof, with winning models surfaced publicly via SN64 | [X thread](https://x.com/Gabensor_tt/status/1964748989800067301) |
+| SN51: Lium | Decentralized GPU rental marketplace | Sells raw GPU-hours as an input other subnets consume; overtook Chutes as top subnet by one ranking in 2026 | [TAO Daily](https://taodaily.io/lium-flips-chutes-as-bittensors-top-subnet-while-scaling-high-speed-gpu-rentals/) |
+| SN62: Ridges AI | Autonomous coding agents | Agents that find/fix bugs and write/ship code autonomously | [tao.bot / X](https://x.com/taodotbot/status/1988931791802040588) |
 
 **Worth promoting to a dedicated top-level file later:** SN9's IOTA has
 its own arXiv technical primer independent of Bittensor's base
-citations — unlike most subnets, it's arguably a distinct research
+citations; unlike most subnets, it's arguably a distinct research
 contribution in the decentralized-training field (comparable to
 Gensyn/Prime Intellect/Nous in this repo), not just a configuration of
 Bittensor's incentive layer. SN4 Targon is also worth a closer look
 given the overlap with this repo's confidential-computing-for-AI
-entries — flagging rather than building either out now.
+entries, flagging rather than building either out now.
 
 ## Known limitations
 
 - **Weight copying**: validators can copy other validators' submitted
   weights to earn rewards without doing the underlying evaluation work,
-  free-riding on honest validators. Acknowledged as a known issue — a
+  free-riding on honest validators. Acknowledged as a known issue: a
   working paper titled *"Weight Copying in Bittensor"* (Opentensor, May
   2024) exists specifically addressing it, though the document's full
   content could not be retrieved directly for this entry (link redirected
@@ -132,6 +132,6 @@ entries — flagging rather than building either out now.
   raises this; not independently verified here.
 - **Naming/documentation gap**: as noted above, the specific "Yuma
   Consensus" algorithm described in secondary sources isn't the same
-  document as the academic paper citing Shapley values — the primary
+  document as the academic paper citing Shapley values; the primary
   academic source and the commonly-cited mechanism name don't fully line up,
   which makes precise grounding harder than for the other tracked systems.

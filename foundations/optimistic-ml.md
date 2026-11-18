@@ -10,12 +10,12 @@ venue: arXiv 2401.17555
 
 ## Why this is the seed for this field
 
-Directly grounded, team's-own-paper case — about as strong as this
+Directly grounded, team's-own-paper case, about as strong as this
 exercise's grounding gets. Two of the four authors are ORA's own
 founding team: **Kartin Wong** (ORA co-founder, ex-Google/TikTok
 infrastructure engineer) and **Cathie So** (ORA's Chief Scientist, ex-
 Ethereum Foundation zkML researcher). KD Conway is credited elsewhere as
-"the author of opML." This isn't a system citing outside research — it's
+"the author of opML." This isn't a system citing outside research; it's
 the system's own team publishing the paper that defines the mechanism
 the system runs. (arXiv: https://arxiv.org/abs/2401.17555)
 
@@ -25,7 +25,7 @@ Proposes an alternative to zkML for verifying ML inference on-chain:
 instead of a cryptographic proof of correct execution (expensive to
 generate for large models), accept the result **optimistically** and
 only pay the verification cost if someone challenges it. Borrows the
-dispute structure from optimistic rollups — a bisection game narrows a
+dispute structure from optimistic rollups: a bisection game narrows a
 disagreement down to one contested computation step, which then gets
 resolved on-chain by a Fraud Proof VM. Security rests on an "AnyTrust"
 assumption: as long as at least one honest, economically-incentivized
@@ -44,5 +44,5 @@ results on-chain; disputes resolve through the exact bisection +
 Fraud-Proof-VM mechanism this paper defines. A related ORA-authored
 paper, "opp/ai: Optimistic Privacy-Preserving AI on Blockchain" (Cathie
 So et al., arXiv 2402.15006), extends the same optimistic-dispute idea
-to add privacy — worth a look if a future watch run tracks privacy-
+to add privacy; worth a look if a future watch run tracks privacy-
 preserving variants of this lineage specifically.

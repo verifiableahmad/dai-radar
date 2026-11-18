@@ -29,7 +29,7 @@ Structured JSON of the same data: https://dai.misbar.tech/index.json
 - [Morpheus](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/morpheus.md): Decentralized inference marketplace
 - [NEAR AI Cloud](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/near-ai-cloud.md): Confidential computing (TEE) for AI inference
 - [Nillion](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/nillion.md): Secure MPC for ML
-- [Nous Research — Psyche](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/nous-psyche.md): Decentralized / distributed training
+- [Psyche (Nous Research)](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/nous-psyche.md): Decentralized / distributed training
 - [NVIDIA Confidential Computing (H100/H200/Blackwell)](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/nvidia-confidential-computing.md): Confidential computing (TEE) for AI inference
 - [Oasis (Sapphire / ROFL)](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/oasis-sapphire-rofl.md): Confidential computing (TEE) for AI inference
 - [Ocean Protocol](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/systems/ocean-protocol.md): AI data marketplace / provenance
@@ -78,6 +78,9 @@ Structured JSON of the same data: https://dai.misbar.tech/index.json
 
 ## Watch log
 
+- [2026-11-17](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/watch/log/2026-11-17.md)
+- [2026-11-15](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/watch/log/2026-11-15.md)
+- [2026-11-14](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/watch/log/2026-11-14.md)
 - [2026-11-13](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/watch/log/2026-11-13.md)
 - [2026-11-12](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/watch/log/2026-11-12.md)
 - [2026-11-11](https://raw.githubusercontent.com/verifiableahmad/dai-radar/main/watch/log/2026-11-11.md)

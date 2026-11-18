@@ -16,7 +16,7 @@ Grounded via a two-hop citation chain:
   **sum-check protocol** explicitly, in its own abstract, as a core
   building block for verifying LLM operators.
 - The sum-check protocol originates in this 1992 paper. This is the
-  standard attribution across the field — sum-check-based SNARKs
+  standard attribution across the field: sum-check-based SNARKs
   (GKR, Libra, Virgo, Spartan, HyperPlonk, Lasso/Jolt, and now
   DeepProve) all trace back to it, and one of the original authors
   (Lance Fortnow) has publicly noted it became his most-cited paper
@@ -25,7 +25,7 @@ Grounded via a two-hop citation chain:
 This is a **separate lineage** from `foundations/zkml.md` (PLONK,
 eprint 2019/953), which grounds EZKL/Halo2's PLONKish arithmetization.
 Both are legitimately "ZKML / verifiable inference" foundations, but
-they root in different proof techniques — PLONKish circuit
+they root in different proof techniques: PLONKish circuit
 arithmetization vs. sum-check-based verification of arithmetic
 operators directly. Kept as distinct files per this repo's
 one-foundation-per-lineage rule, not merged just because the field
@@ -51,8 +51,8 @@ without needing a trusted setup for the sum-check step itself.
 ## Link to tracked system
 
 DeepProve uses sum-check (plus lookup arguments) to verify individual
-LLM operators — attention, layer norm, grouped-query attention, rotary
-positional embeddings — directly, rather than compiling the entire
+LLM operators (attention, layer norm, grouped-query attention, rotary
+positional embeddings) directly, rather than compiling the entire
 model into one monolithic arithmetic circuit the way PLONKish systems
 (like EZKL/Halo2) do. This operator-level verification approach is
 part of why DeepProve claims to avoid the quadratic circuit-size blowup

@@ -47,9 +47,9 @@ the trust/verification layer:**
 
 1. io.net's own docs name **Ray** (specifically IO-SDK as a fork of Ray
    2.3.0) as the technology underlying its clustering/task-orchestration
-   capability — direct quote above.
+   capability. Direct quote above.
 2. Ray is itself an academic systems project: *"Ray: A Distributed
-   Framework for Emerging AI Applications"* — P. Moritz, R. Nishihara,
+   Framework for Emerging AI Applications"*, P. Moritz, R. Nishihara,
    S. Wang, A. Tumanov, R. Liaw, E. Liang, M. Elibol, Z. Yang, W. Paul,
    M. I. Jordan, I. Stoica (UC Berkeley), OSDI 2018.
    ([usenix.org/system/files/osdi18-moritz.pdf](https://www.usenix.org/system/files/osdi18-moritz.pdf))
@@ -58,8 +58,8 @@ See `/foundations/distributed-compute-scheduling.md`.
 
 **Important distinction:** this lineage grounds io.net's *compute
 orchestration engine only*. The parts of io.net that are actually about
-decentralization/trust — PoW/PoTL resource verification, the Cluster
-Verification Job, the confidential-compute attestation chain — are not
+decentralization/trust (PoW/PoTL resource verification, the Cluster
+Verification Job, the confidential-compute attestation chain) are not
 shown by io.net's own docs to descend from any specific academic paper.
 They're described in terms of industry standards (SPDM, TCG, X.509) and
 NVIDIA's own tooling, not a citable research lineage. Flagged as
@@ -73,7 +73,7 @@ no-academic-grounding-found rather than inferring one.
 | Resource-integrity check | Proof-of-Work + Proof of Time-Lock (PoTL) | io.net support docs, grounded |
 | Recurring verification | Daily Cluster Verification Job (standardized benchmark) | io.net support docs, grounded |
 | Confidential compute | NVIDIA H200 hardware CC, Protected PCIe mode, SPDM 1.1 + TCG attestation | io.net docs, grounded |
-| Trust model (compute delivery) | Verification-by-benchmark + continuous monitoring, not cryptographic proof of correct execution | io.net docs, grounded — note this is weaker than the ZK/proof-based verification used by systems like EZKL or Gensyn |
+| Trust model (compute delivery) | Verification-by-benchmark + continuous monitoring, not cryptographic proof of correct execution | io.net docs, grounded; note this is weaker than the ZK/proof-based verification used by systems like EZKL or Gensyn |
 | Maturity | Live production marketplace, actively marketed/benchmarked | io.net site, grounded |
 
 ## Comparison axes
@@ -85,18 +85,18 @@ no-academic-grounding-found rather than inferring one.
 | Confidentiality | HARDWARE ENCLAVE | Supports NVIDIA H200 confidential computing (Protected PCIe mode, SPDM attestation) | io.net confidential-compute docs, grounded |
 | Lineage | EXTERNAL PAPER | IO-SDK forks Ray (OSDI 2018). Grounds orchestration only, not the trust layer | io.net architecture docs, grounded |
 | Maturity | LIVE | Live production marketplace | io.net site, grounded |
-| On-chain | NOT COVERED | — | Not addressed in this file's sources |
+| On-chain | NOT COVERED |  | Not addressed in this file's sources |
 
 ## Known limitations
 
 - The resource-verification layer (PoW/PoTL/benchmarking) checks that a
   GPU exists and stays dedicated, not that any specific computation on
-  it was executed correctly — a materially weaker guarantee than
+  it was executed correctly, a materially weaker guarantee than
   proof-based verification (contrast with Gensyn's RepOps+bisection or
   EZKL's ZK proofs). Worth keeping this distinction visible if io.net is
   ever compared against those systems on the same axis.
 - No academic citation lineage found for the decentralization/trust
-  mechanisms specifically — only for the underlying Ray-based
+  mechanisms specifically, only for the underlying Ray-based
   orchestration layer, which is a general-purpose distributed-computing
   technology, not AI- or crypto-specific.
 - This entry did not independently verify PoW/PoTL implementation

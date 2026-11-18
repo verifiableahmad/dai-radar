@@ -42,9 +42,9 @@ actually implements.
 EZKL inherits PLONKish arithmetization transitively through Halo2, then
 additionally swaps Halo2's native commitment scheme for KZG commitments
 specifically to shrink proof size and verification cost for on-chain
-use (see `/systems/ezkl.md` — this specific claim is flagged inferred,
+use (see `/systems/ezkl.md`; this specific claim is flagged inferred,
 not directly quoted from an EZKL source, so re-verify before treating
 it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
-EZKL — which has to support arbitrary ONNX graphs rather than one fixed
-circuit — is practical at all.
+EZKL, which has to support arbitrary ONNX graphs rather than one fixed
+circuit, is practical at all.

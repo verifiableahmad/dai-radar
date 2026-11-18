@@ -25,7 +25,7 @@ see `/systems/google-confidential-federated-learning.md`).
 
 A protocol letting a server compute the *sum* of values held by many
 clients (e.g. their model-update vectors) without learning any individual
-client's value — only the aggregate. It's built from secret-sharing and
+client's value, only the aggregate. It's built from secret-sharing and
 pairwise-masking: each client masks its value with random numbers shared
 pairwise with other clients such that the masks cancel out exactly when
 all values are summed, revealing the sum but nothing about any individual
@@ -36,7 +36,7 @@ constructions generally weren't designed to handle well at this scale.
 ## Link to tracked system
 
 This is the cryptographic mechanism that lets Google's federated learning
-systems claim the server never sees an individual device's model update —
+systems claim the server never sees an individual device's model update,
 only the aggregate across many devices. The later TEE-based "Confidential
 Federated Computations" work (2024) layers additional server-side
 confidentiality on top of this, authored by overlapping people (Bonawitz

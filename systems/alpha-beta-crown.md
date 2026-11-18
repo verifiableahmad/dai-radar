@@ -46,10 +46,10 @@ Grounded: the README asks users to cite CROWN (2018), auto_LiRPA,
 |---|---|---|---|
 | Correctness | FORMAL PROOF | Sound bounds certify robustness and other properties on specified input regions; complete for ReLU via beta-CROWN | README, grounded |
 | Trust rests on | MATH | Soundness of the bound computations and of the verifier's implementation; SoundnessBench exists to test it | Known limitations; classification inferred |
-| Confidentiality | NOT COVERED | — | Not addressed in this file's sources |
+| Confidentiality | NOT COVERED |  | Not addressed in this file's sources |
 | Lineage | OWN PAPER | CROWN (2018) and its successors, by the group that leads the project (Huan Zhang) | README citation list, grounded |
 | Maturity | LIVE | Maintained open-source verifier; VNN-COMP wins 2021-2026 (self-reported) | README, self-reported |
-| On-chain | NO CHAIN | — | Inferred from absence in the cited sources |
+| On-chain | NO CHAIN |  | Inferred from absence in the cited sources |
 
 ## Known limitations
 

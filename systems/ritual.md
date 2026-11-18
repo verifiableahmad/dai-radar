@@ -21,7 +21,7 @@ them off-chain and settles a verifiable result back on-chain.
   open-source, lightweight client (github.com/ritual-net/infernet-node)
   that executes arbitrary workload containers and reports results
   on-chain. Reported scale: 8,000+ connected nodes (per Ritual's own
-  explainer material — not independently verified against chain data
+  explainer material, not independently verified against chain data
   this pass).
 - **Ritual Chain**: a custom L1 built to support heterogeneous
   computation (AI inference, ZK proof verification, TEE execution,
@@ -39,12 +39,12 @@ them off-chain and settles a verifiable result back on-chain.
 - **Proof system is deliberately not fixed.** Ritual's own docs
   describe the protocol as proof-system agnostic: settlement can use a
   ZK proof, a TEE attestation, or both, chosen per application based on
-  its security/cost/performance needs — not a single scheme the whole
+  its security/cost/performance needs, not a single scheme the whole
   network commits to.
 
 ## Built on (foundational lineage)
 
-**No separate `foundations/` entry created for this system** — explained
+**No separate `foundations/` entry created for this system**, explained
 here rather than forced:
 
 - The closest thing to a foundational technical paper is **Symphony**
@@ -52,8 +52,8 @@ here rather than forced:
   ritual.net blog), not an independent external line of academic work
   the way PLONK grounds EZKL/Halo2 or TFHE grounds Zama. Self-grounding
   is documented, not treated as equivalent to external validation.
-- Ritual's docs name specific cryptographic primitives — **CKKS**
-  (homomorphic encryption), **ECIES**, **EIP-712** — but without pinning
+- Ritual's docs name specific cryptographic primitives: **CKKS**
+  (homomorphic encryption), **ECIES**, **EIP-712**, but without pinning
   them to a specific academic citation in what was checked this pass.
   These are standard, well-known schemes; the gap is Ritual's own docs
   not citing a specific paper for them, not that the schemes are
@@ -72,11 +72,11 @@ here rather than forced:
 | Property | Value | Source |
 |---|---|---|
 | Verification mechanism | EOVMT: staked executor computes once, produces a proof (ZK, TEE attestation, or both); validators verify the proof rather than re-executing | Symphony research, Ritual docs |
-| Consensus model | Symphony — execution-aware consensus with proposer disaggregation; deterministic work stays on critical path, expensive/non-deterministic work delegated async | ritual.net blog (Bahrani, ~Apr 2026) |
+| Consensus model | Symphony: execution-aware consensus with proposer disaggregation; deterministic work stays on critical path, expensive/non-deterministic work delegated async | ritual.net blog (Bahrani, ~Apr 2026) |
 | On-chain integration | Infernet middleware links Ethereum smart contracts to off-chain compute nodes; Ritual also runs its own L1 (Ritual Chain) | docs.ritualfoundation.org, github.com/ritual-net/infernet-node |
-| Proof system | Not fixed — ZK proof and/or TEE attestation, chosen per application | docs.ritualfoundation.org, grounded |
-| Network scale | 8,000+ connected Infernet nodes (as reported) | Ritual explainer material — community-adjacent source, inferred/unverified count |
-| Named crypto primitives | CKKS, ECIES, EIP-712 named in docs | docs.ritualfoundation.org — named but not deeply citation-traced this pass |
+| Proof system | Not fixed: ZK proof and/or TEE attestation, chosen per application | docs.ritualfoundation.org, grounded |
+| Network scale | 8,000+ connected Infernet nodes (as reported) | Ritual explainer material, community-adjacent source, inferred/unverified count |
+| Named crypto primitives | CKKS, ECIES, EIP-712 named in docs | docs.ritualfoundation.org, named but not deeply citation-traced this pass |
 
 ## Comparison axes
 
@@ -93,11 +93,11 @@ here rather than forced:
 
 - "Proof-system agnostic" means the actual security guarantee for any
   given deployed application depends on whether that application
-  chose ZK, TEE, both, or (potentially) neither — the protocol-level
+  chose ZK, TEE, both, or (potentially) neither; the protocol-level
   description does not by itself guarantee a specific guarantee for a
   specific app. Check per-application before relying on a claim.
 - No external, independently-authored academic paper was found
-  grounding the protocol's cryptographic/consensus design — Symphony is
+  grounding the protocol's cryptographic/consensus design; Symphony is
   self-published by the Ritual team. Documented as a confidence gap,
   not papered over.
 - Node count (8,000+) and current Ritual Chain mainnet/launch status

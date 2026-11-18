@@ -12,7 +12,7 @@ link: https://eprint.iacr.org/2024/1573
 Directly authored by the tracked system's own team: 5 of the 12 authors
 (Contente, Finch, Golev, Nailwal, Tyagi) are affiliated with Sentient
 Foundation, alongside academics from Princeton, University of Washington,
-and UIUC. This is not Sentient citing prior art — it is Sentient's founding
+and UIUC. This is not Sentient citing prior art; it is Sentient's founding
 protocol paper. See `systems/sentient-oml.md` for how the system implements
 it.
 
@@ -24,7 +24,7 @@ representations, rather than adapting traditional binary (secure/broken)
 cryptographic security models to AI. The core observation is that AI data
 representations live on continuous, low-dimensional manifolds, which can be
 exploited to build security primitives traditional cryptography can't
-express — e.g. a fingerprint that survives fine-tuning/distillation of a
+express, e.g. a fingerprint that survives fine-tuning/distillation of a
 model without being a literal bit-for-bit watermark. The paper's first
 concrete primitive built in this framework is **model fingerprinting**
 (labeled OML 1.0): an undetectable marker embedded into a model via

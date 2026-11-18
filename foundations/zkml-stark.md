@@ -9,7 +9,7 @@ link: https://eprint.iacr.org/2018/046
 
 ## Why this is the seed for this field
 
-**Weaker grounding than this repo's other foundations entries — flagged
+**Weaker grounding than this repo's other foundations entries, flagged
 explicitly rather than smoothed over.** The chain is:
 
 - Giza/Orion compiled models to **Cairo**, StarkWare's STARK-friendly
@@ -21,8 +21,8 @@ explicitly rather than smoothed over.** The chain is:
 - **This second-hop citation could not be confirmed in-text** (the
   Cairo paper's PDF was inaccessible; its visible abstract/metadata
   didn't explicitly cite 2018/046). The connection is inferred from
-  shared authorship/organization — Ben-Sasson co-founded StarkWare,
-  which authored the Cairo paper — not from a direct quote, unlike the
+  shared authorship/organization (Ben-Sasson co-founded StarkWare,
+  which authored the Cairo paper), not from a direct quote, unlike the
   EZKL→Halo2→PLONK chain in `foundations/zkml.md`, where Halo2's own
   docs explicitly name PLONK.
 
@@ -48,7 +48,7 @@ larger proof sizes than SNARKs like PLONK/KZG-based systems.
 Giza/Orion's whole value proposition over EZKL was this tradeoff:
 transparent setup instead of EZKL's KZG trusted ceremony, at the cost of
 STARK proofs generally being larger than PLONK/KZG proofs. See
-`systems/giza-orion.md` for why this is now largely historical — the
+`systems/giza-orion.md` for why this is now largely historical: the
 product built on this lineage is inactive as of October 2026, which
 doesn't change the lineage's technical accuracy but does mean there's
 currently no actively-maintained reference implementation of it in this

@@ -1,6 +1,5 @@
-# dai-radar: decentralized AI × deep learning × cryptography tracker
+# dai-radar
 
-A living reference tracking how new research in decentralized AI, deep
-learning, and cryptography relates to systems that already ship in
-production. Built to answer one question on demand: **"what's changed
-since I last checked, and does it actually affect anything real?"**
+A reference of decentralized-AI and crypto-ML systems that ship today, the
+academic papers each one is built on, and a daily log of new research checked
+against them. Published at https://dai.misbar.tech.

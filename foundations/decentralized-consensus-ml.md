@@ -16,12 +16,12 @@ Approach"* (Steeves et al., hosted at
 cites Shapley's 1952 value concept as the theoretical basis for how the
 network attributes credit to peers: each participant's reward is meant to
 reflect their marginal contribution to the network's informational output,
-evaluated across permutations of coalitions of peers — which is exactly what
+evaluated across permutations of coalitions of peers, which is exactly what
 the Shapley value formalizes. This is the one piece of the Bittensor stack
 with a clean, explicit academic citation; the rest of the mechanism (the
 specific stake-weighted-median "Yuma Consensus" algorithm used in
 production) is documented in community/ecosystem sources rather than in a
-peer-reviewed citation trail — see the naming-gap note in
+peer-reviewed citation trail; see the naming-gap note in
 [[systems/bittensor]].
 
 ## Core contribution
@@ -35,7 +35,7 @@ by averaging each agent's marginal contribution across every possible order
 in which agents could join the coalition. It's the unique allocation rule
 satisfying a small set of fairness axioms (efficiency, symmetry, additivity,
 null-player). It's a cooperative-game-theory result, not a machine-learning
-or cryptography result — its relevance here is purely as the attribution
+or cryptography result; its relevance here is purely as the attribution
 principle a decentralized ML incentive system borrows.
 
 ## Link to tracked system
@@ -46,7 +46,7 @@ or overlapping information?" Naively rewarding every peer independently
 invites redundant, low-effort submissions; the Shapley framing is invoked to
 justify rewarding marginal/novel contribution instead. In practice,
 production Bittensor does not compute literal Shapley values (that's
-computationally intractable at network scale — exact Shapley values require
+computationally intractable at network scale: exact Shapley values require
 summing over all coalition permutations); it uses Yuma Consensus's
 stake-weighted-median-with-clipping as a tractable proxy mechanism inspired
 by the same fairness goal. This is worth flagging explicitly: the citation

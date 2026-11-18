@@ -43,12 +43,12 @@ cited on the page reviewed.
 
 | Axis | Class | Detail | Source |
 |---|---|---|---|
-| Correctness | NOT COVERED | — | Not addressed in this file's sources |
-| Trust rests on | NOT COVERED | — | Not addressed in this file's sources |
+| Correctness | NOT COVERED |  | Not addressed in this file's sources |
+| Trust rests on | NOT COVERED |  | Not addressed in this file's sources |
 | Confidentiality | CRYPTOGRAPHIC | Raw data stays on clients; SecAgg/SecAgg+ hide individual updates (the server still sees the aggregate); DP options | Flower docs, grounded |
 | Lineage | EXTERNAL PAPER | Docs name SecAgg (Bonawitz et al., 2017, Google); SecAgg+ is a later refinement by other authors | Flower docs, grounded |
 | Maturity | LIVE | Open framework maintained by Flower Labs; docs at v1.42.x | Flower docs, grounded |
-| On-chain | NO CHAIN | — | Inferred from absence in the cited sources |
+| On-chain | NO CHAIN |  | Inferred from absence in the cited sources |
 
 ## Known limitations
 
