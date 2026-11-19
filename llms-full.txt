@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-18T14:11:07+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-19T14:13:07+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5180,6 +5180,151 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL, which has to support arbitrary ONNX graphs rather than one fixed
 circuit, is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-19.md
+========================================================================
+
+---
+date: 2026-11-19
+time: "17:00+03:00"
+kind: daily
+new_items_found: 7
+matrix_impacting: 0
+filed_related_only: 2
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-18T17:20+03:00). The VNN-COMP 2026 organizers'
+report appeared on arXiv, Flower shipped 1.44.0 to PyPI, and dstack
+merged SEV-SNP verifier changes to `next`. A web search also turned up a
+NEAR AI security incident from 8 to 10 November that no earlier run
+logged, and PySyft merged an enclave log change. All five were read
+against their system files, and none changes a matrix (below). Two more
+items are relevant to tracked fields and are filed below as related
+only. No system or foundation file changed.
+
+- **arXiv 2611.24114, "The 7th International Verification of Neural
+  Networks Competition (VNN-COMP 2026): Summary and Results", checked
+  against systems/alpha-beta-crown.md and systems/marabou.md (no
+  edit):** the organizers' report (Ladner, Kaulen, Bak, Johnson, Wu and
+  others), read from the PDF. Table 2 lists α,β-CROWN in place 1 of 13
+  tools. Table 8 (regular track) scores it 2344.0, ahead of Vibecheck
+  at 2278.6 and PyRAT at 1813.6, and Table 9 (extended track) scores it
+  600.0, ahead of Vibecheck at 574.0. This is the first source outside
+  the α,β-CROWN README for the 2026 part of the Competition row, which
+  says "VNN-COMP wins 2021-2026 (self-reported)". The value does not
+  change, and the report covers 2026 only, so the row is left as it is.
+  Two details for a manual pass: Kaulen, a co-lead author, is at RWTH
+  Aachen, which Table 2 also lists among α,β-CROWN's organizations; and
+  splitting the row so that 2026 cites this report is a sourcing edit,
+  not a matrix change. Marabou is not among the 13 tools (its team
+  proposed a benchmark), and systems/marabou.md makes no competition
+  claim.
+- **Flower 1.44.0, checked against systems/flower.md (no edit):** on
+  PyPI since 2026-11-18 17:02 UTC; tag `framework-1.44.0`. The
+  changelog lists agent runtime work, faster prewarmed workers and
+  general improvements, with nothing on secure aggregation or DP. The
+  SecAgg, SecAgg+, local-DP and DP fixed-clipping files are all still
+  present at the tag. After the release, `main` merged #8381 (in
+  nightly `release-20261119+1` only): DP clipping and Gaussian noise now
+  raise an error on non-floating arrays, because integer buffers such as
+  `num_batches_tracked` were left outside the DP guarantee. That is a
+  correctness fix to the existing DP utilities, not a change to what
+  they offer. The Maturity axis detail ("docs at v1.42.x") is now two
+  minor versions behind; still left for a manual pass.
+- **dstack `next` merges (#1620 to #1626), checked against
+  systems/phala-dstack.md (no edit):** none is in a release; the latest
+  tag is still `v0.6.5`. The SEV-SNP verifier now binds the VCEK to the
+  report's chip ID and TCB (#1620), rejects ASKs on AMD's CRL (#1622),
+  and judges TCB status against AMD bulletins the operator lists in
+  `sev_snp_tcb_requirements` (#1621). The updated docs say AMD publishes
+  no TCB status for SNP, that a report with no bulletins listed for its
+  product gets an empty status which the default policy rejects, and
+  that no report field shows firmware downgraded and re-upgraded while
+  the guest ran. The shipped config has only a placeholder
+  (`AMD-SB-XXXX`), so this does not name Mior or Skyfall. The file
+  lists SEV-SNP as experimental and the Isolation row names TDX, so no
+  row changes. The rest are guest-agent logging and watchdog fixes and
+  a `DstackApp` proxy refactor.
+- **NEAR AI incident (8 to 10 November), checked against
+  systems/near-ai-cloud.md (no edit):** this predates the window, but no
+  earlier run logged it. Per secondary coverage (The Block, Decrypt,
+  crypto.news, a Cloud Security Alliance note), an attacker used a
+  remote code execution flaw in SGLang to run code on one inference
+  server and reach an internal system behind the deprecated Private
+  Chat feature. About 100 user accounts, 18 legacy agents (reported as
+  running outside the TEE) and two customers' API keys were exposed;
+  NEAR AI reports no sign that stored Private Chat conversations were
+  read, and has not named the SGLang flaw. Coverage quotes NEAR AI as
+  saying its confidential-computing protections do not cover a flaw in
+  software running inside the environment. NEAR AI's own incident report
+  (near.ai) and every coverage page were refused by this runner's
+  network, so none of this is confirmed against the primary source. The
+  three matrix rows (TDX, H200 confidential GPUs, optional signed
+  responses) are unaffected. A Known limitations entry on in-TEE
+  software flaws may be warranted after a manual read of NEAR AI's
+  report.
+- **IACR ePrint:** nine new papers, 2026/2894 through 2026/2902
+  (2026/2903 onward return no paper). One is filed below. Set aside:
+  LEASH (2026/2898), counterexamples and repairs for LaBRADOR's
+  parameter selection and extraction analysis, a lattice succinct
+  argument no tracked system uses; and the rest (blind multi-signatures,
+  quantum sieving, cipher attacks, two-party SLH-DSA, Boolean functions,
+  Bleichenbacher oracles, Falcon sampling), which have no ML claim.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Thursday 19 Nov (453
+  distinct entries across the three listings, cross-lists and
+  replacements included). One item is filed below, plus 2611.24114
+  above. Set aside: Chebyshev polynomial zonotope reachability
+  (2611.23246), which does not use α,β-CROWN or Marabou; federated LoRA
+  and continual-learning papers (2611.23742, 2611.24367, 2611.23908),
+  which add no new privacy or aggregation mechanism; the LDP histogram
+  and triangle-counting papers (2611.24623, 2611.23701), which are not
+  Opacus's DP-SGD; 2609.10601, a replacement (v2) of a paper outside
+  the window; and the watermarking papers, which are not C2PA
+  provenance.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  Apart from Flower and dstack (above): PySyft merged #9639, "keep
+  enclave job output away from the VM operator", which changes the
+  enclave Dockerfile so job output is shown only on the debug VM image.
+  The Trust model row ("owner-approved job execution") is unaffected.
+  tinfoil-cli merged #197 (verify bunkers without a Perimeter through
+  Tinfoil's relay), #196 and #193 to `main`, not in a release; the
+  Verification row is unaffected. The other repos have no commits or
+  tags in the window.
+- **Other sources:** web searches found no new C2PA specification
+  release (results still top out at 2.4) and no new Verified-zkEVM
+  milestone. The TEE search returned Mior, Skyfall and DDRop, all
+  logged by earlier runs; the manual checks of AMD-SB-3059 and
+  AMD-SB-3061 are still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  twenty-eighth run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **Communication-efficient threshold-CKKS aggregation for cross-silo
+  federated learning** (ePrint 2026/2897): threshold CKKS without a
+  trusted key dealer, with server-side weighting and dropout-aware
+  reaggregation. Security is proven for fixed cohorts without dropout
+  against a semi-honest server colluding with up to c clients. It
+  reports 1.78x plaintext communication on CIFAR-10. Field: secure
+  aggregation. Flower's SecAgg/SecAgg+ are mask-based, so
+  systems/flower.md is unchanged.
+- **Stealing exact training data from other clients during federated
+  learning** (arXiv 2611.24689): a malicious client recovers other
+  clients' sentences exactly from FedAvg aggregates by iteratively
+  subtracting the gradients of sentences already recovered, up to
+  80.2% of sentences in its tested setting. Field: federated learning
+  privacy. It attacks the aggregate itself, which secure aggregation
+  does not hide; no tracked system file claims otherwise.
+
+## Next run
+
+2026-11-20, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-18.md
