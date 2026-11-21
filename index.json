@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T14:10:26+00:00",
+  "generated_at": "2026-11-21T14:09:39+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,35 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-21.md",
+      "frontmatter": {
+        "date": "2026-11-21",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "3",
+        "matrix_impacting": "0",
+        "filed_related_only": "0"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos\nsince `last_run` (2026-11-20T17:10+03:00). dstack tagged v0.6.6,\nPySyft tagged 0.10.2, and Prime Intellect's `prime` CLI tagged 0.23.0.\nAll three bundle work that was either logged by earlier runs or sits\noutside the tracked mechanism, and none changes a matrix (below). No\nsystem or foundation file changed.\n\n- **dstack v0.6.6, checked against systems/phala-dstack.md (no\n  edit):** tagged 2026-11-20 17:07 UTC, with `verifier-v0.6.6` and\n  `kms-auth-eth-v0.6.6`; the 0.5 line got 0.5.16. The changelog\n  releases the `next` merges logged on 18 to 20 November: SEV-SNP TCB\n  minimums from AMD bulletins, VCEK binding and ASK CRL checks,\n  `dstack-key-recovery`, epoch selection in v0 `GetKey`, WireGuard key\n  proofs at gateway registration (off until the operator requires them\n  with `SetWgKeyProofConfig`), the guest-agent access log on the serial\n  console, and the Lean 4 models under `formal/` (#1597). After the\n  tag, an unmerged `feat/go-sdk-release` branch makes `sdk/go/dstack`\n  the root Go module and deprecates the legacy `tappd` Go package. Keys\n  are still released by the KMS after quote verification, SEV-SNP is\n  still the experimental path, and the Lean models are not an audit, so\n  the Isolation, Key release and Audit rows are unchanged.\n- **PySyft 0.10.2, checked against systems/openmined-pysyft.md (no\n  edit):** tagged 2026-11-21 00:16 UTC with matching syft-enclave,\n  syft-job, syft-rds and other subpackage tags. It ships the\n  `verify_receipt` fix (#9646) and enclave log changes logged\n  yesterday, plus #9625, #9629 and #9647, which show the submitter and\n  each data owner every data owner's approval or rejection of an\n  enclave job. That is still owner-approved execution, and nothing\n  touches DP, so the two matrix rows are unchanged.\n- **Prime Intellect `prime` CLI 0.23.0, checked against\n  systems/prime-intellect.md (no edit):** the release adds sandbox\n  memory snapshots and forks, a volume sync command and auth fixes.\n  None of it touches DiLoCo, PRIME or the PI protocol.\n- **IACR ePrint:** no new papers. 2026/2903 onward return no paper, and\n  the recent listing shows only revisions of older papers.\n- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. The listings still\n  show Friday 20 November, which the previous run covered; arXiv does\n  not announce on Saturdays.\n- **Tracked repos:** 16 of the 17 could be read over anonymous git.\n  Apart from the three above: Flower pushed more agent, Space and\n  device-login work on `main` and feature branches, with nothing\n  touching secure aggregation or DP, and no new release tag. The other\n  repos have no commits or tags in the window.\n- **Other sources:** web searches found no new TEE attack disclosure\n  beyond Mior, Skyfall and DDRop, all logged by earlier runs; no new\n  C2PA specification release; and no new Verified-zkEVM milestone. A\n  search snippet of the Cloud Security Alliance note dated 16 November\n  cites CVE-2026-15969 as still unfixed while saying NEAR AI has not\n  named the SGLang flaw it was hit by; the note itself was refused by\n  this runner's network, so this is not tied to NEAR AI here. The\n  manual checks of AMD-SB-3059, AMD-SB-3061 and NEAR AI's own incident\n  report are still open.\n- **ritual-net/infernet-node is still unreadable,** for the thirtieth\n  run in a row, with the same credentials prompt as a non-existent\n  repo. systems/ritual.md is left unchanged. This still needs a manual\n  check.",
+          "list": [
+            "**dstack v0.6.6, checked against systems/phala-dstack.md (no edit):** tagged 2026-11-20 17:07 UTC, with `verifier-v0.6.6` and `kms-auth-eth-v0.6.6`; the 0.5 line got 0.5.16. The changelog releases the `next` merges logged on 18 to 20 November: SEV-SNP TCB minimums from AMD bulletins, VCEK binding and ASK CRL checks, `dstack-key-recovery`, epoch selection in v0 `GetKey`, WireGuard key proofs at gateway registration (off until the operator requires them with `SetWgKeyProofConfig`), the guest-agent access log on the serial console, and the Lean 4 models under `formal/` (#1597). After the tag, an unmerged `feat/go-sdk-release` branch makes `sdk/go/dstack` the root Go module and deprecates the legacy `tappd` Go package. Keys are still released by the KMS after quote verification, SEV-SNP is still the experimental path, and the Lean models are not an audit, so the Isolation, Key release and Audit rows are unchanged.",
+            "**PySyft 0.10.2, checked against systems/openmined-pysyft.md (no edit):** tagged 2026-11-21 00:16 UTC with matching syft-enclave, syft-job, syft-rds and other subpackage tags. It ships the `verify_receipt` fix (#9646) and enclave log changes logged yesterday, plus #9625, #9629 and #9647, which show the submitter and each data owner every data owner's approval or rejection of an enclave job. That is still owner-approved execution, and nothing touches DP, so the two matrix rows are unchanged.",
+            "**Prime Intellect `prime` CLI 0.23.0, checked against systems/prime-intellect.md (no edit):** the release adds sandbox memory snapshots and forks, a volume sync command and auth fixes. None of it touches DiLoCo, PRIME or the PI protocol.",
+            "**IACR ePrint:** no new papers. 2026/2903 onward return no paper, and the recent listing shows only revisions of older papers.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** no new batch. The listings still show Friday 20 November, which the previous run covered; arXiv does not announce on Saturdays.",
+            "**Tracked repos:** 16 of the 17 could be read over anonymous git. Apart from the three above: Flower pushed more agent, Space and device-login work on `main` and feature branches, with nothing touching secure aggregation or DP, and no new release tag. The other repos have no commits or tags in the window.",
+            "**Other sources:** web searches found no new TEE attack disclosure beyond Mior, Skyfall and DDRop, all logged by earlier runs; no new C2PA specification release; and no new Verified-zkEVM milestone. A search snippet of the Cloud Security Alliance note dated 16 November cites CVE-2026-15969 as still unfixed while saying NEAR AI has not named the SGLang flaw it was hit by; the note itself was refused by this runner's network, so this is not tied to NEAR AI here. The manual checks of AMD-SB-3059, AMD-SB-3061 and NEAR AI's own incident report are still open.",
+            "**ritual-net/infernet-node is still unreadable,** for the thirtieth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-22, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-20.md",
       "frontmatter": {
         "date": "2026-11-20",
@@ -6408,9 +6437,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-20T17:10:00+03:00",
+    "last_run": "2026-11-21T17:10:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-21T17:00:00+03:00",
+    "next_run": "2026-11-22T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",

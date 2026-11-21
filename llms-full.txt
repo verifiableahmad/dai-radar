@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-20T14:10:26+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-21T14:09:39+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5180,6 +5180,82 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL, which has to support arbitrary ONNX graphs rather than one fixed
 circuit, is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-21.md
+========================================================================
+
+---
+date: 2026-11-21
+time: "17:00+03:00"
+kind: daily
+new_items_found: 3
+matrix_impacting: 0
+filed_related_only: 0
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 17 tracked repos
+since `last_run` (2026-11-20T17:10+03:00). dstack tagged v0.6.6,
+PySyft tagged 0.10.2, and Prime Intellect's `prime` CLI tagged 0.23.0.
+All three bundle work that was either logged by earlier runs or sits
+outside the tracked mechanism, and none changes a matrix (below). No
+system or foundation file changed.
+
+- **dstack v0.6.6, checked against systems/phala-dstack.md (no
+  edit):** tagged 2026-11-20 17:07 UTC, with `verifier-v0.6.6` and
+  `kms-auth-eth-v0.6.6`; the 0.5 line got 0.5.16. The changelog
+  releases the `next` merges logged on 18 to 20 November: SEV-SNP TCB
+  minimums from AMD bulletins, VCEK binding and ASK CRL checks,
+  `dstack-key-recovery`, epoch selection in v0 `GetKey`, WireGuard key
+  proofs at gateway registration (off until the operator requires them
+  with `SetWgKeyProofConfig`), the guest-agent access log on the serial
+  console, and the Lean 4 models under `formal/` (#1597). After the
+  tag, an unmerged `feat/go-sdk-release` branch makes `sdk/go/dstack`
+  the root Go module and deprecates the legacy `tappd` Go package. Keys
+  are still released by the KMS after quote verification, SEV-SNP is
+  still the experimental path, and the Lean models are not an audit, so
+  the Isolation, Key release and Audit rows are unchanged.
+- **PySyft 0.10.2, checked against systems/openmined-pysyft.md (no
+  edit):** tagged 2026-11-21 00:16 UTC with matching syft-enclave,
+  syft-job, syft-rds and other subpackage tags. It ships the
+  `verify_receipt` fix (#9646) and enclave log changes logged
+  yesterday, plus #9625, #9629 and #9647, which show the submitter and
+  each data owner every data owner's approval or rejection of an
+  enclave job. That is still owner-approved execution, and nothing
+  touches DP, so the two matrix rows are unchanged.
+- **Prime Intellect `prime` CLI 0.23.0, checked against
+  systems/prime-intellect.md (no edit):** the release adds sandbox
+  memory snapshots and forks, a volume sync command and auth fixes.
+  None of it touches DiLoCo, PRIME or the PI protocol.
+- **IACR ePrint:** no new papers. 2026/2903 onward return no paper, and
+  the recent listing shows only revisions of older papers.
+- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. The listings still
+  show Friday 20 November, which the previous run covered; arXiv does
+  not announce on Saturdays.
+- **Tracked repos:** 16 of the 17 could be read over anonymous git.
+  Apart from the three above: Flower pushed more agent, Space and
+  device-login work on `main` and feature branches, with nothing
+  touching secure aggregation or DP, and no new release tag. The other
+  repos have no commits or tags in the window.
+- **Other sources:** web searches found no new TEE attack disclosure
+  beyond Mior, Skyfall and DDRop, all logged by earlier runs; no new
+  C2PA specification release; and no new Verified-zkEVM milestone. A
+  search snippet of the Cloud Security Alliance note dated 16 November
+  cites CVE-2026-15969 as still unfixed while saying NEAR AI has not
+  named the SGLang flaw it was hit by; the note itself was refused by
+  this runner's network, so this is not tied to NEAR AI here. The
+  manual checks of AMD-SB-3059, AMD-SB-3061 and NEAR AI's own incident
+  report are still open.
+- **ritual-net/infernet-node is still unreadable,** for the thirtieth
+  run in a row, with the same credentials prompt as a non-existent
+  repo. systems/ritual.md is left unchanged. This still needs a manual
+  check.
+
+## Next run
+
+2026-11-22, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-20.md
