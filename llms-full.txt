@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-22T14:09:38+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-23T14:12:13+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5180,6 +5180,90 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL, which has to support arbitrary ONNX graphs rather than one fixed
 circuit, is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-23.md
+========================================================================
+
+---
+date: 2026-11-23
+time: "17:00+03:00"
+kind: daily
+new_items_found: 3
+matrix_impacting: 0
+filed_related_only: 2
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 18 tracked repos
+since `last_run` (2026-11-22T17:10+03:00). dstack merged its Go SDK
+release work and tagged Go module versions, which does not touch the
+tracked mechanism. Two arXiv papers are relevant to tracked fields and
+are filed below as related only. No system or foundation file changed.
+
+- **dstack Go SDK release (#1638), checked against
+  systems/phala-dstack.md (no edit):** the `feat/go-sdk-release` branch
+  logged as unmerged on 21 November was merged on 2026-11-23 10:05 UTC,
+  with tags `sdk/go/v0.6.1`, `sdk/go/dstack/v0.6.1` and
+  `sdk/go/ratls/v0.6.1`. It adds a Go SDK release workflow, renames the
+  Go module and deprecates the legacy `tappd` package. Nothing in it
+  changes isolation, key release or audit status.
+- **IACR ePrint:** 2026/2955 through 2026/3000 are new since the
+  previous check. None is tied to a tracked system. Set aside: hashing
+  and commitments for real values with dynamic precision (2026/2962),
+  which makes no ML claim; EHSearch (2026/2974), private vector search,
+  in line with the encrypted vector database paper set aside yesterday;
+  CKKS functional bootstrapping on GPUs (2026/2989), CKKS hardware work
+  while Concrete ML uses TFHE; and a Brakedown commitment performance
+  baseline (2026/2996), with no ML claim. The rest are cryptanalysis,
+  signatures, credentials, consensus and other topics.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Monday 23 Nov (371
+  distinct entries across the three listings, cross-lists and
+  replacements included). Two items are filed below. Set aside: DistDNA
+  (2611.27831), behavioral LLM fingerprinting from responses, not the
+  fine-tuning-embedded fingerprints Sentient's OML uses; an unlearning
+  evaluation-coverage study (2611.27543), which is not verifiable
+  unlearning; and federated fine-tuning and application papers (LEAN
+  2611.26805, FedQCal, federated k-means, EHR representations), which
+  add no tracked mechanism.
+- **Tracked repos:** 17 of the 18 could be read over anonymous git.
+  Apart from dstack (above): PySyft merged #9576 (clearer messages when
+  an API call is refused or held back), #9559 (probe variant of the
+  double-blind eval notebooks) and #9652 (contributor docs, which also
+  call receipts beta), with no release tag; owner-approved execution is
+  unchanged and nothing touches DP. Flower pushed more Space, agent and
+  device-login work with automated `release-20261123` tags, with
+  nothing touching secure aggregation or DP. The other repos have no
+  commits in the window.
+- **Other sources:** web searches found no new TEE attack disclosure
+  beyond Mior, Skyfall and DDRop, all logged by earlier runs, and no
+  C2PA specification newer than 2.4. The open manual checks (a C2PA 2.5
+  release, AMD-SB-3059, AMD-SB-3061 and NEAR AI's own incident report)
+  are still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  thirty-second run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **Affine-image SDP-CROWN (arXiv 2611.26978):** a bound propagation
+  method for l2 robustness verification that replaces interval or
+  ellipsoid preactivation enclosures with affine-image constraints and
+  can be combined with branch-and-bound; it reports 17% to 57.5% higher
+  verified accuracy on five MNIST and CIFAR-10 networks. CROWN-family
+  work, but not a change to α,β-CROWN as released.
+- **Felid (arXiv 2611.27175):** FHE transformer fine-tuning with a
+  flexible packing strategy and functional bootstrapping that folds
+  activations into bootstrapping, reporting fine-tuning of a 2-layer
+  BERT-style model in 650 seconds. Its rotation and relinearization
+  counts point to a CKKS-style scheme (inferred), not the TFHE that
+  Concrete ML uses.
+
+## Next run
+
+2026-11-24, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-22.md
