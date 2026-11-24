@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-23T14:12:13+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-24T14:12:32+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -2886,7 +2886,7 @@ name: Phala (dstack)
 field: Confidential computing (TEE) for AI inference
 category: private-compute
 foundation: foundations/tee-remote-attestation.md
-last_updated: 2026-10-27
+last_updated: 2026-11-24
 confidence: grounded (architecture, per dstack repo); inferred (foundation lineage)
 website: "https://phala.com"
 ---
@@ -2908,9 +2908,15 @@ remote attestation. Products: Phala Cloud (deploy TEE apps), dstack
   before releasing keys under policies defined in on-chain smart contracts,
   a **Gateway** (TLS termination, RA-TLS internally), and a **VMM** on
   bare-metal TDX hosts.
-- Platforms: bare-metal Intel TDX (production path), AMD SEV-SNP
-  (experimental), GCP Confidential VMs, AWS Nitro, and NVIDIA H100 /
-  Blackwell confidential GPUs.
+- Platforms: bare-metal Intel TDX, bare-metal AMD SEV-SNP, GCP
+  Confidential VMs, AWS Nitro, and NVIDIA H100 / Blackwell confidential
+  GPUs. Until 2026-11-24 the repo called SEV-SNP "new and experimental"
+  and Intel TDX "the production path". PR #1641, merged to the default
+  `next` branch on 2026-11-24, lists bare-metal SEV-SNP as "Available"
+  next to TDX (GPU workloads included) and requires dstack OS 0.6.6 or
+  later for it. The change is in the "Unreleased" changelog section;
+  the latest platform tag, v0.6.6, still carries the experimental
+  label. SEV-SNP in public clouds is not supported.
 - Governance: dstack is a Linux Foundation Confidential Computing
   Consortium project; the repo includes a zkSecurity audit.
 
@@ -2924,7 +2930,7 @@ TEE-attestation mechanism only.
 
 | Property | Current value | Source |
 |---|---|---|
-| Isolation | Intel TDX CVMs (+ NVIDIA CC GPUs) | dstack README |
+| Isolation | Intel TDX or bare-metal AMD SEV-SNP CVMs (+ NVIDIA CC GPUs); SEV-SNP listed as supported on `next` since PR #1641 (2026-11-24), not yet in a tagged release | dstack README; docs/amd-sev-snp.md |
 | Key release | KMS in TEE, policy on-chain | dstack README |
 | Audit | zkSecurity (PDF in repo) | dstack README |
 | Production users | OpenRouter, NEAR AI (as claimed by the repo) | dstack README |
@@ -2936,7 +2942,7 @@ TEE-attestation mechanism only.
 |---|---|---|---|
 | Correctness | ATTESTATION | Guest agent issues TDX quotes; a KMS in its own TEE verifies them before releasing keys | dstack README, grounded |
 | Trust rests on | HARDWARE VENDOR | Hardware vendors' attestation; side channels on TDX/SEV are out of scope | dstack README, grounded |
-| Confidentiality | HARDWARE ENCLAVE | Workloads in confidential VMs (Intel TDX) with NVIDIA confidential GPUs | dstack README, grounded |
+| Confidentiality | HARDWARE ENCLAVE | Workloads in confidential VMs (Intel TDX, or AMD SEV-SNP on bare metal) with NVIDIA confidential GPUs | dstack README, grounded |
 | Lineage | NONE FOUND | No paper cited; the link to Intel SGX Explained is inferred from the shared TEE-attestation mechanism | dstack README, inferred link |
 | Maturity | LIVE | Phala Cloud product; production users OpenRouter and NEAR AI (self-reported); zkSecurity audit in repo | dstack README, grounded |
 | On-chain | OPEN QUESTION | Key-release policies live in on-chain contracts; which chain, and the network-level story, weren't verified | dstack README; network side unverified, inferred |
@@ -2948,6 +2954,14 @@ TEE-attestation mechanism only.
 - Phala's docs index gave no token, chain, or limitations details; the
   network-level (non-dstack) story was not verified in this pass.
 - Production users listed are self-reported by the repo.
+- On SEV-SNP, the per-boot `gpu-attestation` event and boot-time GPU
+  evidence are not bound to the SNP report, since the stack has no
+  quote-bound runtime register there. The docs say a verifier that
+  needs GPU protection must check that the policy bound by
+  `compose_hash` keeps `attest_gpu` on and requires the expected GPU
+  count. The SNP verifier does not yet check ASK and VCEK certificate
+  validity periods (issue #1140). Both per docs/amd-sev-snp.md and
+  docs/security/security-model.md on `next`, 2026-11-24.
 
 ========================================================================
 FILE: systems/pluralis-research.md
@@ -5180,6 +5194,119 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL, which has to support arbitrary ONNX graphs rather than one fixed
 circuit, is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-24.md
+========================================================================
+
+---
+date: 2026-11-24
+time: "17:00+03:00"
+kind: daily
+new_items_found: 5
+matrix_impacting: 1
+filed_related_only: 4
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 18 tracked repos
+since `last_run` (2026-11-23T17:12+03:00). dstack merged a docs change
+that drops the "experimental" label from bare-metal AMD SEV-SNP, which
+changes the Isolation row of systems/phala-dstack.md (below). Four
+arXiv papers are relevant to tracked fields and are filed below as
+related only. No foundation file changed.
+
+- **dstack PR #1641, checked against systems/phala-dstack.md
+  (edited):** merged to the default `next` branch on 2026-11-24 08:05
+  UTC. Earlier runs kept the Isolation row at TDX because the README
+  and docs/amd-sev-snp.md called SEV-SNP "new and experimental" and
+  TDX "the production path". The README platform table now lists "Bare
+  metal AMD SEV-SNP" as "Available", the SNP guide and security model
+  drop the experimental label, and a follow-up commit requires dstack
+  OS 0.6.6 or later for SNP. The commit message gives the reasons:
+  months of bare-metal SNP use, and the items in issue #713 (KDS client
+  timeouts and caching, SNP measurement material in guest OS releases)
+  have landed. The same change states what SNP still lacks: the
+  per-boot `gpu-attestation` record is not bound to the SNP report, so
+  a verifier must find the GPU requirement in the policy bound by
+  `compose_hash`, and ASK and VCEK validity periods are not yet checked
+  (#1140). SEV-SNP in public clouds stays unsupported. The change sits
+  under "Unreleased" in the changelog; the latest platform tag, v0.6.6,
+  still carries the experimental label, and the file says so. Edited:
+  the Architecture summary platform line, the Isolation row, the
+  Confidentiality axis detail, and two new Known limitations. The
+  support status is the project's own claim, as before. The Maturity
+  axis (LIVE) is unchanged. Also merged: #1170, a rewrite of
+  docs/confidential-ai.md explaining CPU and GPU attestation, and #1640,
+  Go SDK release CI fixes, with a `sdk/go/tappd/v0.6.1` tag. Neither
+  changes a property.
+- **IACR ePrint:** no new papers. 2026/3000 is still the highest
+  number listed, and 2026/3001 onward return no paper.
+- **arXiv cs.CR / cs.LG / cs.DC:** one new batch, Tuesday 24 Nov (865
+  distinct entries across the three listings, cross-lists and
+  replacements included). Four items are filed below. Set aside:
+  relative integrity and robustness (2611.29802), an Isabelle/HOL
+  framework that models, among other cases, the published simulation
+  attack on Secret Network's SGX enclaves; it is a formal model of a
+  known attack, not a new disclosure, and systems/secret-network.md
+  already records SGX's side-channel history; TurboFHE (2611.29244),
+  NPUFHE, AscendFHE and DuetFHE, all CKKS while Concrete ML uses TFHE;
+  AutoClip-DPZO (2611.30352), DP zeroth-order fine-tuning, which is not
+  DP-SGD as in Opacus; a black-box watermark audit of a production LLM
+  (2611.29018), which is not C2PA; and federated learning application
+  and unlearning papers, which add no tracked mechanism.
+- **Tracked repos:** 17 of the 18 could be read over anonymous git.
+  Apart from dstack (above): Prime Intellect's `prime` CLI tagged
+  0.24.0 with `prime-sandboxes-v0.5.15` (local compilation of
+  supervised online evals, sandbox snapshot sizes, TOML parsing), none
+  of it touching DiLoCo, PRIME or the PI protocol. PySyft merged #9653,
+  a docs change naming condition checks, with no tag. Flower pushed
+  more agent and Space endpoints with an automated `release-20261124+1`
+  tag, with nothing touching secure aggregation or DP. uAgents merged
+  two fixes (envelope decoding errors, #978; a session key in sync
+  queries, #979) with no release. The other repos have no commits in
+  the window.
+- **Other sources:** a web search found no new TEE attack disclosure
+  beyond Mior, Skyfall and the SGLang flaw, all logged by earlier
+  runs, and no C2PA specification newer than the versions already
+  seen. The open manual checks (a C2PA 2.5 release, AMD-SB-3059,
+  AMD-SB-3061 and NEAR AI's own incident report) are still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  thirty-third run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **Ziv Meets Sumcheck (arXiv 2611.29188):** zero-knowledge proofs of
+  floating-point transformer inference that prove the correctly
+  rounded matrix product with a sumcheck-style interactive proof,
+  instead of proving an integer approximation; it reports proving the
+  full GPT-2 small forward pass in 19 minutes on two cores. ZKML, but
+  not EZKL's Halo2 lineage or any other tracked system.
+- **Beak (arXiv 2611.29260):** an RL-guided fuzzer for semantic gaps
+  between RISC-V and zkVM constraint systems, reporting 25 of 37 known
+  bugs found and 14 new bugs disclosed and patched across six
+  production RISC-V zkVMs. The abstract does not name the zkVMs, so
+  any link to SP1 or RISC Zero in systems/verified-zkevm.md is
+  inferred only.
+- **EVOLVE (arXiv 2611.28344):** a software proof-of-execution
+  framework for ML workloads inside Intel TDX, built into the virtual
+  firmware, with policy checks on primitives verified in F*. It extends
+  TDX attestation from a launch snapshot to run-time behavior; no
+  tracked system uses it.
+- **HiPerfCC-KVCache and HiPerfCC-StateReuse (arXiv 2611.28702,
+  2611.29067):** two papers that cut NVIDIA confidential GPU transfer
+  costs in software (KV-cache transfer scheduling in SGLang, and reuse
+  of exported ciphertext across transfers) on Hopper and Blackwell.
+  They work around the CC-mode overhead that
+  systems/nvidia-confidential-computing.md records; they do not
+  re-measure it, so that row is unchanged.
+
+## Next run
+
+2026-11-25, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-23.md
