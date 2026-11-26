@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-23T14:12:13+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-26T14:12:11+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5180,6 +5180,158 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL, which has to support arbitrary ONNX graphs rather than one fixed
 circuit, is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-26.md
+========================================================================
+
+---
+date: 2026-11-26
+time: "17:00+03:00"
+kind: daily
+new_items_found: 10
+matrix_impacting: 0
+filed_related_only: 6
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 18 tracked repos
+since `last_run` (2026-11-23T17:12+03:00). No 2026-11-24 or 2026-11-25
+run landed, so this window covers three days. dstack's default branch
+now lists bare-metal AMD SEV-SNP as available rather than experimental,
+in a docs change that is not in a release yet. Flower tagged
+`framework-1.45.0`, and two arXiv papers measure NVIDIA confidential GPU
+transfers. All were read against their system files, and none changes
+a matrix yet (below). Six more items are relevant to tracked fields and
+are filed below as related only. No system or foundation file changed.
+
+- **dstack SEV-SNP status (#1641), checked against
+  systems/phala-dstack.md (no edit yet):** merged to `next` (the default
+  branch) on 2026-11-24. The README platform table changes bare-metal
+  AMD SEV-SNP from "Host support; requires an SNP-capable guest image"
+  to "Available", and the FAQ drops "Intel TDX is the production path;
+  AMD SEV-SNP is new and experimental" in favour of TDX and SEV-SNP
+  (Milan, Genoa, Turin) with dstack OS 0.6.6 or later. The CHANGELOG's
+  unreleased section says "AMD SEV-SNP on bare metal is no longer
+  experimental", GPU workloads included, and that SEV-SNP in public
+  clouds stays unsupported. docs/security/security-model.md now argues
+  that the measured, fail-closed GPU gate gives SNP the same boot-time
+  guarantee as TDX, while SNP still has no per-boot runtime record. This
+  contradicts the file's Architecture summary ("AMD SEV-SNP
+  (experimental)"), and it bears on the Isolation row, which names only
+  TDX. The tagged `v0.6.6` README still says experimental, and earlier
+  runs have keyed these two rows to the tagged README, so the file is
+  left as it is for now. Once a release tag carries this README, update
+  the Architecture summary and the Isolation row. Also merged to `next`:
+  an auth backend info field in KMS `GetMeta` (#1639), reading the app
+  epoch at the latest block for env public keys (#1644), a rewrite of
+  docs/confidential-ai.md that explains the CPU/GPU attestation link
+  (#1170), an nvattest update that adds an OCSP freshness patch (#1646)
+  and a sysbox bump (#1647). Environment value-spec checks
+  (`allowed_envs`), an n-of-m RPC quorum for `auth-eth` and SNP Secure
+  TSC are on unmerged branches. None of these changes key release or
+  audit status.
+- **Flower `framework-1.45.0`, checked against systems/flower.md (no
+  edit):** tagged 2026-11-25 13:17 UTC. Most of the release is Space,
+  agent and CLI-signup work. The one DP change came in through #8583,
+  merged on 20 November, before this window: the DP utilities now raise
+  an error when an array is not floating-point (for example BatchNorm's
+  `num_batches_tracked`), rather than letting it skip clipping and
+  noise. This hardens the existing strategies. The "Strategies +
+  local-DP mod + accountants" row still describes it, and secure
+  aggregation is untouched.
+- **HiPerfCC-KVCache (arXiv 2611.28702) and HiPerfCC-StateReuse (arXiv
+  2611.29067), checked against systems/nvidia-confidential-computing.md
+  (no edit):** the first finds that bulk KV-cache copies under GPU CC
+  hold driver locks and stall serving on Hopper and Blackwell, and
+  reports a 1.74× geometric-mean throughput gain on H200 in SGLang. The
+  second reuses exported ciphertext across CPU-GPU transfers by
+  rebinding AES-GCM tags, with no hardware change. Both are research
+  software that works around the transfer encryption cost the
+  Performance overhead row already describes. Neither changes NVIDIA's
+  product or that row's independent measurement.
+- **IACR ePrint:** 2026/3001 through 2026/3015 are new since the
+  previous check (2026/3016 onward return no paper). Two are filed
+  below. Set aside: a ZK proof of location from a phone photo of the
+  Moon (2026/3002), which makes no ML claim; CHARTS (2026/3012),
+  anonymous routing built on multiparty HE; and the rest, which are
+  cryptanalysis, signatures, HTLCs, agreement and Signal verification.
+- **arXiv cs.CR / cs.LG / cs.DC:** three new batches (Tue 24, Wed 25
+  and Thu 26 Nov; 1,170 distinct entries across the three listings,
+  cross-lists and replacements included). Four items are filed below.
+  Set aside: TurboFHE, DuetFHE, AscendFHE, NPUFHE and CKKS functional
+  bootstrapping on GPUs (2611.31335), all CKKS work while Concrete ML
+  uses TFHE; Northstar (2611.34417), verifiable FHE arithmetic in STARKs
+  with no ML workload; TokenProv (2611.31806), token billing evidence;
+  Onnx2TEE (2611.33262), TrustZone model partitioning on Jetson; AEGIS
+  (2611.32958), behavioral attestation of HPC agents; relative
+  robustness (2611.29802), a formal method that models a published
+  attack on Secret Network rather than reporting a new one; the
+  fingerprinting paradox (2611.31455), black-box integrity
+  verification rather than OML's embedded fingerprints; an unlearning
+  audit (2611.33525), which is not verifiable unlearning; Spec2Weights
+  (2611.34711), exhaustive certification of small hand-specified
+  networks rather than bound propagation; AutoClip-DPZO (2611.30352)
+  and other DP and federated learning application papers, which add no
+  tracked mechanism.
+- **Tracked repos:** 17 of the 18 could be read over anonymous git.
+  Apart from dstack and Flower (above): Prime Intellect's `prime` CLI
+  tagged v0.24.0 through v0.24.3 (sandbox, training-config and
+  pipeline CLI work), which does not touch the decentralized-training
+  mechanism. Tinfoil's CLI merged JSON enclave configs and offline
+  verification of their digests (#199, #200), with no release tag yet
+  and no change to the attestation model. PySyft merged
+  condition-description docs (#9653) and data-owner watcher storage
+  (#9613) and is building WebRTC signaling on a branch, with nothing
+  touching owner-approved execution or DP. uAgents merged request-size
+  and envelope-decoding fixes (#978 to #980), with no tag. The other
+  repos have no commits or tags in the window.
+- **Other sources:** web searches found no new TEE attack disclosure
+  beyond Mior, Skyfall and DDRop, all logged by earlier runs; no C2PA
+  specification newer than the versions logged by earlier runs; and no
+  new Verified-zkEVM milestone. The open manual checks (a C2PA 2.5
+  release, AMD-SB-3059, AMD-SB-3061 and NEAR AI's own incident report)
+  are still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  thirty-third run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **Ziv Meets Sumcheck (arXiv 2611.29188):** a sumcheck-based ZK proof
+  of correctly rounded floating-point matrix multiplication, extended to
+  every transformer layer, proving GPT-2 small's full forward pass in 19
+  minutes on two cores with 21-second verification. Sumcheck zkML, but
+  not tied to DeepProve or another tracked prover.
+- **FlashProve-Next (arXiv 2611.33741):** ZK-masked proofs for
+  individual LLM API responses under native bf16/fp8 serving, using a
+  Reed-Solomon weight commitment and spot-checking, with soundness
+  mechanized in Lean 4. It reports proofs for Qwen3-0.6B and a
+  relation on Qwen3-30B-A3B. zkML, research only.
+- **EVOLVE (arXiv 2611.28344):** a software proof-of-execution layer in
+  Intel TDX virtual firmware that binds an ML operation's run-time
+  status to measurements of its inputs and outputs, with policy checks
+  built on F*-verified primitives and reported overhead of 1.07× to
+  2.13×. TEE remote attestation for ML, not a change to a tracked TEE
+  stack.
+- **Beak (arXiv 2611.29260):** an obligation-guided RL fuzzer for RISC-V
+  zkVMs that finds 25 of 37 known bugs on six production zkVMs and 14
+  new ones, all disclosed and patched (per the abstract; the zkVMs are
+  not named there). Relevant to zkVM correctness, but fuzzing is not
+  the formal verification that systems/verified-zkevm.md tracks.
+- **SinCom (IACR 2026/3004):** shallow, wide sinusoidal composites for
+  constant-round MPC evaluation of GELU, SiLU and similar activations.
+  Field: secure MPC for ML. A research protocol, not a change to
+  Nillion's MPC layer.
+- **EASE-SVM (IACR 2026/3003):** two-party MPC training and
+  RFF-based private inference for RBF kernel SVMs in medical IoT.
+  Field: secure MPC for ML. No tracked system.
+
+## Next run
+
+2026-11-27, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-23.md
