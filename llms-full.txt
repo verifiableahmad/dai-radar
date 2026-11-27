@@ -2,7 +2,7 @@
 
 > dAI Radar tracks shipping decentralized-AI / crypto-ML systems and traces each one back to the academic paper it is actually built on. Every claim is tagged "grounded" (directly sourced) or "inferred" (reasoned, not quoted); keep that distinction when answering from this data. A lineage is only asserted when a real citation chain exists.
 
-Generated 2026-11-26T14:12:11+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
+Generated 2026-11-27T14:10:27+00:00 from https://dai.misbar.tech. Below are the verbatim markdown source files: systems/ (one per tracked system; its `foundation:` key names the foundations/ file it builds on), foundations/ (one per seed paper), and watch/log/ (daily watch runs, newest first). Each file starts with a FILE: line.
 
 ========================================================================
 FILE: systems/akash-network.md
@@ -5180,6 +5180,105 @@ it as settled). The universality property of PLONK (one SRS per size
 bound, not per circuit) is part of why a general-purpose tool like
 EZKL, which has to support arbitrary ONNX graphs rather than one fixed
 circuit, is practical at all.
+
+========================================================================
+FILE: watch/log/2026-11-27.md
+========================================================================
+
+---
+date: 2026-11-27
+time: "17:00+03:00"
+kind: daily
+new_items_found: 5
+matrix_impacting: 0
+filed_related_only: 3
+---
+
+## What happened
+
+Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 18 tracked repos
+since `last_run` (2026-11-26T17:15+03:00). arXiv published no new batch
+in the window. dstack merged three of the branches logged as unmerged
+yesterday, none of them in a release tag. An ePrint paper optimizes
+Concrete ML's compiled circuits. Both were read against their system
+files and change nothing in the matrix (below). Three more items are
+relevant to tracked fields and are filed below as related only. No
+system or foundation file changed.
+
+- **dstack merges, checked against systems/phala-dstack.md (no edit):**
+  merged to `next` on 2026-11-27: environment value specs for
+  `allowed_envs` (#1649), which let a deployment constrain the values
+  of environment variables passed in at deployment and have the guest reject
+  values outside the spec before the app starts; an n-of-m RPC quorum
+  for the KMS `auth-eth` backend (#1650), so that the on-chain policy
+  read behind key release needs a majority of RPC providers to agree
+  rather than trusting one; and SNP Secure TSC (#1642), with the docs
+  noting that `secure_time` is on by default for SNP apps. Also merged:
+  a vmm-cli init-script option (#1654) and shipping the NVIDIA open
+  modules' kernel headers in the OS image (#1655). The latest release
+  tag is still `v0.6.6`. The quorum change hardens how the KMS reads
+  the on-chain policy, which the Key release row ("KMS in TEE, policy
+  on-chain") already describes, so the row stands. The SEV-SNP status
+  question logged yesterday is still waiting on a release tag.
+- **LUTune (IACR 2026/3037), checked against
+  systems/zama-concrete-ml.md (no edit):** rewrites the activation
+  lookup tables of Concrete ML circuits using the outputs that Concrete
+  ML's approximate rounding allows, folds them to lower input precision,
+  and checks the failure bound under Concrete's noise model. It reports
+  a 5.2× speedup and a 17.2× smaller evaluation key on VGG6 against the
+  lowest-latency Concrete ML configuration, with the same weights and
+  quantizers. This is third-party research on top of Concrete ML, not a
+  change to the library; the FHE scheme, programmable bootstrapping,
+  precision and maturity rows are unchanged.
+- **IACR ePrint:** 2026/3016 through 2026/3078 are new since the
+  previous check (2026/3079 returns no paper). LUTune is above and
+  three are filed below. Set aside: BIFOLD (2026/3054) and homomorphic
+  linear algebra across encodings (2026/3066), CKKS-side work while
+  Concrete ML uses TFHE; anonymous risk tokens for LLM guardrails
+  (2026/3046), which add no tracked mechanism; and the rest, which are
+  cryptanalysis, signatures, PIR, PSI, side channels and other topics.
+- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. The three listings
+  still show Thursday 26 November, which the previous run covered; no
+  announcement went out for Friday 27 November (the US Thanksgiving
+  holiday, inferred as the reason).
+- **Tracked repos:** 17 of the 18 could be read over anonymous git.
+  Apart from dstack (above): Prime Intellect's `prime` CLI tagged
+  v0.25.0 and v0.25.1 (prime-rl recipes by name, sandbox snapshot and
+  checkpoint fixes), which does not touch the decentralized-training
+  mechanism. tinfoil-cli tagged `v0.19.26`, which releases the JSON
+  enclave config work (#199, #200) logged yesterday, with no change to
+  the attestation model. Flower merged removals of legacy `SpaceMessage`
+  RPCs and storage, with nothing touching secure aggregation or DP. The
+  other repos have no commits or tags in the window.
+- **Other sources:** web searches found no new TEE attack disclosure
+  beyond those logged by earlier runs, no C2PA specification newer than
+  the versions logged by earlier runs, and no new Verified-zkEVM
+  milestone. The open manual checks (a C2PA 2.5 release, AMD-SB-3059,
+  AMD-SB-3061 and NEAR AI's own incident report) are still open.
+- **ritual-net/infernet-node is still unreadable,** for the
+  thirty-fourth run in a row, with the same credentials prompt as a
+  non-existent repo. systems/ritual.md is left unchanged. This still
+  needs a manual check.
+
+### Related, not yet tied to a tracked system
+
+- **OSA / VOSA (IACR 2026/3021):** a committee-assisted one-shot secure
+  aggregation protocol under RLWE with dynamic client participation,
+  plus a verifiable extension that lets an independent verifier check
+  the server's reported aggregate. Field: secure aggregation. A research
+  protocol, not a change to Flower's SecAgg/SecAgg+ or Google's
+  confidential federated learning.
+- **DataSeal cryptanalysis (IACR 2026/3047):** shows that DataSeal's
+  encrypted linear checksums for verifiable FHE admit forgeries that
+  pass verification, demonstrated on MNIST models in SEAL/BGV, and
+  bounds a multi-row repair. Verifiable FHE for ML, no tracked system.
+- **FLoRA (IACR 2026/3033):** LoRA fine-tuning and inference of
+  SmolLM2-360M entirely under FHE. The abstract does not name the
+  scheme, so it is not tied to Concrete ML.
+
+## Next run
+
+2026-11-28, 17:00 +03:00 (14:00 UTC).
 
 ========================================================================
 FILE: watch/log/2026-11-26.md
