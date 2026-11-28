@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T14:10:27+00:00",
+  "generated_at": "2026-11-28T14:08:26+00:00",
   "systems": [
     {
       "path": "systems/akash-network.md",
@@ -5509,6 +5509,32 @@
   ],
   "watch_log": [
     {
+      "path": "watch/log/2026-11-28.md",
+      "frontmatter": {
+        "date": "2026-11-28",
+        "time": "17:00+03:00",
+        "kind": "daily",
+        "new_items_found": "0",
+        "matrix_impacting": "0",
+        "filed_related_only": "0"
+      },
+      "sections": {
+        "What happened": {
+          "markdown": "Checked IACR ePrint, arXiv (cs.CR/cs.LG/cs.DC), and 18 tracked repos\nsince `last_run` (2026-11-27T17:15+03:00). Nothing met the relevance\nbar. No system or foundation file changed.\n\n- **IACR ePrint:** no new papers. The newest listing is still 2026/3078,\n  which the previous run covered; 2026/3079 returns no paper.\n- **arXiv cs.CR / cs.LG / cs.DC:** no new batch. The three listings\n  still show Thursday 26 November, which an earlier run covered; the\n  next announcement is Sunday evening US Eastern time, after this run.\n- **Tracked repos:** 17 of the 18 could be read over anonymous git.\n  Only Flower had commits in the window: Space bootstrap and CLI signup\n  changes (#8620, #8633), a contributor-docs change (#8495) and the\n  automated `release-20261127+1` build tag. None touches secure\n  aggregation or DP. The other repos have no commits or tags in the\n  window, and dstack's latest release tag is still `v0.6.6`, so the\n  SEV-SNP status question logged on 2026-11-26 is still waiting on a\n  release.\n- **Other sources:** web searches found no new TEE attack disclosure\n  beyond those logged by earlier runs, no C2PA specification newer than\n  the versions logged by earlier runs, and no new Verified-zkEVM\n  milestone. The open manual checks (a C2PA 2.5 release, AMD-SB-3059,\n  AMD-SB-3061 and NEAR AI's own incident report) are still open.\n- **ritual-net/infernet-node is still unreadable,** for the\n  thirty-fifth run in a row, with the same credentials prompt as a\n  non-existent repo. systems/ritual.md is left unchanged. This still\n  needs a manual check.",
+          "list": [
+            "**IACR ePrint:** no new papers. The newest listing is still 2026/3078, which the previous run covered; 2026/3079 returns no paper.",
+            "**arXiv cs.CR / cs.LG / cs.DC:** no new batch. The three listings still show Thursday 26 November, which an earlier run covered; the next announcement is Sunday evening US Eastern time, after this run.",
+            "**Tracked repos:** 17 of the 18 could be read over anonymous git. Only Flower had commits in the window: Space bootstrap and CLI signup changes (#8620, #8633), a contributor-docs change (#8495) and the automated `release-20261127+1` build tag. None touches secure aggregation or DP. The other repos have no commits or tags in the window, and dstack's latest release tag is still `v0.6.6`, so the SEV-SNP status question logged on 2026-11-26 is still waiting on a release.",
+            "**Other sources:** web searches found no new TEE attack disclosure beyond those logged by earlier runs, no C2PA specification newer than the versions logged by earlier runs, and no new Verified-zkEVM milestone. The open manual checks (a C2PA 2.5 release, AMD-SB-3059, AMD-SB-3061 and NEAR AI's own incident report) are still open.",
+            "**ritual-net/infernet-node is still unreadable,** for the thirty-fifth run in a row, with the same credentials prompt as a non-existent repo. systems/ritual.md is left unchanged. This still needs a manual check."
+          ]
+        },
+        "Next run": {
+          "markdown": "2026-11-29, 17:00 +03:00 (14:00 UTC)."
+        }
+      }
+    },
+    {
       "path": "watch/log/2026-11-27.md",
       "frontmatter": {
         "date": "2026-11-27",
@@ -6561,9 +6587,9 @@
   ],
   "checkpoint": {
     "schedule": "daily 17:00 +03:00 (14:00 UTC), weekdays and weekends alike",
-    "last_run": "2026-11-27T17:15:00+03:00",
+    "last_run": "2026-11-28T17:10:00+03:00",
     "last_run_kind": "daily",
-    "next_run": "2026-11-28T17:00:00+03:00",
+    "next_run": "2026-11-29T17:00:00+03:00",
     "sources": [
       "IACR ePrint (new listings)",
       "arXiv cs.CR, cs.LG, cs.DC (new listings)",
